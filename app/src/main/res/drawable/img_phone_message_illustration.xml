@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Create-account illustration: the TANIT brand scene (cream sky, orange sun,
+    teal ridge, water with ripples) with a phone in front of it.
+
+    Draw order matters here. The sun goes on top of the ridge so it reads as a
+    full disc the way the mockup has it, and the ripples sit to the left of the
+    phone so nothing appears to pass behind it. Everything is sized to keep the
+    phone clear of the clipping circle at both ends.
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="180dp"
+    android:height="180dp"
+    android:viewportWidth="180"
+    android:viewportHeight="180">
+
+    <group>
+        <clip-path android:pathData="M90,4 A86,86 0 1,1 89.9,4 Z" />
+
+        <!-- Sky -->
+        <path android:fillColor="#F6E7CE" android:pathData="M90,4 A86,86 0 1,1 89.9,4 Z" />
+
+        <!-- Ridge: two clean peaks rather than a rolling line -->
+        <path android:fillColor="@color/brand_teal"
+            android:pathData="M-4,118 L16,92 L34,64 L52,90 L64,80 L82,108 L104,84 L124,60 L146,88 L166,104 L184,110 L184,184 L-4,184 Z" />
+
+        <!-- Sun, drawn over the ridge so it stays a full circle -->
+        <path android:fillColor="@color/brand_orange"
+            android:pathData="M132,50 m-16,0 a16,16 0,1 1,32 0 a16,16 0,1 1,-32 0" />
+
+        <!-- Water -->
+        <path android:fillColor="@color/brand_water"
+            android:pathData="M-4,118 L184,118 L184,184 L-4,184 Z" />
+
+        <!-- Ripples, kept to the left of the phone -->
+        <path android:fillColor="#F6E7CE"
+            android:pathData="M20,130 L50,130 A3.5,3.5 0 0,1 50,137 L20,137 A3.5,3.5 0 0,1 20,130 Z
+                              M28,146 L48,146 A3.5,3.5 0 0,1 48,153 L28,153 A3.5,3.5 0 0,1 28,146 Z" />
+
+        <!-- Phone -->
+        <path android:fillColor="#FBF7EB" android:strokeColor="@color/brand_teal" android:strokeWidth="5"
+            android:pathData="M72,28 L108,28 Q120,28 120,40 L120,146 Q120,158 108,158 L72,158 Q60,158 60,146 L60,40 Q60,28 72,28 Z" />
+
+        <!-- Notch -->
+        <path android:fillColor="@color/brand_teal"
+            android:pathData="M82,29 L98,29 Q97,36 90,36 Q83,36 82,29 Z" />
+
+        <!-- Message bubble, centred on the screen -->
+        <path android:fillColor="@color/brand_teal"
+            android:pathData="M79,66 L101,66 Q110,66 110,75 L110,99 Q110,108 101,108 L88,108 L80,117 L80,108 Q70,108 70,99 L70,75 Q70,66 79,66 Z" />
+
+        <path android:fillColor="#FBF7EB"
+            android:pathData="M80,87 m-3.3,0 a3.3,3.3 0,1 1,6.6 0 a3.3,3.3 0,1 1,-6.6 0
+                              M90,87 m-3.3,0 a3.3,3.3 0,1 1,6.6 0 a3.3,3.3 0,1 1,-6.6 0
+                              M100,87 m-3.3,0 a3.3,3.3 0,1 1,6.6 0 a3.3,3.3 0,1 1,-6.6 0" />
+    </group>
+</vector>

@@ -1,0 +1,402 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootAboutYou"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:background="@color/cream_bg"
+    android:fitsSystemWindows="true"
+    tools:context=".ui.onboarding.AboutYouFragment">
+
+    <LinearLayout
+        android:id="@+id/headerAboutYou"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/about_you_header_margin_top"
+        android:layout_width="0dp"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/imgLogoAboutYou"
+            android:layout_height="wrap_content"
+            android:layout_width="@dimen/about_you_logo_width"
+            android:adjustViewBounds="true"
+            android:contentDescription="@string/cd_silvanus_logo"
+            android:scaleType="fitCenter"
+            android:src="@drawable/logo_leaf_mark" />
+
+        <TextView
+            android:id="@+id/tvBrandAboutYou"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/about_you_brand_margin_top"
+            android:layout_width="wrap_content"
+            android:fontFamily="@font/sora_extrabold"
+            android:letterSpacing="0.07"
+            android:text="@string/brand_silvanus"
+            android:textColor="@color/text_primary"
+            android:textSize="@dimen/about_you_brand_text_size"
+            app:fontFamily="@font/sora_extrabold" />
+
+        <TextView
+            android:id="@+id/tvByTanit"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/about_you_by_tanit_margin_top"
+            android:layout_width="wrap_content"
+            android:fontFamily="@font/sora_regular"
+            android:text="@string/brand_by_tanit"
+            android:textColor="@color/text_secondary"
+            android:textSize="@dimen/about_you_by_tanit_text_size"
+            app:fontFamily="@font/sora_regular" />
+
+        <TextView
+            android:id="@+id/tvStepIndicator"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/about_you_step_margin_top"
+            android:layout_width="wrap_content"
+            android:fontFamily="@font/sora_semibold"
+            android:text="@string/step_indicator_1_of_2"
+            android:textColor="@color/text_primary"
+            android:textSize="@dimen/about_you_step_text_size"
+            app:fontFamily="@font/sora_semibold" />
+
+        <LinearLayout
+            android:id="@+id/dotTracker"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/about_you_dots_margin_top"
+            android:layout_width="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <View
+                android:layout_height="@dimen/about_you_dot_size"
+                android:layout_width="@dimen/about_you_dot_size"
+                android:background="@drawable/dot_inactive" />
+
+            <View
+                android:layout_height="@dimen/about_you_dot_size"
+                android:layout_marginStart="@dimen/about_you_dot_spacing"
+                android:layout_width="@dimen/about_you_dot_size"
+                android:background="@drawable/dot_inactive" />
+
+            <View
+                android:layout_height="@dimen/about_you_dot_size"
+                android:layout_marginStart="@dimen/about_you_dot_spacing"
+                android:layout_width="@dimen/about_you_dot_size"
+                android:background="@drawable/dot_active" />
+
+            <View
+                android:layout_height="@dimen/about_you_dot_size"
+                android:layout_marginStart="@dimen/about_you_dot_spacing"
+                android:layout_width="@dimen/about_you_dot_size"
+                android:background="@drawable/dot_inactive" />
+
+            <View
+                android:layout_height="@dimen/about_you_dot_size"
+                android:layout_marginStart="@dimen/about_you_dot_spacing"
+                android:layout_width="@dimen/about_you_dot_size"
+                android:background="@drawable/dot_inactive" />
+
+            <View
+                android:layout_height="@dimen/about_you_dot_size"
+                android:layout_marginStart="@dimen/about_you_dot_spacing"
+                android:layout_width="@dimen/about_you_dot_size"
+                android:background="@drawable/dot_inactive" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvAboutYouHeadline"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/about_you_title_margin_top"
+            android:layout_width="wrap_content"
+            android:fontFamily="@font/sora_semibold"
+            android:text="@string/about_you_headline"
+            android:textColor="@color/text_primary"
+            android:textSize="@dimen/about_you_title_text_size"
+            app:fontFamily="@font/sora_semibold" />
+
+    </LinearLayout>
+
+    <!--
+        Every row below is the same model: a bordered card, a tinted leading
+        panel carrying the icon, then the field. The card pads itself by its
+        own stroke width so the panel stops at the inside of the border
+        instead of painting over it.
+    -->
+    <LinearLayout
+        android:id="@+id/aboutYouForm"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/about_you_form_margin_top"
+        android:layout_width="0dp"
+        android:orientation="vertical"
+        android:paddingEnd="@dimen/about_you_form_padding_horizontal"
+        android:paddingStart="@dimen/about_you_form_padding_horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/headerAboutYou">
+
+        <!-- ── Full name ─────────────────────────────────────────── -->
+        <LinearLayout
+            android:id="@+id/rowFullName"
+            android:layout_height="@dimen/about_you_field_height"
+            android:layout_width="match_parent"
+            android:background="@drawable/bg_field_card"
+            android:orientation="horizontal"
+            android:padding="@dimen/about_you_field_card_stroke">
+
+            <ImageView
+                android:layout_height="match_parent"
+                android:layout_width="@dimen/about_you_field_panel_width"
+                android:background="@drawable/bg_field_icon_panel"
+                android:contentDescription="@null"
+                android:padding="@dimen/about_you_field_icon_inset"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_person"
+                app:tint="@color/teal_primary" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layoutFullName"
+                android:layout_gravity="center_vertical"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:hint="@string/hint_full_name"
+                android:paddingEnd="@dimen/about_you_field_padding_end"
+                android:paddingStart="@dimen/about_you_field_padding_start"
+                app:hintTextAppearance="@style/TextAppearance.Silvanus.FieldLabel"
+                style="@style/Widget.Silvanus.AboutYou.Field">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etFullName"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:fontFamily="@font/sora_regular"
+                    android:inputType="textPersonName"
+                    android:textColor="@color/text_primary"
+                    android:textSize="@dimen/about_you_field_text_size"
+                    app:fontFamily="@font/sora_regular" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
+
+        <!-- ── National ID ───────────────────────────────────────── -->
+        <LinearLayout
+            android:id="@+id/rowNationalId"
+            android:layout_height="@dimen/about_you_field_height"
+            android:layout_marginTop="@dimen/about_you_field_spacing"
+            android:layout_width="match_parent"
+            android:background="@drawable/bg_field_card"
+            android:orientation="horizontal"
+            android:padding="@dimen/about_you_field_card_stroke">
+
+            <ImageView
+                android:layout_height="match_parent"
+                android:layout_width="@dimen/about_you_field_panel_width"
+                android:background="@drawable/bg_field_icon_panel"
+                android:contentDescription="@null"
+                android:padding="@dimen/about_you_field_icon_inset"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_id_card"
+                app:tint="@color/teal_primary" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layoutNationalId"
+                android:layout_gravity="center_vertical"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:hint="@string/hint_national_id"
+                android:paddingEnd="@dimen/about_you_field_padding_end"
+                android:paddingStart="@dimen/about_you_field_padding_start"
+                app:hintTextAppearance="@style/TextAppearance.Silvanus.FieldLabel"
+                style="@style/Widget.Silvanus.AboutYou.Field">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etNationalId"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:fontFamily="@font/sora_regular"
+                    android:inputType="text"
+                    android:textColor="@color/text_primary"
+                    android:textSize="@dimen/about_you_field_text_size"
+                    app:fontFamily="@font/sora_regular" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <ImageButton
+                android:id="@+id/btnCameraId"
+                android:layout_gravity="center_vertical"
+                android:layout_height="@dimen/about_you_camera_size"
+                android:layout_marginEnd="@dimen/about_you_camera_margin_end"
+                android:layout_width="@dimen/about_you_camera_size"
+                android:background="@drawable/bg_camera_button"
+                android:contentDescription="@string/cd_capture_id_photo"
+                android:padding="@dimen/about_you_camera_padding"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_camera" />
+
+        </LinearLayout>
+
+        <!-- ── Country ───────────────────────────────────────────── -->
+        <LinearLayout
+            android:id="@+id/rowCountry"
+            android:layout_height="@dimen/about_you_field_height"
+            android:layout_marginTop="@dimen/about_you_field_spacing"
+            android:layout_width="match_parent"
+            android:background="@drawable/bg_field_card"
+            android:orientation="horizontal"
+            android:padding="@dimen/about_you_field_card_stroke">
+
+            <ImageView
+                android:layout_height="match_parent"
+                android:layout_width="@dimen/about_you_field_panel_width"
+                android:background="@drawable/bg_field_icon_panel"
+                android:contentDescription="@null"
+                android:padding="@dimen/about_you_field_icon_inset"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_globe_outline"
+                app:tint="@color/teal_primary" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layoutCountry"
+                android:layout_gravity="center_vertical"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:hint="@string/hint_country"
+                android:paddingEnd="@dimen/about_you_field_padding_end"
+                android:paddingStart="@dimen/about_you_field_padding_start"
+                app:endIconDrawable="@drawable/ic_chevron_down"
+                app:endIconMode="custom"
+                app:endIconTint="@color/text_primary"
+                app:hintTextAppearance="@style/TextAppearance.Silvanus.FieldLabel"
+                style="@style/Widget.Silvanus.AboutYou.Picker">
+
+                <AutoCompleteTextView
+                    android:id="@+id/dropdownCountry"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:fontFamily="@font/sora_regular"
+                    android:inputType="none"
+                    android:textColor="@color/text_primary"
+                    android:textSize="@dimen/about_you_field_text_size"
+                    app:fontFamily="@font/sora_regular"
+                    tools:ignore="LabelFor" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
+
+        <!-- ── Main crop ─────────────────────────────────────────── -->
+        <LinearLayout
+            android:id="@+id/rowMainCrop"
+            android:layout_height="@dimen/about_you_field_height"
+            android:layout_marginTop="@dimen/about_you_field_spacing"
+            android:layout_width="match_parent"
+            android:background="@drawable/bg_field_card"
+            android:orientation="horizontal"
+            android:padding="@dimen/about_you_field_card_stroke">
+
+            <ImageView
+                android:layout_height="match_parent"
+                android:layout_width="@dimen/about_you_field_panel_width"
+                android:background="@drawable/bg_field_icon_panel"
+                android:contentDescription="@null"
+                android:padding="@dimen/about_you_field_icon_inset"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_coffee_branch"
+                app:tint="@color/teal_primary" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layoutMainCrop"
+                android:layout_gravity="center_vertical"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:hint="@string/hint_main_crop"
+                android:paddingEnd="@dimen/about_you_field_padding_end"
+                android:paddingStart="@dimen/about_you_field_padding_start"
+                app:endIconDrawable="@drawable/ic_chevron_down"
+                app:endIconMode="custom"
+                app:endIconTint="@color/text_primary"
+                app:hintTextAppearance="@style/TextAppearance.Silvanus.FieldLabel"
+                style="@style/Widget.Silvanus.AboutYou.Picker">
+
+                <AutoCompleteTextView
+                    android:id="@+id/dropdownMainCrop"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:fontFamily="@font/sora_regular"
+                    android:inputType="none"
+                    android:text="@string/value_main_crop_coffee"
+                    android:textColor="@color/text_primary"
+                    android:textSize="@dimen/about_you_field_text_size"
+                    app:fontFamily="@font/sora_regular"
+                    tools:ignore="LabelFor" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/securityMessage"
+            android:layout_height="@dimen/about_you_security_height"
+            android:layout_marginTop="@dimen/about_you_security_margin_top"
+            android:layout_width="match_parent"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_height="@dimen/about_you_security_icon_size"
+                android:layout_width="@dimen/about_you_security_icon_size"
+                android:contentDescription="@null"
+                android:src="@drawable/ic_lock"
+                app:tint="@color/teal_primary" />
+
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/about_you_security_icon_text_gap"
+                android:layout_width="wrap_content"
+                android:fontFamily="@font/sora_regular"
+                android:text="@string/note_info_secure"
+                android:textColor="@color/text_secondary"
+                android:textSize="@dimen/about_you_security_text_size"
+                app:fontFamily="@font/sora_regular" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- Soft rectangle, matching the welcome screen; the shared Primary style
+         paints a 28dp pill via android:background, so the row overrides it. -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnContinueAboutYou"
+        android:background="@drawable/bg_button_teal_rounded"
+        android:layout_height="@dimen/about_you_button_height"
+        android:layout_marginBottom="@dimen/about_you_button_margin_bottom"
+        android:layout_marginEnd="@dimen/about_you_button_margin_horizontal"
+        android:layout_marginStart="@dimen/about_you_button_margin_horizontal"
+        android:layout_marginTop="@dimen/about_you_button_margin_top"
+        android:layout_width="0dp"
+        android:text="@string/action_continue"
+        android:textSize="@dimen/about_you_button_text_size"
+        app:cornerRadius="@dimen/about_you_button_radius"
+        app:icon="@drawable/ic_arrow_forward"
+        app:iconGravity="end"
+        app:iconPadding="@dimen/spacing_sm_med"
+        app:iconTint="@color/text_on_teal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/aboutYouForm"
+        app:layout_constraintVertical_bias="1.0"
+        style="@style/Widget.Silvanus.Button.Primary" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

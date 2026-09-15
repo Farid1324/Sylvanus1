@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Outlined camera, drawn white to sit on @drawable/bg_camera_button.
+
+    Body and viewfinder hump are one continuous outline so the two never show
+    a seam where they meet; the lens is a single ring, and the flash is the
+    one filled mark, which keeps the glyph legible at
+    @dimen/about_you_camera_size less its padding.
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+
+    <!-- Body + viewfinder hump -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="1.7"
+        android:strokeLineJoin="round"
+        android:strokeLineCap="round"
+        android:pathData="M8.7,7.3
+                          L9.9,5.1
+                          Q10.2,4.5 10.9,4.5
+                          L13.1,4.5
+                          Q13.8,4.5 14.1,5.1
+                          L15.3,7.3
+                          L19.1,7.3
+                          A2.8,2.8 0,0 1,21.9 10.1
+                          L21.9,16.9
+                          A2.8,2.8 0,0 1,19.1 19.7
+                          L4.9,19.7
+                          A2.8,2.8 0,0 1,2.1 16.9
+                          L2.1,10.1
+                          A2.8,2.8 0,0 1,4.9 7.3
+                          Z" />
+
+    <!-- Lens -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="1.7"
+        android:pathData="M12,13.5 m-3.6,0 a3.6,3.6 0,1 1,7.2 0 a3.6,3.6 0,1 1,-7.2 0" />
+
+    <!-- Flash -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M18.5,10.4 m-0.85,0 a0.85,0.85 0,1 1,1.7 0 a0.85,0.85 0,1 1,-1.7 0" />
+
+</vector>

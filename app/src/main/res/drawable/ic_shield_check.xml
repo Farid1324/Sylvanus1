@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Reassurance badge beside "We will text you a 6-digit code": a filled
+    orange shield with a white tick. Colours are baked in, so do not put a
+    tint on the ImageView or the tick disappears into the shield.
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+
+    <path
+        android:fillColor="@color/orange_primary"
+        android:pathData="M12,2.2
+                          C12,2.2 16.4,4.4 19.6,5.1
+                          C20.2,5.2 20.6,5.7 20.6,6.3
+                          L20.6,11.6
+                          C20.6,16.5 17.2,20.5 12.3,21.8
+                          C12.1,21.8 11.9,21.8 11.7,21.8
+                          C6.8,20.5 3.4,16.5 3.4,11.6
+                          L3.4,6.3
+                          C3.4,5.7 3.8,5.2 4.4,5.1
+                          C7.6,4.4 12,2.2 12,2.2
+                          Z" />
+
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="@color/text_on_orange"
+        android:strokeWidth="2.1"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"
+        android:pathData="M8.3,11.9 L10.9,14.5 L15.8,9.6" />
+
+</vector>

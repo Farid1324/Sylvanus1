@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Outlined globe for the country field. @drawable/ic_globe keeps its baked-in
+    text_secondary tint for the welcome language field; this one is untinted so
+    it takes the colour of whatever row it sits in.
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="1.7"
+        android:pathData="M12,21 A9,9 0,1 1,12 3 A9,9 0,0 1,12 21 Z" />
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="1.5"
+        android:pathData="M3,12 L21,12" />
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="1.5"
+        android:pathData="M12,3 C15,6.5 15,17.5 12,21 C9,17.5 9,6.5 12,3 Z" />
+</vector>

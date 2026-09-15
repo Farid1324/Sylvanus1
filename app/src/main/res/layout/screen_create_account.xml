@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:background="@color/cream_bg"
+    tools:context=".ui.onboarding.CreateAccountFragment">
+
+    <!--
+        fitsSystemWindows overwrites a view's padding with the window insets,
+        so the outer band only carries the status bar and every real padding
+        lives on the inner row — otherwise the leading edge of the logo and
+        the bottom of "by TANIT" get eaten.
+    -->
+    <LinearLayout
+        android:id="@+id/headerCreateAccount"
+        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:background="@color/teal_primary"
+        android:fitsSystemWindows="true"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingBottom="@dimen/create_account_header_content_padding_bottom"
+            android:paddingEnd="@dimen/create_account_header_padding_horizontal"
+            android:paddingStart="@dimen/create_account_header_padding_horizontal"
+            android:paddingTop="@dimen/create_account_header_content_padding_top">
+
+            <ImageView
+                android:id="@+id/imgLogoCreateAccount"
+                android:layout_height="wrap_content"
+                android:layout_width="@dimen/logo_leaf_masthead_width"
+                android:adjustViewBounds="true"
+                android:contentDescription="@string/cd_silvanus_logo"
+                android:scaleType="fitCenter"
+                android:src="@drawable/logo_leaf_mark" />
+
+            <LinearLayout
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/create_account_header_brand_margin_start"
+                android:layout_width="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvBrandName"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:fontFamily="@font/sora_extrabold"
+                    android:includeFontPadding="false"
+                    android:letterSpacing="0.02"
+                    android:text="@string/brand_silvanus"
+                    android:textColor="@color/text_on_teal"
+                    android:textSize="@dimen/create_account_header_brand_text_size"
+                    app:fontFamily="@font/sora_extrabold" />
+
+                <!-- Full opacity: at 13sp on teal, the old 0.85 alpha put this
+                     below the point where it reads at all. -->
+                <TextView
+                    android:id="@+id/tvBrandSubtitle"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_xxs"
+                    android:layout_width="wrap_content"
+                    android:fontFamily="@font/sora_regular"
+                    android:includeFontPadding="false"
+                    android:letterSpacing="0.04"
+                    android:text="@string/brand_by_tanit"
+                    android:textColor="@color/text_on_teal"
+                    android:textSize="@dimen/create_account_header_subtitle_text_size"
+                    app:fontFamily="@font/sora_regular" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- Drawn after the header, so it laps over the teal -->
+    <View
+        android:id="@+id/headerSheetLip"
+        android:layout_height="@dimen/create_account_header_sheet_depth"
+        android:layout_width="0dp"
+        android:background="@drawable/bg_header_sheet_lip"
+        app:layout_constraintBottom_toBottomOf="@id/headerCreateAccount"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/rowProgressDots"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/create_account_dots_margin_top"
+        android:layout_width="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/headerCreateAccount">
+
+        <View
+            android:layout_height="@dimen/create_account_dot_size"
+            android:layout_width="@dimen/create_account_dot_size"
+            android:background="@drawable/dot_inactive" />
+
+        <View
+            android:layout_height="@dimen/create_account_dot_size"
+            android:layout_marginStart="@dimen/create_account_dot_spacing"
+            android:layout_width="@dimen/create_account_dot_size"
+            android:background="@drawable/dot_inactive" />
+
+        <View
+            android:layout_height="@dimen/create_account_dot_size"
+            android:layout_marginStart="@dimen/create_account_dot_spacing"
+            android:layout_width="@dimen/create_account_dot_size"
+            android:background="@drawable/dot_inactive" />
+
+        <View
+            android:layout_height="@dimen/create_account_dot_size"
+            android:layout_marginStart="@dimen/create_account_dot_spacing"
+            android:layout_width="@dimen/create_account_dot_size"
+            android:background="@drawable/dot_active" />
+
+        <View
+            android:layout_height="@dimen/create_account_dot_size"
+            android:layout_marginStart="@dimen/create_account_dot_spacing"
+            android:layout_width="@dimen/create_account_dot_size"
+            android:background="@drawable/dot_inactive" />
+
+        <View
+            android:layout_height="@dimen/create_account_dot_size"
+            android:layout_marginStart="@dimen/create_account_dot_spacing"
+            android:layout_width="@dimen/create_account_dot_size"
+            android:background="@drawable/dot_inactive" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvCreateAccountHeadline"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/create_account_content_padding_horizontal"
+        android:layout_marginStart="@dimen/create_account_content_padding_horizontal"
+        android:layout_marginTop="@dimen/create_account_title_margin_top"
+        android:layout_width="0dp"
+        android:fontFamily="@font/sora_semibold"
+        android:gravity="center"
+        android:text="@string/create_account_headline"
+        android:textColor="@color/ink_navy"
+        android:textSize="@dimen/create_account_title_text_size"
+        app:fontFamily="@font/sora_semibold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/rowProgressDots" />
+
+    <ImageView
+        android:id="@+id/imgPhoneIllustration"
+        android:layout_height="@dimen/create_account_illustration_size"
+        android:layout_marginTop="@dimen/create_account_illustration_margin_top"
+        android:layout_width="@dimen/create_account_illustration_size"
+        android:contentDescription="@null"
+        android:scaleType="fitCenter"
+        android:src="@drawable/img_phone_message_illustration"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvCreateAccountHeadline" />
+
+    <LinearLayout
+        android:id="@+id/formContainer"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/create_account_content_padding_horizontal"
+        android:layout_marginStart="@dimen/create_account_content_padding_horizontal"
+        android:layout_marginTop="@dimen/create_account_form_margin_top"
+        android:layout_width="0dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imgPhoneIllustration">
+
+        <TextView
+            android:id="@+id/tvPhoneLabel"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:fontFamily="@font/sora_regular"
+            android:text="@string/hint_phone_number"
+            android:textColor="@color/ink_navy"
+            android:textSize="@dimen/create_account_label_text_size"
+            app:fontFamily="@font/sora_regular" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layoutPhoneNumber"
+            android:layout_height="@dimen/create_account_field_height"
+            android:layout_marginTop="@dimen/create_account_label_field_spacing"
+            android:layout_width="match_parent"
+            app:boxCornerRadiusBottomEnd="@dimen/create_account_field_radius"
+            app:boxCornerRadiusBottomStart="@dimen/create_account_field_radius"
+            app:boxCornerRadiusTopEnd="@dimen/create_account_field_radius"
+            app:boxCornerRadiusTopStart="@dimen/create_account_field_radius"
+            app:boxBackgroundColor="@color/surface_step_card"
+            app:boxStrokeWidth="1dp"
+            app:boxStrokeWidthFocused="1dp"
+            app:startIconDrawable="@drawable/ic_phone"
+            app:startIconTint="@color/teal_primary"
+            style="@style/Widget.Silvanus.TextField">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etPhoneNumber"
+                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:fontFamily="@font/sora_regular"
+                android:inputType="phone"
+                android:paddingEnd="@dimen/create_account_field_padding_end"
+                android:paddingStart="@dimen/create_account_field_padding_start"
+                android:textColor="@color/text_primary"
+                android:textSize="@dimen/create_account_field_text_size"
+                app:fontFamily="@font/sora_regular" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/tvCountryCodeLabel"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/create_account_field_spacing"
+            android:layout_width="match_parent"
+            android:fontFamily="@font/sora_regular"
+            android:text="@string/hint_country_code"
+            android:textColor="@color/ink_navy"
+            android:textSize="@dimen/create_account_label_text_size"
+            app:fontFamily="@font/sora_regular" />
+
+        <!-- endIconMode custom: the exposed-dropdown default is a filled
+             triangle, and the mockup carries the same chevron as elsewhere. -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layoutCountryCode"
+            android:layout_height="@dimen/create_account_field_height"
+            android:layout_marginTop="@dimen/create_account_label_field_spacing"
+            android:layout_width="match_parent"
+            app:boxCornerRadiusBottomEnd="@dimen/create_account_field_radius"
+            app:boxCornerRadiusBottomStart="@dimen/create_account_field_radius"
+            app:boxCornerRadiusTopEnd="@dimen/create_account_field_radius"
+            app:boxCornerRadiusTopStart="@dimen/create_account_field_radius"
+            app:boxBackgroundColor="@color/surface_step_card"
+            app:boxStrokeWidth="1dp"
+            app:boxStrokeWidthFocused="1dp"
+            app:endIconDrawable="@drawable/ic_chevron_down"
+            app:endIconMode="custom"
+            app:endIconTint="@color/teal_primary"
+            app:startIconDrawable="@drawable/ic_globe_outline"
+            app:startIconTint="@color/teal_primary"
+            style="@style/Widget.Silvanus.Dropdown">
+
+            <AutoCompleteTextView
+                android:id="@+id/dropdownCountryCode"
+                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:fontFamily="@font/sora_regular"
+                android:gravity="center_vertical"
+                android:inputType="none"
+                android:paddingEnd="@dimen/create_account_field_padding_end"
+                android:paddingStart="@dimen/create_account_field_padding_start"
+                android:text="+1"
+                android:textColor="@color/text_primary"
+                android:textSize="@dimen/create_account_field_text_size"
+                app:fontFamily="@font/sora_regular"
+                tools:ignore="HardcodedText,LabelFor" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Centred under the button rather than ranged left with the labels -->
+        <LinearLayout
+            android:id="@+id/smsMessage"
+            android:layout_gravity="center_horizontal"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/create_account_sms_margin_top"
+            android:layout_width="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <!-- No tint: ic_shield_check carries its own orange and white -->
+            <ImageView
+                android:layout_height="@dimen/create_account_sms_icon_size"
+                android:layout_width="@dimen/create_account_sms_icon_size"
+                android:contentDescription="@null"
+                android:src="@drawable/ic_shield_check" />
+
+            <TextView
+                android:id="@+id/tvSmsMessage"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/create_account_sms_dot_text_gap"
+                android:layout_width="wrap_content"
+                android:fontFamily="@font/sora_regular"
+                android:text="@string/note_sms_code"
+                android:textColor="@color/orange_primary"
+                android:textSize="@dimen/create_account_sms_text_size"
+                app:fontFamily="@font/sora_regular" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- Soft rectangle like the rest of the flow; the shared Primary style
+         paints a 28dp pill via android:background, so this overrides it. -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnSendCode"
+        android:background="@drawable/bg_button_teal_rounded"
+        android:layout_height="@dimen/create_account_button_height"
+        android:layout_marginEnd="@dimen/create_account_button_margin_horizontal"
+        android:layout_marginStart="@dimen/create_account_button_margin_horizontal"
+        android:layout_marginTop="@dimen/create_account_button_margin_top"
+        android:layout_width="0dp"
+        android:elevation="0dp"
+        android:stateListAnimator="@null"
+        android:text="@string/action_send_code"
+        android:textAllCaps="false"
+        android:textSize="@dimen/create_account_button_text_size"
+        app:cornerRadius="@dimen/create_account_button_radius"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/formContainer"
+        style="@style/Widget.Silvanus.Button.Primary" />
+
+    <LinearLayout
+        android:id="@+id/rowSignIn"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/create_account_signin_margin_top"
+        android:layout_width="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnSendCode">
+
+        <TextView
+            android:id="@+id/tvHaveAccount"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:fontFamily="@font/sora_regular"
+            android:text="@string/prompt_have_account"
+            android:textColor="@color/ink_navy"
+            android:textSize="@dimen/create_account_signin_text_size"
+            app:fontFamily="@font/sora_regular" />
+
+        <TextView
+            android:id="@+id/tvSignIn"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/create_account_signin_gap"
+            android:layout_width="wrap_content"
+            android:fontFamily="@font/sora_regular"
+            android:text="@string/action_sign_in"
+            android:textColor="@color/teal_primary"
+            android:textSize="@dimen/create_account_signin_text_size"
+            app:fontFamily="@font/sora_regular" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

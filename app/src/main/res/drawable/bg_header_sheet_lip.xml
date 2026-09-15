@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    The cream sheet rising into the bottom of the teal masthead. Pinned to the
+    header's bottom edge and drawn after it, so it laps over the teal on two
+    large corners; everything below it is already cream.
+-->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid android:color="@color/cream_bg" />
+    <corners
+        android:topLeftRadius="@dimen/create_account_header_sheet_radius"
+        android:topRightRadius="@dimen/create_account_header_sheet_radius"
+        android:bottomLeftRadius="0dp"
+        android:bottomRightRadius="0dp" />
+</shape>
