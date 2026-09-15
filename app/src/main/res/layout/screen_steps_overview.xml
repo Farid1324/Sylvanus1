@@ -1,0 +1,539 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+    "What you will do" — onboarding step 2 of 6.
+    All sizing comes from the design tokens in values/dimens.xml; see the
+    "SCREEN: What you will do" block there for the vertical rhythm.
+-->
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootStepsOverview"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/cream_bg"
+    tools:context=".StepsOverviewActivity">
+
+
+    <!-- ═══════════════════ TEAL MASTHEAD ═══════════════════ -->
+
+    <!-- Solid teal masthead with the wave bottom edge. A sibling of the
+         content layer, and deliberately NOT inset, so the teal bleeds up
+         behind the status bar. Drawn as a live anti-aliased path rather
+         than a scaled drawable, so the edge never picks up resampling
+         stair-steps. -->
+    <com.example.silvius12.WaveHeaderView
+        android:id="@+id/headerWave"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/header_wave_view_height"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Logo lockup. fitsSystemWindows applies the status-bar inset as top
+         padding here only, so the artwork clears the clock and signal icons
+         on any device without hard-coding a bar height. -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/headerTeal"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/header_teal_height"
+        android:fitsSystemWindows="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <!-- Safe bottom of the teal. The lockup below is a packed chain
+             between the top inset and this line, so however tall the status
+             bar is the group re-centres and can never spill onto the wave
+             (cream text on the cream wave is invisible). -->
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideMastheadBottom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.97" />
+
+        <ImageView
+            android:id="@+id/imgLogoMarkSmall"
+            android:layout_width="@dimen/brand_leaf_width"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:contentDescription="@string/cd_silvanus_logo"
+            android:src="@drawable/logo_leaf_mark"
+            app:layout_constraintBottom_toTopOf="@id/imgBrandWordmark"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.08"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <!-- Supplied SYLVANUS logotype, sitting under the TANIT logomark.
+             The leaf logomark that ships alongside it is kept separately as
+             @drawable/logo_leaf_mark and as the launcher icon. -->
+        <ImageView
+            android:id="@+id/imgBrandWordmark"
+            android:layout_width="@dimen/brand_wordmark_width"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/brand_wordmark_margin_top"
+            android:adjustViewBounds="true"
+            android:contentDescription="@string/brand_silvanus"
+            android:src="@drawable/logo_sylvanus_wordmark"
+            app:layout_constraintBottom_toTopOf="@id/tvBrandByTanit"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imgLogoMarkSmall" />
+
+        <TextView
+            android:id="@+id/tvBrandByTanit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/brand_tagline_margin_top"
+            android:fontFamily="@font/sora_semibold"
+            app:fontFamily="@font/sora_semibold"
+            android:letterSpacing="0.04"
+            android:text="@string/brand_by_tanit"
+            android:textColor="@color/brand_cream"
+            android:textSize="@dimen/text_label"
+            app:layout_constraintBottom_toTopOf="@id/guideMastheadBottom"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imgBrandWordmark" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <!-- ═══════════════════════ SCREEN TITLE ═══════════════════════ -->
+
+    <TextView
+        android:id="@+id/tvStepsHeadline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/steps_headline_margin_top"
+        android:fontFamily="@font/sora_extrabold"
+        app:fontFamily="@font/sora_extrabold"
+        android:text="@string/steps_headline"
+        android:textColor="@color/ink_navy"
+        android:textSize="@dimen/text_headline"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/headerTeal" />
+
+
+    <!-- ═══════════════════════ STEP LIST ═══════════════════════ -->
+
+    <FrameLayout
+        android:id="@+id/stepsBlock"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/space_12"
+        android:layout_marginBottom="@dimen/space_8"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        app:layout_constraintBottom_toTopOf="@id/chipOfflineWrapper"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvStepsHeadline">
+
+        <com.example.silvius12.DashedConnectorView
+            android:id="@+id/dashedStepConnector"
+            android:layout_width="@dimen/step_connector_width"
+            android:layout_height="match_parent"
+            android:layout_gravity="start|top"
+            android:layout_marginStart="@dimen/step_connector_margin_start"
+            android:layout_marginTop="@dimen/step_connector_height"
+            android:layout_marginBottom="@dimen/step_connector_height"
+            android:clickable="false"
+            android:focusable="false" />
+
+        <LinearLayout
+            android:id="@+id/stepsContainer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipChildren="false"
+            android:clipToPadding="false"
+            android:orientation="vertical"
+            android:paddingStart="@dimen/steps_column_padding_start"
+            android:paddingEnd="@dimen/screen_padding_horizontal">
+
+            <!-- ─────────────────────── STEP 1 ─────────────────────── -->
+
+            <FrameLayout
+                android:id="@+id/step1Row"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginBottom="@dimen/step_card_gap"
+                android:layout_weight="1"
+                android:clipChildren="false"
+                android:clipToPadding="false">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/step1Card"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="@dimen/step_label_margin_start"
+                    android:background="@drawable/bg_card_step"
+                    android:paddingStart="@dimen/step_card_padding"
+                    android:paddingEnd="@dimen/step_card_padding">
+
+                    <ImageView
+                        android:id="@+id/icon1"
+                        android:layout_width="@dimen/step_icon_chip_size"
+                        android:layout_height="@dimen/step_icon_chip_size"
+                        android:layout_marginStart="@dimen/step_icon_chip_margin_start"
+                        android:background="@drawable/bg_icon_chip_step"
+                        android:contentDescription="@null"
+                        android:padding="@dimen/step_icon_chip_padding"
+                        android:src="@drawable/ic_step_person"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tvStep1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/step_text_margin_start"
+                        android:fontFamily="@font/sora_bold"
+                        app:fontFamily="@font/sora_bold"
+                        android:text="@string/step_1_title"
+                        android:textColor="@color/ink_navy"
+                        android:textSize="@dimen/text_title"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/icon1"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <TextView
+                    android:id="@+id/badge1"
+                    android:layout_width="@dimen/step_badge_size"
+                    android:layout_height="@dimen/step_badge_size"
+                    android:layout_gravity="start|center_vertical"
+                    android:background="@drawable/bg_step_badge"
+                    android:elevation="@dimen/space_8"
+                    android:fontFamily="@font/sora_bold"
+                    app:fontFamily="@font/sora_bold"
+                    android:gravity="center"
+                    android:text="1"
+                    android:textColor="@color/text_on_orange"
+                    android:textSize="@dimen/text_title"
+                    tools:ignore="HardcodedText" />
+
+            </FrameLayout>
+
+            <!-- ─────────────────────── STEP 2 ─────────────────────── -->
+
+            <FrameLayout
+                android:id="@+id/step2Row"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginBottom="@dimen/step_card_gap"
+                android:layout_weight="1"
+                android:clipChildren="false"
+                android:clipToPadding="false">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/step2Card"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="@dimen/step_label_margin_start"
+                    android:background="@drawable/bg_card_step"
+                    android:paddingStart="@dimen/step_card_padding"
+                    android:paddingEnd="@dimen/step_card_padding">
+
+                    <ImageView
+                        android:id="@+id/icon2"
+                        android:layout_width="@dimen/step_icon_chip_size"
+                        android:layout_height="@dimen/step_icon_chip_size"
+                        android:layout_marginStart="@dimen/step_icon_chip_margin_start"
+                        android:background="@drawable/bg_icon_chip_step"
+                        android:contentDescription="@null"
+                        android:padding="@dimen/step_icon_chip_padding"
+                        android:src="@drawable/ic_step_farm"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tvStep2"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/step_text_margin_start"
+                        android:fontFamily="@font/sora_bold"
+                        app:fontFamily="@font/sora_bold"
+                        android:text="@string/step_2_title"
+                        android:textColor="@color/ink_navy"
+                        android:textSize="@dimen/text_title"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/icon2"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <TextView
+                    android:id="@+id/badge2"
+                    android:layout_width="@dimen/step_badge_size"
+                    android:layout_height="@dimen/step_badge_size"
+                    android:layout_gravity="start|center_vertical"
+                    android:background="@drawable/bg_step_badge"
+                    android:elevation="@dimen/space_8"
+                    android:fontFamily="@font/sora_bold"
+                    app:fontFamily="@font/sora_bold"
+                    android:gravity="center"
+                    android:text="2"
+                    android:textColor="@color/text_on_orange"
+                    android:textSize="@dimen/text_title"
+                    tools:ignore="HardcodedText" />
+
+            </FrameLayout>
+
+            <!-- ─────────────────────── STEP 3 ─────────────────────── -->
+
+            <FrameLayout
+                android:id="@+id/step3Row"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginBottom="@dimen/step_card_gap"
+                android:layout_weight="1"
+                android:clipChildren="false"
+                android:clipToPadding="false">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/step3Card"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="@dimen/step_label_margin_start"
+                    android:background="@drawable/bg_card_step"
+                    android:paddingStart="@dimen/step_card_padding"
+                    android:paddingEnd="@dimen/step_card_padding">
+
+                    <ImageView
+                        android:id="@+id/icon3"
+                        android:layout_width="@dimen/step_icon_chip_size"
+                        android:layout_height="@dimen/step_icon_chip_size"
+                        android:layout_marginStart="@dimen/step_icon_chip_margin_start"
+                        android:background="@drawable/bg_icon_chip_step"
+                        android:contentDescription="@null"
+                        android:padding="@dimen/step_icon_chip_padding"
+                        android:src="@drawable/ic_step_plot"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tvStep3"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/step_text_margin_start"
+                        android:fontFamily="@font/sora_bold"
+                        app:fontFamily="@font/sora_bold"
+                        android:text="@string/step_3_title"
+                        android:textColor="@color/ink_navy"
+                        android:textSize="@dimen/text_title"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/icon3"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <TextView
+                    android:id="@+id/badge3"
+                    android:layout_width="@dimen/step_badge_size"
+                    android:layout_height="@dimen/step_badge_size"
+                    android:layout_gravity="start|center_vertical"
+                    android:background="@drawable/bg_step_badge"
+                    android:elevation="@dimen/space_8"
+                    android:fontFamily="@font/sora_bold"
+                    app:fontFamily="@font/sora_bold"
+                    android:gravity="center"
+                    android:text="3"
+                    android:textColor="@color/text_on_orange"
+                    android:textSize="@dimen/text_title"
+                    tools:ignore="HardcodedText" />
+
+            </FrameLayout>
+
+            <!-- ─────────────────────── STEP 4 ─────────────────────── -->
+
+            <FrameLayout
+                android:id="@+id/step4Row"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:clipChildren="false"
+                android:clipToPadding="false">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/step4Card"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="@dimen/step_label_margin_start"
+                    android:background="@drawable/bg_card_step"
+                    android:paddingStart="@dimen/step_card_padding"
+                    android:paddingEnd="@dimen/step_card_padding">
+
+                    <ImageView
+                        android:id="@+id/icon4"
+                        android:layout_width="@dimen/step_icon_chip_size"
+                        android:layout_height="@dimen/step_icon_chip_size"
+                        android:layout_marginStart="@dimen/step_icon_chip_margin_start"
+                        android:background="@drawable/bg_icon_chip_step"
+                        android:contentDescription="@null"
+                        android:padding="@dimen/step_icon_chip_padding"
+                        android:src="@drawable/ic_step_cloud"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tvStep4"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/step_text_margin_start"
+                        android:fontFamily="@font/sora_bold"
+                        app:fontFamily="@font/sora_bold"
+                        android:text="@string/step_4_title"
+                        android:textColor="@color/ink_navy"
+                        android:textSize="@dimen/text_title"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/icon4"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <TextView
+                    android:id="@+id/badge4"
+                    android:layout_width="@dimen/step_badge_size"
+                    android:layout_height="@dimen/step_badge_size"
+                    android:layout_gravity="start|center_vertical"
+                    android:background="@drawable/bg_step_badge"
+                    android:elevation="@dimen/space_8"
+                    android:fontFamily="@font/sora_bold"
+                    app:fontFamily="@font/sora_bold"
+                    android:gravity="center"
+                    android:text="4"
+                    android:textColor="@color/text_on_orange"
+                    android:textSize="@dimen/text_title"
+                    tools:ignore="HardcodedText" />
+
+            </FrameLayout>
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+
+    <!-- ═══════════════════════ OFFLINE PILL ═══════════════════════ -->
+
+    <LinearLayout
+        android:id="@+id/chipOfflineWrapper"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/chip_offline_height"
+        android:layout_marginStart="@dimen/screen_padding_horizontal"
+        android:layout_marginEnd="@dimen/screen_padding_horizontal"
+        android:layout_marginBottom="@dimen/chip_offline_margin_bottom"
+        android:background="@drawable/bg_pill_offline"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingHorizontal="@dimen/chip_offline_padding_horizontal"
+        app:layout_constraintBottom_toTopOf="@id/btnNext"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageView
+            android:layout_width="@dimen/icon_md"
+            android:layout_height="@dimen/icon_md"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_offline" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/chip_offline_icon_text_gap"
+            android:fontFamily="@font/sora_medium"
+            app:fontFamily="@font/sora_medium"
+            android:text="@string/chip_works_offline"
+            android:textColor="@color/teal_primary"
+            android:textSize="@dimen/text_label" />
+
+    </LinearLayout>
+
+
+    <!-- ═══════════════════════ NEXT BUTTON ═══════════════════════ -->
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnNext"
+        style="@style/Widget.Silvanus.Button.Primary"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/button_height_primary"
+        android:layout_marginStart="@dimen/screen_padding_horizontal"
+        android:layout_marginEnd="@dimen/screen_padding_horizontal"
+        android:layout_marginBottom="@dimen/space_16"
+        android:text="@string/action_next"
+        android:textSize="@dimen/text_title"
+        app:icon="@drawable/ic_arrow_forward"
+        app:iconGravity="end"
+        app:iconPadding="@dimen/space_8"
+        app:iconSize="@dimen/icon_md"
+        app:iconTint="@color/text_on_teal"
+        app:layout_constraintBottom_toTopOf="@id/dotsIndicatorSteps"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+    <!-- ═══════════ PAGE DOTS — 6 screens, this is 2 ═══════════ -->
+
+    <LinearLayout
+        android:id="@+id/dotsIndicatorSteps"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dot_indicator_margin_bottom"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <View
+            android:layout_width="@dimen/dot_indicator_size"
+            android:layout_height="@dimen/dot_indicator_size"
+            android:background="@drawable/dot_inactive" />
+
+        <View
+            android:layout_width="@dimen/dot_indicator_size_active"
+            android:layout_height="@dimen/dot_indicator_size_active"
+            android:layout_marginStart="@dimen/dot_indicator_spacing"
+            android:background="@drawable/dot_active" />
+
+        <View
+            android:layout_width="@dimen/dot_indicator_size"
+            android:layout_height="@dimen/dot_indicator_size"
+            android:layout_marginStart="@dimen/dot_indicator_spacing"
+            android:background="@drawable/dot_inactive" />
+
+        <View
+            android:layout_width="@dimen/dot_indicator_size"
+            android:layout_height="@dimen/dot_indicator_size"
+            android:layout_marginStart="@dimen/dot_indicator_spacing"
+            android:background="@drawable/dot_inactive" />
+
+        <View
+            android:layout_width="@dimen/dot_indicator_size"
+            android:layout_height="@dimen/dot_indicator_size"
+            android:layout_marginStart="@dimen/dot_indicator_spacing"
+            android:background="@drawable/dot_inactive" />
+
+        <View
+            android:layout_width="@dimen/dot_indicator_size"
+            android:layout_height="@dimen/dot_indicator_size"
+            android:layout_marginStart="@dimen/dot_indicator_spacing"
+            android:background="@drawable/dot_inactive" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

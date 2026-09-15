@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootWelcome"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:background="@color/cream_bg"
+    android:fitsSystemWindows="true"
+    tools:context=".WelcomeActivity">
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scrollContent"
+        android:layout_height="0dp"
+        android:layout_width="0dp"
+        android:fillViewport="true"
+        android:overScrollMode="never"
+        android:scrollbars="none"
+        app:layout_constraintBottom_toTopOf="@id/bottomBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:paddingBottom="0dp"
+            android:paddingHorizontal="0dp"
+            android:paddingTop="@dimen/welcome_logo_margin_top">
+
+            <ImageView
+                android:id="@+id/imgLogoMark"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="0dp"
+                android:layout_width="@dimen/brand_leaf_width"
+                android:adjustViewBounds="true"
+                android:contentDescription="@string/cd_silvanus_logo"
+                android:src="@drawable/logo_leaf_mark"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvBrand"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="0dp"
+                android:layout_marginTop="@dimen/welcome_brand_margin_top"
+                android:layout_width="wrap_content"
+                android:fontFamily="@font/sora_extrabold"
+                android:letterSpacing="0.06"
+                android:text="@string/brand_silvanus"
+                android:textColor="@color/text_primary"
+                android:textSize="@dimen/text_size_brand_lg"
+                app:fontFamily="@font/sora_extrabold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/imgLogoMark" />
+
+            <LinearLayout
+                android:id="@+id/layoutBrandSub"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/welcome_brand_sub_margin_top"
+                android:layout_width="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvBrand">
+
+                <View
+                    android:layout_height="@dimen/welcome_brand_rule_height"
+                    android:layout_width="@dimen/welcome_brand_rule_width"
+                    android:background="@color/brand_teal" />
+
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/welcome_brand_rule_gap"
+                    android:layout_width="wrap_content"
+                    android:fontFamily="@font/sora_regular"
+                    android:text="@string/brand_by_tanit"
+                    android:textColor="@color/text_primary"
+                    android:textSize="@dimen/text_size_body"
+                    app:fontFamily="@font/sora_regular" />
+
+                <View
+                    android:layout_height="@dimen/welcome_brand_rule_height"
+                    android:layout_width="@dimen/welcome_brand_rule_width"
+                    android:background="@color/brand_teal" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvHeadline"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/welcome_headline_margin_top"
+                android:layout_width="wrap_content"
+                android:fontFamily="@font/sora_semibold"
+                android:text="@string/welcome_headline"
+                android:textColor="@color/text_primary"
+                android:textSize="@dimen/text_size_headline"
+                app:fontFamily="@font/sora_semibold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/layoutBrandSub" />
+
+            <!-- The horizontal margin is what breaks the copy over two lines,
+                 the way the mockup sets it; it is not decorative padding. -->
+            <TextView
+                android:id="@+id/tvHeadlineSub"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/welcome_subtext_margin_horizontal"
+                android:layout_marginTop="@dimen/welcome_subtext_margin_top"
+                android:layout_width="0dp"
+                android:breakStrategy="balanced"
+                android:fontFamily="@font/sora_regular"
+                android:gravity="center"
+                android:lineSpacingExtra="@dimen/welcome_subtext_line_spacing"
+                android:text="@string/welcome_subtext"
+                android:textColor="@color/text_primary"
+                android:textSize="@dimen/text_size_body"
+                app:fontFamily="@font/sora_regular"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvHeadline" />
+
+            <!-- Claims the whole gap down to the bottom bar and holds the scene
+                 at its native ratio inside it. The bias parks the artwork just
+                 under the subtext instead of letting the slack pile up above
+                 the language field. -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/containerIllustration"
+                android:layout_height="0dp"
+                android:layout_marginBottom="@dimen/welcome_illustration_margin_bottom"
+                android:layout_marginTop="@dimen/welcome_illustration_margin_top"
+                android:layout_width="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintDimensionRatio="H,1672:941"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvHeadlineSub"
+                app:layout_constraintVertical_bias="0.35">
+
+                <ImageView
+                    android:id="@+id/imgScene"
+                    android:layout_height="0dp"
+                    android:layout_width="0dp"
+                    android:contentDescription="@string/cd_plot_illustration"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/bac"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <!-- The pin tip sits inside the plot rather than on its edge:
+                     the plot spans 0.357..0.948 of the artwork height at the
+                     centre column, so 0.46 lands ~17% into it. The container
+                     matches the artwork ratio, so this percent maps straight
+                     onto the source image. -->
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guidePinTip"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent="0.46" />
+
+                <!-- Sized to the 64:88 viewport of @drawable/ic_map_pin_hero, so the
+                     drawn tip reaches the bottom edge and the guideline is the
+                     tip position rather than a bounding-box position. -->
+                <ImageView
+                    android:id="@+id/imgPin"
+                    android:layout_height="@dimen/welcome_pin_height"
+                    android:layout_width="@dimen/welcome_pin_width"
+                    android:contentDescription="@null"
+                    android:src="@drawable/ic_map_pin_hero"
+                    app:layout_constraintBottom_toTopOf="@id/guidePinTip"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.49"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <LinearLayout
+        android:id="@+id/bottomBar"
+        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:background="@color/cream_bg"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/welcome_bottom_bar_padding_bottom"
+        android:paddingHorizontal="@dimen/screen_padding_horizontal_welcome"
+        android:paddingTop="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:id="@+id/tvLanguageLabel"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/welcome_language_label_margin_bottom"
+            android:layout_width="match_parent"
+            android:fontFamily="@font/sora_regular"
+            android:text="@string/label_choose_language"
+            android:textColor="@color/text_secondary"
+            android:textSize="@dimen/text_size_small"
+            app:fontFamily="@font/sora_regular" />
+
+        <!-- boxStrokeWidth 0: a filled box otherwise draws an indicator rule
+             along its bottom edge, which the mockup field does not have.
+             Filled with the illustration's plot aqua so it matches the art above. -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layoutLanguage"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/welcome_field_margin_bottom"
+            android:layout_width="match_parent"
+            app:boxBackgroundColor="@color/brand_aqua_pale"
+            app:boxBackgroundMode="filled"
+            app:boxCornerRadiusBottomEnd="@dimen/welcome_field_radius"
+            app:boxCornerRadiusBottomStart="@dimen/welcome_field_radius"
+            app:boxCornerRadiusTopEnd="@dimen/welcome_field_radius"
+            app:boxCornerRadiusTopStart="@dimen/welcome_field_radius"
+            app:boxStrokeWidth="0dp"
+            app:boxStrokeWidthFocused="0dp"
+            app:endIconDrawable="@drawable/ic_chevron_down"
+            app:endIconMode="custom"
+            app:endIconTint="@color/text_primary"
+            app:hintEnabled="false"
+            app:startIconDrawable="@drawable/ic_globe"
+            app:startIconTint="@color/text_primary">
+
+            <AutoCompleteTextView
+                android:id="@+id/dropdownLanguage"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:fontFamily="@font/sora_regular"
+                android:inputType="none"
+                android:paddingVertical="@dimen/welcome_field_padding_vertical"
+                android:text="@string/language_english"
+                android:textColor="@color/text_primary"
+                android:textSize="@dimen/text_size_step_label"
+                app:fontFamily="@font/sora_regular"
+                tools:ignore="LabelFor" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- The shared Primary style paints a 28dp pill; the welcome button is
+             the mockup soft rectangle, so it brings its own background. -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnGetStarted"
+            android:background="@drawable/bg_button_teal_rounded"
+            android:layout_height="@dimen/welcome_button_height"
+            android:layout_marginBottom="@dimen/welcome_button_margin_bottom"
+            android:layout_width="match_parent"
+            android:elevation="0dp"
+            android:stateListAnimator="@null"
+            android:text="@string/action_get_started"
+            app:cornerRadius="@dimen/welcome_button_radius"
+            app:icon="@drawable/ic_arrow_forward"
+            app:iconGravity="end"
+            app:iconPadding="@dimen/spacing_sm_med"
+            app:iconTint="@color/text_on_teal"
+            app:rippleColor="@color/text_on_teal"
+            style="@style/Widget.Silvanus.Button.Primary" />
+
+        <LinearLayout
+            android:id="@+id/dotsIndicator"
+            android:layout_gravity="center_horizontal"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <View
+                android:layout_height="@dimen/welcome_dot_size"
+                android:layout_width="@dimen/welcome_dot_size"
+                android:background="@drawable/dot_active" />
+
+            <View
+                android:layout_height="@dimen/welcome_dot_size"
+                android:layout_marginStart="@dimen/welcome_dot_spacing"
+                android:layout_width="@dimen/welcome_dot_size"
+                android:background="@drawable/dot_inactive" />
+
+            <View
+                android:layout_height="@dimen/welcome_dot_size"
+                android:layout_marginStart="@dimen/welcome_dot_spacing"
+                android:layout_width="@dimen/welcome_dot_size"
+                android:background="@drawable/dot_inactive" />
+
+            <View
+                android:layout_height="@dimen/welcome_dot_size"
+                android:layout_marginStart="@dimen/welcome_dot_spacing"
+                android:layout_width="@dimen/welcome_dot_size"
+                android:background="@drawable/dot_inactive" />
+
+            <View
+                android:layout_height="@dimen/welcome_dot_size"
+                android:layout_marginStart="@dimen/welcome_dot_spacing"
+                android:layout_width="@dimen/welcome_dot_size"
+                android:background="@drawable/dot_inactive" />
+
+            <View
+                android:layout_height="@dimen/welcome_dot_size"
+                android:layout_marginStart="@dimen/welcome_dot_spacing"
+                android:layout_width="@dimen/welcome_dot_size"
+                android:background="@drawable/dot_inactive" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

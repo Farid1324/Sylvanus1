@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Primary teal button with the soft-rectangle corner used on the welcome
+    screen. @drawable/bg_button_teal stays a 28dp pill for the rest of the
+    flow; this one is the mockup's @dimen/welcome_button_radius.
+-->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid android:color="@color/teal_primary" />
+    <corners android:radius="@dimen/welcome_button_radius" />
+</shape>
