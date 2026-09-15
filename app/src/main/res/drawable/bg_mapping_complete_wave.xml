@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Wavy lower edge of the "Mapping complete" header, traced from the mockup.
+     Teal above the curve, transparent below it. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="411dp" android:height="27dp"
+    android:viewportWidth="411.43" android:viewportHeight="27">
+    <path android:fillColor="@color/teal_primary"
+        android:pathData="M0,0 L411.43,0 L411.43,7.20 C408.86,8.18 403.40,10.85 396.00,13.10 C388.60,15.35 376.83,18.75 367.00,20.70 C357.17,22.65 346.83,23.82 337.00,24.80 C327.17,25.78 317.67,26.40 308.00,26.60 C298.33,26.80 288.83,26.48 279.00,26.00 C269.17,25.52 258.83,24.78 249.00,23.70 C239.17,22.62 231.00,21.20 220.00,19.50 C209.00,17.80 195.17,15.55 183.00,13.50 C170.83,11.45 158.00,8.93 147.00,7.20 C136.00,5.47 126.83,4.17 117.00,3.10 C107.17,2.03 97.67,1.28 88.00,0.80 C78.33,0.32 68.83,-0.08 59.00,0.20 C49.17,0.48 38.83,1.03 29.00,2.50 C19.17,3.97 4.83,7.92 0.00,9.00 Z" />
+</vector>

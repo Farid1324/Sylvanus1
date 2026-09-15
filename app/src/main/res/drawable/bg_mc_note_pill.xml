@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Outlined cream strip behind "You do not need to do anything". -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">
+    <solid android:color="@color/cream_bg" />
+    <stroke android:width="1.2dp" android:color="@color/note_strip_stroke" />
+    <corners android:radius="@dimen/mc_note_radius" />
+</shape>

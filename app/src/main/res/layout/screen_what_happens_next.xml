@@ -1,0 +1,475 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    "What happens next" — after the map is saved.
+
+    Step icons and status discs are pictures cut from the mockup. The leaf
+    logo is the app's shared mark (used instead of the mockup's emblem, as on
+    the other screens). Line breaks in the step and status copy follow the
+    mockup exactly, so they are written into the strings.
+
+    Scrolls only if a phone is too short for it; on the reference phone
+    everything fits.
+-->
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootWhatHappensNext"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:background="@color/cream_bg"
+    android:fitsSystemWindows="true"
+    tools:context=".WhatHappensNextActivity">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_height="0dp"
+        android:layout_width="0dp"
+        android:fillViewport="true"
+        android:overScrollMode="never"
+        android:scrollbars="none"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/whn_bottom_padding">
+
+            <!-- ── back arrow and logo share one row ── -->
+            <FrameLayout
+                android:layout_height="@dimen/whn_header_height"
+                android:layout_width="match_parent">
+
+                <ImageView
+                    android:id="@+id/btnBack"
+                    android:layout_gravity="start|center_vertical"
+                    android:layout_height="@dimen/whn_back_size"
+                    android:layout_marginStart="@dimen/whn_back_margin_start"
+                    android:layout_width="@dimen/whn_back_size"
+                    android:contentDescription="@string/cd_back"
+                    android:padding="@dimen/whn_back_padding"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_arrow_back_teal"
+                    app:tint="@color/teal_dark" />
+
+                <ImageView
+                    android:id="@+id/imgLogo"
+                    android:layout_gravity="center_horizontal|top"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/whn_logo_margin_top"
+                    android:layout_width="@dimen/logo_leaf_masthead_width"
+                    android:adjustViewBounds="true"
+                    android:contentDescription="@string/cd_silvanus_logo"
+                    android:src="@drawable/logo_leaf_mark" />
+
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/tvHeadline"
+                android:layout_gravity="center_horizontal"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/whn_headline_margin_top"
+                android:layout_width="wrap_content"
+                android:fontFamily="@font/sora_bold"
+                android:includeFontPadding="false"
+                android:maxLines="1"
+                android:text="@string/what_happens_next"
+                android:textColor="@color/ink_navy"
+                android:textSize="@dimen/whn_headline_text_size"
+                app:fontFamily="@font/sora_bold" />
+
+            <!-- ── numbered steps: cards, then the connector, then badges on top ── -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/whn_steps_margin_top"
+                android:layout_width="match_parent">
+
+                <LinearLayout
+                    android:id="@+id/cardStep1"
+                    android:layout_height="@dimen/whn_card1_height"
+                    android:layout_marginEnd="@dimen/whn_card_margin_end"
+                    android:layout_marginStart="@dimen/whn_card_margin_start"
+                    android:layout_width="0dp"
+                    android:background="@drawable/bg_whn_card"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <FrameLayout
+                        android:layout_height="match_parent"
+                        android:layout_width="@dimen/whn_card_icon_slot">
+
+                        <ImageView
+                            android:layout_gravity="center"
+                            android:layout_height="wrap_content"
+                            android:layout_width="@dimen/whn_step1_icon_width"
+                            android:adjustViewBounds="true"
+                            android:contentDescription="@null"
+                            android:src="@drawable/img_whn_step_receive" />
+
+                    </FrameLayout>
+
+                    <TextView
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/whn_card_text_margin_start"
+                        android:layout_width="wrap_content"
+                        android:fontFamily="@font/sora_medium"
+                        android:lineSpacingExtra="@dimen/whn_card_text_line_spacing"
+                        android:text="@string/next_step_1"
+                        android:textColor="@color/ink_navy"
+                        android:textSize="@dimen/whn_card_text_size"
+                        app:fontFamily="@font/sora_medium" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/cardStep2"
+                    android:layout_height="@dimen/whn_card2_height"
+                    android:layout_marginEnd="@dimen/whn_card_margin_end"
+                    android:layout_marginStart="@dimen/whn_card_margin_start"
+                    android:layout_marginTop="@dimen/whn_card_gap"
+                    android:layout_width="0dp"
+                    android:background="@drawable/bg_whn_card"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/cardStep1">
+
+                    <FrameLayout
+                        android:layout_height="match_parent"
+                        android:layout_width="@dimen/whn_card_icon_slot">
+
+                        <ImageView
+                            android:layout_gravity="center"
+                            android:layout_height="wrap_content"
+                            android:layout_width="@dimen/whn_step2_icon_width"
+                            android:adjustViewBounds="true"
+                            android:contentDescription="@null"
+                            android:src="@drawable/img_whn_step_check" />
+
+                    </FrameLayout>
+
+                    <TextView
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/whn_card_text_margin_start"
+                        android:layout_width="wrap_content"
+                        android:fontFamily="@font/sora_medium"
+                        android:lineSpacingExtra="@dimen/whn_card_text_line_spacing"
+                        android:text="@string/next_step_2"
+                        android:textColor="@color/ink_navy"
+                        android:textSize="@dimen/whn_card_text_size"
+                        app:fontFamily="@font/sora_medium" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/cardStep3"
+                    android:layout_height="@dimen/whn_card3_height"
+                    android:layout_marginEnd="@dimen/whn_card_margin_end"
+                    android:layout_marginStart="@dimen/whn_card_margin_start"
+                    android:layout_marginTop="@dimen/whn_card_gap"
+                    android:layout_width="0dp"
+                    android:background="@drawable/bg_whn_card"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/cardStep2">
+
+                    <FrameLayout
+                        android:layout_height="match_parent"
+                        android:layout_width="@dimen/whn_card_icon_slot">
+
+                        <ImageView
+                            android:layout_gravity="center"
+                            android:layout_height="wrap_content"
+                            android:layout_width="@dimen/whn_step3_icon_width"
+                            android:adjustViewBounds="true"
+                            android:contentDescription="@null"
+                            android:src="@drawable/img_whn_step_link" />
+
+                    </FrameLayout>
+
+                    <TextView
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/whn_card_text_margin_start"
+                        android:layout_width="wrap_content"
+                        android:fontFamily="@font/sora_medium"
+                        android:lineSpacingExtra="@dimen/whn_card_text_line_spacing"
+                        android:text="@string/next_step_3"
+                        android:textColor="@color/ink_navy"
+                        android:textSize="@dimen/whn_card_text_size"
+                        app:fontFamily="@font/sora_medium" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/cardStep4"
+                    android:layout_height="@dimen/whn_card4_height"
+                    android:layout_marginEnd="@dimen/whn_card_margin_end"
+                    android:layout_marginStart="@dimen/whn_card_margin_start"
+                    android:layout_marginTop="@dimen/whn_card_gap"
+                    android:layout_width="0dp"
+                    android:background="@drawable/bg_whn_card"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/cardStep3">
+
+                    <FrameLayout
+                        android:layout_height="match_parent"
+                        android:layout_width="@dimen/whn_card_icon_slot">
+
+                        <ImageView
+                            android:layout_gravity="center"
+                            android:layout_height="wrap_content"
+                            android:layout_width="@dimen/whn_step4_icon_width"
+                            android:adjustViewBounds="true"
+                            android:contentDescription="@null"
+                            android:src="@drawable/img_whn_step_submit" />
+
+                    </FrameLayout>
+
+                    <TextView
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/whn_card_text_margin_start"
+                        android:layout_width="wrap_content"
+                        android:fontFamily="@font/sora_medium"
+                        android:lineSpacingExtra="@dimen/whn_card_text_line_spacing"
+                        android:text="@string/next_step_4"
+                        android:textColor="@color/ink_navy"
+                        android:textSize="@dimen/whn_card_text_size"
+                        app:fontFamily="@font/sora_medium" />
+
+                </LinearLayout>
+
+                <!-- Runs from the centre of badge 1 to the centre of badge 4. -->
+                <View
+                    android:id="@+id/stepConnector"
+                    android:layout_height="0dp"
+                    android:layout_marginBottom="@dimen/whn_connector_inset"
+                    android:layout_marginStart="@dimen/whn_connector_margin_start"
+                    android:layout_marginTop="@dimen/whn_connector_inset"
+                    android:layout_width="@dimen/whn_connector_width"
+                    android:background="@color/orange_primary"
+                    app:layout_constraintBottom_toBottomOf="@id/badgeStep4"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/badgeStep1" />
+
+                <TextView
+                    android:id="@+id/badgeStep1"
+                    style="@style/TextAppearance.Silvanus.WhnBadge"
+                    android:layout_height="@dimen/whn_badge_size"
+                    android:layout_marginStart="@dimen/whn_badge_margin_start"
+                    android:layout_marginTop="@dimen/whn_badge_offset_top"
+                    android:layout_width="@dimen/whn_badge_size"
+                    android:text="@string/step_number_1"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/cardStep1" />
+
+                <TextView
+                    android:id="@+id/badgeStep2"
+                    style="@style/TextAppearance.Silvanus.WhnBadge"
+                    android:layout_height="@dimen/whn_badge_size"
+                    android:layout_marginStart="@dimen/whn_badge_margin_start"
+                    android:layout_marginTop="@dimen/whn_badge_offset_top"
+                    android:layout_width="@dimen/whn_badge_size"
+                    android:text="@string/step_number_2"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/cardStep2" />
+
+                <TextView
+                    android:id="@+id/badgeStep3"
+                    style="@style/TextAppearance.Silvanus.WhnBadge"
+                    android:layout_height="@dimen/whn_badge_size"
+                    android:layout_marginStart="@dimen/whn_badge_margin_start"
+                    android:layout_marginTop="@dimen/whn_badge_offset_top"
+                    android:layout_width="@dimen/whn_badge_size"
+                    android:text="@string/step_number_3"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/cardStep3" />
+
+                <TextView
+                    android:id="@+id/badgeStep4"
+                    style="@style/TextAppearance.Silvanus.WhnBadge"
+                    android:layout_height="@dimen/whn_badge_size"
+                    android:layout_marginStart="@dimen/whn_badge_margin_start"
+                    android:layout_marginTop="@dimen/whn_badge_offset_top"
+                    android:layout_width="@dimen/whn_badge_size"
+                    android:text="@string/step_number_4"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/cardStep4" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <!-- ── You will see ── -->
+            <LinearLayout
+                android:layout_height="@dimen/whn_see_height"
+                android:layout_marginHorizontal="@dimen/whn_content_horizontal"
+                android:layout_marginTop="@dimen/whn_see_margin_top"
+                android:layout_width="match_parent"
+                android:background="@drawable/bg_whn_see_card"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_gravity="center_horizontal"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/whn_see_title_margin_top"
+                    android:layout_width="wrap_content"
+                    android:fontFamily="@font/sora_semibold"
+                    android:text="@string/you_will_see"
+                    android:textColor="@color/ink_navy"
+                    android:textSize="@dimen/whn_see_title_text_size"
+                    app:fontFamily="@font/sora_semibold" />
+
+                <!-- Column weights put the dividers where the mockup has them. -->
+                <LinearLayout
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/whn_see_row_margin_top"
+                    android:layout_width="match_parent"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_height="wrap_content"
+                        android:layout_weight="187"
+                        android:layout_width="0dp"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_height="@dimen/whn_status_disc_size"
+                            android:layout_width="@dimen/whn_status_disc_size"
+                            android:contentDescription="@null"
+                            android:src="@drawable/img_whn_status_registered" />
+
+                        <TextView
+                            style="@style/TextAppearance.Silvanus.WhnStatusLabel"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/whn_status_label_margin_top"
+                            android:layout_width="wrap_content"
+                            android:text="@string/status_plot_registered" />
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_height="@dimen/whn_see_divider_height"
+                        android:layout_width="@dimen/whn_see_divider_width"
+                        android:background="@color/mist_divider" />
+
+                    <LinearLayout
+                        android:layout_height="wrap_content"
+                        android:layout_weight="173"
+                        android:layout_width="0dp"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_height="@dimen/whn_status_disc_size"
+                            android:layout_width="@dimen/whn_status_disc_size"
+                            android:contentDescription="@null"
+                            android:src="@drawable/img_whn_status_action" />
+
+                        <TextView
+                            style="@style/TextAppearance.Silvanus.WhnStatusLabel"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/whn_status_label_margin_top"
+                            android:layout_width="wrap_content"
+                            android:text="@string/status_action_needed" />
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_height="@dimen/whn_see_divider_height"
+                        android:layout_width="@dimen/whn_see_divider_width"
+                        android:background="@color/mist_divider" />
+
+                    <LinearLayout
+                        android:layout_height="wrap_content"
+                        android:layout_weight="204"
+                        android:layout_width="0dp"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_height="@dimen/whn_status_disc_size"
+                            android:layout_width="@dimen/whn_status_disc_size"
+                            android:contentDescription="@null"
+                            android:src="@drawable/img_whn_status_shipment" />
+
+                        <TextView
+                            style="@style/TextAppearance.Silvanus.WhnStatusLabel"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/whn_status_label_margin_top"
+                            android:layout_width="wrap_content"
+                            android:text="@string/status_verified_shipment" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- ── TRACES note ── -->
+            <LinearLayout
+                android:layout_height="@dimen/whn_note_height"
+                android:layout_marginHorizontal="@dimen/whn_content_horizontal"
+                android:layout_marginTop="@dimen/whn_note_margin_top"
+                android:layout_width="match_parent"
+                android:background="@drawable/bg_whn_note_pill"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_height="@dimen/whn_note_icon_size"
+                    android:layout_width="@dimen/whn_note_icon_size"
+                    android:contentDescription="@null"
+                    android:src="@drawable/ic_info_disc" />
+
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/whn_note_text_margin_start"
+                    android:layout_width="wrap_content"
+                    android:fontFamily="@font/sora_regular"
+                    android:maxLines="1"
+                    android:text="@string/no_traces_needed"
+                    android:textColor="@color/ink_navy"
+                    android:textSize="@dimen/whn_note_text_size"
+                    app:fontFamily="@font/sora_regular" />
+
+            </LinearLayout>
+
+            <!-- Plain Material button: the shared Primary style paints a pill. -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnDone"
+                style="@style/Widget.MaterialComponents.Button"
+                android:layout_height="@dimen/whn_done_height"
+                android:layout_marginHorizontal="@dimen/whn_content_horizontal"
+                android:layout_marginTop="@dimen/whn_done_margin_top"
+                android:layout_width="match_parent"
+                android:elevation="0dp"
+                android:fontFamily="@font/sora_semibold"
+                android:insetBottom="0dp"
+                android:insetTop="0dp"
+                android:letterSpacing="0"
+                android:stateListAnimator="@null"
+                android:text="@string/action_done"
+                android:textAllCaps="false"
+                android:textColor="@color/text_on_teal"
+                android:textSize="@dimen/whn_done_text_size"
+                app:backgroundTint="@color/teal_primary"
+                app:cornerRadius="@dimen/whn_done_radius"
+                app:fontFamily="@font/sora_semibold"
+                app:rippleColor="#40FFFFFF" />
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

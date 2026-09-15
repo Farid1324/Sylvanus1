@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    "Mapping complete" — used by MappingCompleteActivity, WalkMappingCompleteActivity
+    and DrawMappingCompleteActivity; all three only wire btnViewNext.
+
+    The teal header is a band that starts above the status-bar padding
+    (clipToPadding is off) and ends in a traced wave. The map card and the
+    phone / cloud flow are pictures cut from the mockup. Where the mockup shows
+    its round emblem, the app's leaf logo sits on a cream disc instead.
+
+    The bottom stack (Done-style button, note, waiting card) is pinned to the
+    bottom; the map card takes the height left between it and the header.
+-->
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootMappingComplete"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:background="@color/cream_bg"
+    android:clipToPadding="false"
+    android:fitsSystemWindows="true"
+    tools:context=".MappingCompleteActivity">
+
+    <!-- ── teal header band and its wave ── -->
+    <View
+        android:id="@+id/headerTeal"
+        android:layout_height="0dp"
+        android:layout_marginBottom="@dimen/mc_header_below_subtitle"
+        android:layout_marginTop="@dimen/mc_header_bleed"
+        android:layout_width="0dp"
+        android:background="@color/teal_primary"
+        app:layout_constraintBottom_toBottomOf="@id/tvSaved"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/headerWave"
+        android:layout_height="@dimen/mc_wave_height"
+        android:layout_width="0dp"
+        android:contentDescription="@null"
+        android:scaleType="fitXY"
+        android:src="@drawable/bg_mapping_complete_wave"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/headerTeal" />
+
+    <ImageView
+        android:id="@+id/imgCheck"
+        android:layout_height="@dimen/mc_check_disc_size"
+        android:layout_marginTop="@dimen/mc_check_disc_margin_top"
+        android:layout_width="@dimen/mc_check_disc_size"
+        android:contentDescription="@null"
+        android:src="@drawable/ic_complete_check_disc"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imgLogoSmall"
+        android:layout_height="@dimen/mc_logo_disc_size"
+        android:layout_marginEnd="@dimen/mc_logo_disc_margin_end"
+        android:layout_marginTop="@dimen/mc_logo_disc_margin_top"
+        android:layout_width="@dimen/mc_logo_disc_size"
+        android:background="@drawable/bg_logo_disc"
+        android:contentDescription="@string/cd_silvanus_logo"
+        android:padding="@dimen/mc_logo_disc_padding"
+        android:scaleType="fitCenter"
+        android:src="@drawable/logo_leaf_mark"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvComplete"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/mc_title_margin_top"
+        android:layout_width="wrap_content"
+        android:fontFamily="@font/sora_semibold"
+        android:includeFontPadding="false"
+        android:maxLines="1"
+        android:text="@string/mapping_complete"
+        android:textColor="@color/cream_bg"
+        android:textSize="@dimen/mc_title_text_size"
+        app:fontFamily="@font/sora_semibold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imgCheck" />
+
+    <View
+        android:id="@+id/titleRule"
+        android:layout_height="@dimen/mc_rule_height"
+        android:layout_marginTop="@dimen/mc_rule_margin_top"
+        android:layout_width="@dimen/mc_rule_width"
+        android:background="@drawable/bg_mc_rule"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvComplete" />
+
+    <TextView
+        android:id="@+id/tvSaved"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/mc_subtitle_margin_top"
+        android:layout_width="wrap_content"
+        android:fontFamily="@font/sora_regular"
+        android:includeFontPadding="false"
+        android:maxLines="1"
+        android:text="@string/map_saved_on_phone"
+        android:textColor="@color/cream_bg"
+        android:textSize="@dimen/mc_subtitle_text_size"
+        app:fontFamily="@font/sora_regular"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/titleRule" />
+
+    <!-- ── map card: fills the gap ── -->
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/imgMapCard"
+        android:layout_height="0dp"
+        android:layout_marginBottom="@dimen/mc_map_card_margin_bottom"
+        android:layout_marginEnd="@dimen/mc_map_card_margin_end"
+        android:layout_marginStart="@dimen/mc_map_card_margin_start"
+        android:layout_marginTop="@dimen/mc_map_card_margin_top"
+        android:layout_width="0dp"
+        android:contentDescription="@string/cd_map_illustration"
+        android:padding="0.6dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/img_mc_map_card"
+        app:layout_constraintBottom_toTopOf="@id/waitCard"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/headerWave"
+        app:shapeAppearanceOverlay="@style/ShapeAppearance.Silvanus.MapCard"
+        app:strokeColor="@color/map_card_stroke"
+        app:strokeWidth="@dimen/mc_map_card_stroke" />
+
+    <!-- ── waiting for internet ── -->
+    <LinearLayout
+        android:id="@+id/waitCard"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/mc_wait_margin_bottom"
+        android:layout_marginEnd="@dimen/mc_wait_margin_end"
+        android:layout_marginStart="@dimen/mc_wait_margin_start"
+        android:layout_width="0dp"
+        android:background="@drawable/bg_wait_card"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/mc_wait_padding_bottom"
+        android:paddingTop="@dimen/mc_wait_padding_top"
+        app:layout_constraintBottom_toTopOf="@id/noteStrip"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <LinearLayout
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/mc_wait_padding_start"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:fontFamily="@font/sora_semibold"
+                android:includeFontPadding="false"
+                android:text="@string/waiting_for_internet"
+                android:textColor="@color/teal_dark"
+                android:textSize="@dimen/mc_wait_title_text_size"
+                app:fontFamily="@font/sora_semibold" />
+
+            <ImageView
+                android:layout_height="@dimen/mc_wifi_height"
+                android:layout_marginEnd="@dimen/mc_wifi_margin_end"
+                android:layout_width="@dimen/mc_wifi_width"
+                android:contentDescription="@null"
+                android:src="@drawable/img_mc_wifi_off" />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/mc_wait_padding_start"
+            android:layout_marginTop="@dimen/mc_wait_body_margin_top"
+            android:layout_width="wrap_content"
+            android:fontFamily="@font/sora_regular"
+            android:includeFontPadding="false"
+            android:lineSpacingExtra="@dimen/mc_wait_body_line_spacing"
+            android:text="@string/upload_when_online"
+            android:textColor="@color/teal_dark"
+            android:textSize="@dimen/mc_wait_body_text_size"
+            app:fontFamily="@font/sora_regular" />
+
+        <FrameLayout
+            android:layout_height="@dimen/mc_flow_height"
+            android:layout_marginTop="@dimen/mc_flow_margin_top"
+            android:layout_width="match_parent">
+
+            <ImageView
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/mc_flow_picture_margin_start"
+                android:layout_width="@dimen/mc_flow_picture_width"
+                android:contentDescription="@null"
+                android:scaleType="fitXY"
+                android:src="@drawable/img_mc_flow_saved_waiting" />
+
+            <ImageView
+                android:layout_height="@dimen/mc_flow_logo_disc_size"
+                android:layout_marginStart="@dimen/mc_flow_logo_disc_margin_start"
+                android:layout_marginTop="@dimen/mc_flow_logo_disc_margin_top"
+                android:layout_width="@dimen/mc_flow_logo_disc_size"
+                android:background="@drawable/bg_logo_disc"
+                android:contentDescription="@null"
+                android:padding="@dimen/mc_flow_logo_disc_padding"
+                android:scaleType="fitCenter"
+                android:src="@drawable/logo_leaf_mark" />
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent">
+
+            <TextView
+                style="@style/TextAppearance.Silvanus.McFlowLabel"
+                android:layout_height="wrap_content"
+                android:layout_width="@dimen/mc_label_width"
+                android:text="@string/saved_on_phone" />
+
+            <TextView
+                style="@style/TextAppearance.Silvanus.McFlowLabel"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/mc_label2_margin_start"
+                android:layout_width="@dimen/mc_label_width"
+                android:text="@string/waiting_for_internet_short" />
+
+            <TextView
+                style="@style/TextAppearance.Silvanus.McFlowLabel"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/mc_label3_margin_start"
+                android:layout_width="@dimen/mc_label_width"
+                android:text="@string/uploaded_to_tanit" />
+
+        </FrameLayout>
+
+    </LinearLayout>
+
+    <!-- ── note ── -->
+    <LinearLayout
+        android:id="@+id/noteStrip"
+        android:layout_height="@dimen/mc_note_height"
+        android:layout_marginBottom="@dimen/mc_note_margin_bottom"
+        android:layout_marginEnd="@dimen/mc_note_margin_end"
+        android:layout_marginStart="@dimen/mc_note_margin_start"
+        android:layout_width="0dp"
+        android:background="@drawable/bg_mc_note_pill"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="@dimen/mc_note_padding_start"
+        app:layout_constraintBottom_toTopOf="@id/btnViewNext"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageView
+            android:layout_height="@dimen/mc_note_icon_size"
+            android:layout_width="@dimen/mc_note_icon_size"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_info_disc" />
+
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/mc_note_text_margin_start"
+            android:layout_width="wrap_content"
+            android:fontFamily="@font/sora_regular"
+            android:maxLines="1"
+            android:text="@string/no_action_needed"
+            android:textColor="@color/teal_dark"
+            android:textSize="@dimen/mc_note_text_size"
+            app:fontFamily="@font/sora_regular" />
+
+    </LinearLayout>
+
+    <!-- Plain Material button: the Orange style's background is a pill and
+         ignores cornerRadius. -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnViewNext"
+        style="@style/Widget.MaterialComponents.Button"
+        android:layout_height="@dimen/mc_button_height"
+        android:layout_marginBottom="@dimen/mc_button_margin_bottom"
+        android:layout_marginEnd="@dimen/mc_note_margin_end"
+        android:layout_marginStart="@dimen/mc_note_margin_start"
+        android:layout_width="0dp"
+        android:elevation="0dp"
+        android:fontFamily="@font/sora_semibold"
+        android:insetBottom="0dp"
+        android:insetTop="0dp"
+        android:letterSpacing="0"
+        android:paddingEnd="@dimen/mc_button_padding_end"
+        android:stateListAnimator="@null"
+        android:text="@string/action_view_what_next"
+        android:textAllCaps="false"
+        android:textColor="@color/text_on_orange"
+        android:textSize="@dimen/mc_button_text_size"
+        app:backgroundTint="@color/orange_primary"
+        app:cornerRadius="@dimen/mc_button_radius"
+        app:fontFamily="@font/sora_semibold"
+        app:icon="@drawable/ic_chevron_right_bold"
+        app:iconGravity="end"
+        app:iconTint="@color/text_on_orange"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:rippleColor="#40FFFFFF" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
