@@ -13,3 +13,16 @@
 .externalNativeBuild
 .cxx
 local.properties
+
+# Runtime copy of the emulator database, pulled by sync-db.ps1
+silvanus.db
+
+# Local tool output
+/.kotlin
+replay_pid*.log
+hs_err_pid*.log
+/Claude outputs/
+
+# Per-machine Android Studio device choices
+/.idea/deploymentTargetSelector.xml
+/.idea/deviceManager.xml

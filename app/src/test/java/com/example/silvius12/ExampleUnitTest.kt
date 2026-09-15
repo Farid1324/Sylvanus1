@@ -1,4 +1,4 @@
-package com.example.myapplication
+package com.example.silvius12
 
 import org.junit.Test
 
