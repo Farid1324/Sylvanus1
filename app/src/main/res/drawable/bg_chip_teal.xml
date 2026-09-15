@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Pale teal capsule: the allow-location row and the two footnote chips. -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid android:color="@color/teal_chip_pale" />
+    <corners android:radius="@dimen/ready_chip_radius" />
+</shape>

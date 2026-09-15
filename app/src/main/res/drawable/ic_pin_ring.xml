@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Line-art location pin with an inner ring, standing in an ellipse —
+     the "Plot name" row on "Your first plot". -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp" android:height="24dp"
+    android:viewportWidth="24" android:viewportHeight="24">
+
+    <!-- base ellipse the pin stands in -->
+    <path android:fillColor="#00000000" android:strokeColor="#FFFFFF"
+        android:strokeWidth="1.7"
+        android:pathData="M12,19.3 m-5.7,0 a5.7,2.3 0,1 0,11.4 0 a5.7,2.3 0,1 0,-11.4 0 Z" />
+
+    <!-- pin outline -->
+    <path android:fillColor="#00000000" android:strokeColor="#FFFFFF"
+        android:strokeWidth="1.9" android:strokeLineJoin="round" android:strokeLineCap="round"
+        android:pathData="M12,18.7 C12,18.7 18.1,12.3 18.1,8.3 A6.1,6.1 0,1 0,5.9,8.3 C5.9,12.3 12,18.7 12,18.7 Z" />
+
+    <!-- inner ring -->
+    <path android:fillColor="#00000000" android:strokeColor="#FFFFFF"
+        android:strokeWidth="1.9"
+        android:pathData="M12,8.3 m-2.5,0 a2.5,2.5 0,1 0,5 0 a2.5,2.5 0,1 0,-5 0 Z" />
+</vector>

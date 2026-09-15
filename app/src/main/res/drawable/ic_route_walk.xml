@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Walker striding away from a start pin along a dotted route to a
+     destination pin — "Walk the boundary". Vector drawables have no
+     stroke-dasharray, so the route is nine separate dots. Traced from
+     the mockup. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="28dp" android:height="24dp"
+    android:viewportWidth="28" android:viewportHeight="24">
+
+    <path android:fillColor="#FFFFFF"
+        android:pathData="M9,21.9 m-0.85,0 a0.85,0.85 0,1 0,1.7 0 a0.85,0.85 0,1 0,-1.7 0 Z M10.75,21.97 m-0.85,0 a0.85,0.85 0,1 0,1.7 0 a0.85,0.85 0,1 0,-1.7 0 Z M12.29,21.13 m-0.85,0 a0.85,0.85 0,1 0,1.7 0 a0.85,0.85 0,1 0,-1.7 0 Z M13.51,19.88 m-0.85,0 a0.85,0.85 0,1 0,1.7 0 a0.85,0.85 0,1 0,-1.7 0 Z M14.6,18.48 m-0.85,0 a0.85,0.85 0,1 0,1.7 0 a0.85,0.85 0,1 0,-1.7 0 Z M15.65,17.03 m-0.85,0 a0.85,0.85 0,1 0,1.7 0 a0.85,0.85 0,1 0,-1.7 0 Z M16.73,15.65 m-0.85,0 a0.85,0.85 0,1 0,1.7 0 a0.85,0.85 0,1 0,-1.7 0 Z M17.96,14.35 m-0.85,0 a0.85,0.85 0,1 0,1.7 0 a0.85,0.85 0,1 0,-1.7 0 Z M19.36,13.28 m-0.85,0 a0.85,0.85 0,1 0,1.7 0 a0.85,0.85 0,1 0,-1.7 0 Z M20.97,12.61 m-0.85,0 a0.85,0.85 0,1 0,1.7 0 a0.85,0.85 0,1 0,-1.7 0 Z" />
+
+    <path android:fillColor="#FFFFFF" android:fillType="evenOdd"
+        android:pathData="M5.6,23.9 C5.6,23.9 7.33,21.77 7.25,20.86 A1.7,1.7 0,1 0,3.95,20.86 C3.87,21.77 5.6,23.9 5.6,23.9 Z M5.6,20.41 m-0.7,0 a0.7,0.7 0,1 0,1.4 0 a0.7,0.7 0,1 0,-1.4 0 Z" />
+    <path android:fillColor="#FFFFFF" android:fillType="evenOdd"
+        android:pathData="M22.8,11 C22.8,11 24.74,8.62 24.64,7.6 A1.9,1.9 0,1 0,20.96,7.6 C20.86,8.62 22.8,11 22.8,11 Z M22.8,7.11 m-0.78,0 a0.78,0.78 0,1 0,1.56 0 a0.78,0.78 0,1 0,-1.56 0 Z" />
+
+    <path android:fillColor="#FFFFFF"
+        android:pathData="M6.5,3.2 m-2.1,0 a2.1,2.1 0,1 0,4.2 0 a2.1,2.1 0,1 0,-4.2 0 Z" />
+    <path android:fillColor="#00000000" android:strokeColor="#FFFFFF"
+        android:strokeLineCap="round" android:strokeWidth="2.6"
+        android:pathData="M6.95,5.7 L6.05,12.0" />
+    <path android:fillColor="#00000000" android:strokeColor="#FFFFFF"
+        android:strokeLineCap="round" android:strokeLineJoin="round" android:strokeWidth="1.9"
+        android:pathData="M7.0,6.9 L9.6,8.6 L10.6,11.2 M6.0,7.0 L3.4,8.7 L2.4,11.3" />
+    <path android:fillColor="#00000000" android:strokeColor="#FFFFFF"
+        android:strokeLineCap="round" android:strokeLineJoin="round" android:strokeWidth="2.4"
+        android:pathData="M6.05,12.0 L8.8,14.8 L9.4,17.2 M6.05,12.0 L3.4,14.9 L2.7,17.2" />
+</vector>

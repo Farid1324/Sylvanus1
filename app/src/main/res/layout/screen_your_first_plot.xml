@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:background="@color/cream_bg"
+    tools:context=".YourFirstPlotActivity">
+
+    <!--
+        fitsSystemWindows overwrites a view's padding with the window insets,
+        so the outer band only carries the status bar and the real padding
+        lives on the inner row.
+    -->
+    <LinearLayout
+        android:id="@+id/headerFirstPlot"
+        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:background="@color/teal_primary"
+        android:fitsSystemWindows="true"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingBottom="@dimen/first_plot_header_padding_vertical"
+            android:paddingEnd="@dimen/first_plot_header_padding_horizontal"
+            android:paddingStart="@dimen/first_plot_header_padding_horizontal"
+            android:paddingTop="@dimen/first_plot_header_padding_vertical">
+
+            <ImageView
+                android:layout_height="wrap_content"
+                android:layout_width="@dimen/logo_leaf_masthead_width"
+                android:adjustViewBounds="true"
+                android:contentDescription="@string/cd_silvanus_logo"
+                android:scaleType="fitCenter"
+                android:src="@drawable/logo_leaf_mark" />
+
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/first_plot_header_brand_gap"
+                android:layout_width="wrap_content"
+                android:fontFamily="@font/sora_extrabold"
+                android:includeFontPadding="false"
+                android:letterSpacing="0.08"
+                android:text="@string/brand_silvanus"
+                android:textColor="@color/text_on_teal"
+                android:textSize="@dimen/first_plot_header_brand_text_size"
+                app:fontFamily="@font/sora_extrabold" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_height="0dp"
+        android:layout_width="0dp"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toTopOf="@id/pillSavedOffline"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/headerFirstPlot">
+
+        <LinearLayout
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:paddingHorizontal="@dimen/first_plot_content_horizontal">
+
+            <!-- Step badge -->
+            <LinearLayout
+                android:layout_gravity="center_horizontal"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/first_plot_step_margin_top"
+                android:layout_width="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_height="@dimen/first_plot_step_badge_size"
+                    android:layout_width="@dimen/first_plot_step_badge_size"
+                    android:background="@drawable/bg_circle_orange"
+                    android:fontFamily="@font/sora_semibold"
+                    android:gravity="center"
+                    android:includeFontPadding="false"
+                    android:text="@string/step_number_2"
+                    android:textColor="@color/text_on_orange"
+                    android:textSize="@dimen/first_plot_step_badge_text_size"
+                    app:fontFamily="@font/sora_semibold" />
+
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/first_plot_step_gap"
+                    android:layout_width="wrap_content"
+                    android:fontFamily="@font/sora_semibold"
+                    android:text="@string/step_2_of_2"
+                    android:textColor="@color/orange_primary"
+                    android:textSize="@dimen/first_plot_step_text_size"
+                    app:fontFamily="@font/sora_semibold" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_gravity="center_horizontal"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/first_plot_title_margin_top"
+                android:layout_width="wrap_content"
+                android:fontFamily="@font/sora_semibold"
+                android:text="@string/first_plot_headline"
+                android:textColor="@color/text_primary"
+                android:textSize="@dimen/first_plot_title_text_size"
+                app:fontFamily="@font/sora_semibold" />
+
+            <!-- Plot name -->
+            <LinearLayout
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/first_plot_row_margin_top"
+                android:layout_width="match_parent"
+                android:background="@drawable/bg_card_outline_teal"
+                android:gravity="center_vertical"
+                android:minHeight="@dimen/first_plot_row_min_height"
+                android:orientation="horizontal"
+                android:padding="@dimen/first_plot_row_padding">
+
+                <ImageView
+                    android:layout_height="@dimen/first_plot_row_icon_size"
+                    android:layout_width="@dimen/first_plot_row_icon_size"
+                    android:background="@drawable/bg_circle_teal"
+                    android:contentDescription="@null"
+                    android:padding="@dimen/first_plot_row_icon_padding"
+                    android:src="@drawable/ic_pin_ring" />
+
+                <EditText
+                    android:id="@+id/inputPlotName"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/first_plot_row_icon_gap"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:background="@null"
+                    android:fontFamily="@font/sora_semibold"
+                    android:hint="@string/hint_plot_name"
+                    android:importantForAutofill="no"
+                    android:inputType="textCapWords"
+                    android:maxLines="1"
+                    android:textColor="@color/text_primary"
+                    android:textColorHint="@color/text_primary"
+                    android:textSize="@dimen/first_plot_row_value_text_size"
+                    app:fontFamily="@font/sora_semibold" />
+
+            </LinearLayout>
+
+            <!-- Main crop -->
+            <LinearLayout
+                android:id="@+id/rowMainCrop"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/first_plot_row_margin_top"
+                android:layout_width="match_parent"
+                android:background="@drawable/bg_card_outline_teal"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center_vertical"
+                android:minHeight="@dimen/first_plot_row_min_height"
+                android:orientation="horizontal"
+                android:padding="@dimen/first_plot_row_padding">
+
+                <ImageView
+                    android:layout_height="@dimen/first_plot_row_icon_size"
+                    android:layout_width="@dimen/first_plot_row_icon_size"
+                    android:background="@drawable/bg_circle_teal"
+                    android:contentDescription="@null"
+                    android:padding="@dimen/first_plot_row_icon_padding"
+                    android:src="@drawable/ic_coffee_sprig" />
+
+                <LinearLayout
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/first_plot_row_icon_gap"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:fontFamily="@font/sora_regular"
+                        android:text="@string/hint_main_crop"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="@dimen/first_plot_row_label_text_size"
+                        app:fontFamily="@font/sora_regular" />
+
+                    <TextView
+                        android:id="@+id/valueMainCrop"
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:fontFamily="@font/sora_semibold"
+                        android:text="@string/value_main_crop_coffee"
+                        android:textColor="@color/text_primary"
+                        android:textSize="@dimen/first_plot_row_value_text_size"
+                        app:fontFamily="@font/sora_semibold" />
+
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_height="@dimen/first_plot_row_chevron_size"
+                    android:layout_width="@dimen/first_plot_row_chevron_size"
+                    android:contentDescription="@null"
+                    android:src="@drawable/ic_chevron_right" />
+
+            </LinearLayout>
+
+            <!-- Estimated size -->
+            <LinearLayout
+                android:id="@+id/rowEstimatedSize"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/first_plot_row_margin_top"
+                android:layout_width="match_parent"
+                android:background="@drawable/bg_card_outline_teal"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center_vertical"
+                android:minHeight="@dimen/first_plot_row_min_height"
+                android:orientation="horizontal"
+                android:padding="@dimen/first_plot_row_padding">
+
+                <ImageView
+                    android:layout_height="@dimen/first_plot_row_icon_size"
+                    android:layout_width="@dimen/first_plot_row_icon_size"
+                    android:background="@drawable/bg_circle_teal"
+                    android:contentDescription="@null"
+                    android:padding="@dimen/first_plot_row_icon_padding"
+                    android:src="@drawable/ic_measure_size" />
+
+                <LinearLayout
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/first_plot_row_icon_gap"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:fontFamily="@font/sora_regular"
+                        android:text="@string/label_estimated_size"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="@dimen/first_plot_row_label_text_size"
+                        app:fontFamily="@font/sora_regular" />
+
+                    <TextView
+                        android:id="@+id/valueEstimatedSize"
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:fontFamily="@font/sora_semibold"
+                        android:text="@string/value_size_not_sure"
+                        android:textColor="@color/text_primary"
+                        android:textSize="@dimen/first_plot_row_value_text_size"
+                        app:fontFamily="@font/sora_semibold" />
+
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_height="@dimen/first_plot_row_chevron_size"
+                    android:layout_width="@dimen/first_plot_row_chevron_size"
+                    android:contentDescription="@null"
+                    android:src="@drawable/ic_chevron_right" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_height="@dimen/space_16"
+                android:layout_weight="1"
+                android:layout_width="match_parent" />
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <LinearLayout
+        android:id="@+id/pillSavedOffline"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/first_plot_pill_margin_top"
+        android:layout_width="wrap_content"
+        android:background="@drawable/bg_pill"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingBottom="@dimen/first_plot_pill_padding_vertical"
+        android:paddingEnd="@dimen/first_plot_pill_padding_horizontal"
+        android:paddingStart="@dimen/first_plot_pill_padding_horizontal"
+        android:paddingTop="@dimen/first_plot_pill_padding_vertical"
+        app:layout_constraintBottom_toTopOf="@id/btnContinueToMap"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageView
+            android:layout_height="@dimen/first_plot_pill_icon_size"
+            android:layout_width="@dimen/first_plot_pill_icon_size"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_cloud_check" />
+
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/first_plot_pill_gap"
+            android:layout_width="wrap_content"
+            android:fontFamily="@font/sora_regular"
+            android:text="@string/label_saved_offline"
+            android:textColor="@color/text_primary"
+            android:textSize="@dimen/first_plot_pill_text_size"
+            app:fontFamily="@font/sora_regular" />
+
+    </LinearLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnContinueToMap"
+        style="@style/Widget.Silvanus.Button.Primary"
+        android:layout_height="@dimen/first_plot_button_height"
+        android:layout_marginBottom="@dimen/first_plot_button_margin_bottom"
+        android:layout_marginHorizontal="@dimen/first_plot_content_horizontal"
+        android:layout_marginTop="@dimen/first_plot_button_margin_top"
+        android:layout_width="0dp"
+        android:background="@drawable/bg_button_teal_rounded"
+        android:fontFamily="@font/sora_semibold"
+        android:stateListAnimator="@null"
+        android:text="@string/action_continue_to_map"
+        android:textAllCaps="false"
+        android:textSize="@dimen/first_plot_button_text_size"
+        app:fontFamily="@font/sora_semibold"
+        app:icon="@drawable/ic_chevron_right"
+        app:iconGravity="textEnd"
+        app:iconPadding="@dimen/space_8"
+        app:iconSize="@dimen/first_plot_button_icon_size"
+        app:iconTint="@color/text_on_teal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

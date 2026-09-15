@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:background="@color/cream_bg"
+    android:fitsSystemWindows="true">
+
+    <LinearLayout
+        android:id="@+id/dots"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/ready_dots_margin_top"
+        android:layout_width="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <View
+            android:layout_height="@dimen/ready_dot_size"
+            android:layout_width="@dimen/ready_dot_size"
+            android:background="@drawable/dot_inactive" />
+
+        <View
+            android:layout_height="@dimen/ready_dot_size"
+            android:layout_marginStart="@dimen/ready_dot_spacing"
+            android:layout_width="@dimen/ready_dot_size"
+            android:background="@drawable/dot_inactive" />
+
+        <View
+            android:layout_height="@dimen/ready_dot_size"
+            android:layout_marginStart="@dimen/ready_dot_spacing"
+            android:layout_width="@dimen/ready_dot_size"
+            android:background="@drawable/dot_inactive" />
+
+        <View
+            android:layout_height="@dimen/ready_dot_size"
+            android:layout_marginStart="@dimen/ready_dot_spacing"
+            android:layout_width="@dimen/ready_dot_size"
+            android:background="@drawable/dot_inactive" />
+
+        <View
+            android:layout_height="@dimen/ready_dot_size"
+            android:layout_marginStart="@dimen/ready_dot_spacing"
+            android:layout_width="@dimen/ready_dot_size"
+            android:background="@drawable/dot_active" />
+
+        <View
+            android:layout_height="@dimen/ready_dot_size"
+            android:layout_marginStart="@dimen/ready_dot_spacing"
+            android:layout_width="@dimen/ready_dot_size"
+            android:background="@drawable/dot_inactive" />
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/ready_logo_margin_top"
+        android:layout_width="@dimen/ready_logo_width"
+        android:adjustViewBounds="true"
+        android:contentDescription="@string/cd_silvanus_logo"
+        android:src="@drawable/logo_leaf_mark"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/dots" />
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/ready_title_margin_top"
+        android:layout_width="wrap_content"
+        android:fontFamily="@font/sora_semibold"
+        android:text="@string/ready_to_map_headline"
+        android:textColor="@color/ink_navy"
+        android:textSize="@dimen/ready_title_text_size"
+        app:fontFamily="@font/sora_semibold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/logo" />
+
+    <!-- Full bleed, no card: the height follows the artwork's own 400:225
+         viewport so nothing is cropped or stretched at any width. -->
+    <ImageView
+        android:id="@+id/imgFarmScene"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/ready_illustration_margin_top"
+        android:layout_width="0dp"
+        android:contentDescription="@string/cd_plot_illustration"
+        android:scaleType="fitXY"
+        android:src="@drawable/img_farm_field_photo"
+        app:layout_constraintDimensionRatio="H,319:207"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/title" />
+
+    <LinearLayout
+        android:id="@+id/cards"
+        android:layout_height="@dimen/ready_card_height"
+        android:layout_marginEnd="@dimen/ready_content_padding_horizontal"
+        android:layout_marginStart="@dimen/ready_content_padding_horizontal"
+        android:layout_marginTop="@dimen/ready_cards_margin_top"
+        android:layout_width="0dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imgFarmScene">
+
+        <LinearLayout
+            android:layout_height="match_parent"
+            android:layout_marginEnd="@dimen/ready_card_gap"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:background="@drawable/bg_chip_teal"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingEnd="@dimen/space_12"
+            android:paddingStart="@dimen/space_12">
+
+            <ImageView
+                android:layout_height="@dimen/ready_card_icon_size"
+                android:layout_width="@dimen/ready_card_icon_size"
+                android:contentDescription="@null"
+                android:src="@drawable/ic_pin_marker"
+                app:tint="@color/ink_navy" />
+
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/ready_card_icon_text_gap"
+                android:layout_width="wrap_content"
+                android:fontFamily="@font/sora_regular"
+                android:gravity="center"
+                android:lineSpacingExtra="3dp"
+                android:text="@string/option_go_to_plot"
+                android:textColor="@color/ink_navy"
+                android:textSize="@dimen/ready_card_text_size"
+                app:fontFamily="@font/sora_regular" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/ready_card_gap"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:background="@drawable/bg_chip_teal"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingEnd="@dimen/space_12"
+            android:paddingStart="@dimen/space_12">
+
+            <ImageView
+                android:layout_height="@dimen/ready_card_icon_size"
+                android:layout_width="@dimen/ready_card_icon_size"
+                android:contentDescription="@null"
+                android:src="@drawable/ic_eye_look"
+                app:tint="@color/ink_navy" />
+
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/ready_card_icon_text_gap"
+                android:layout_width="wrap_content"
+                android:fontFamily="@font/sora_regular"
+                android:gravity="center"
+                android:lineSpacingExtra="3dp"
+                android:text="@string/option_stand_where_visible"
+                android:textColor="@color/ink_navy"
+                android:textSize="@dimen/ready_card_text_size"
+                app:fontFamily="@font/sora_regular" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/bottomBlock"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/ready_bottom_margin"
+        android:layout_marginEnd="@dimen/ready_content_padding_horizontal"
+        android:layout_marginStart="@dimen/ready_content_padding_horizontal"
+        android:layout_width="0dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <!-- The toggle sits in its own capsule in the mockup, not loose on
+             the cream. -->
+        <LinearLayout
+            android:layout_height="@dimen/ready_allow_height"
+            android:layout_width="match_parent"
+            android:background="@drawable/bg_chip_teal"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingEnd="@dimen/ready_allow_padding_horizontal"
+            android:paddingStart="@dimen/ready_allow_padding_horizontal">
+
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:fontFamily="@font/sora_regular"
+                android:text="@string/label_allow_location"
+                android:textColor="@color/ink_navy"
+                android:textSize="@dimen/ready_allow_text_size"
+                app:fontFamily="@font/sora_regular" />
+
+            <com.google.android.material.switchmaterial.SwitchMaterial
+                android:id="@+id/switchAllowLocation"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:checked="true"
+                app:thumbTint="@color/switch_thumb_tint"
+                app:trackTint="@color/switch_track_tint"
+                app:useMaterialThemeColors="false" />
+
+        </LinearLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnMapFirstPlot"
+            android:layout_height="@dimen/ready_button_height"
+            android:layout_marginTop="@dimen/ready_button_margin_top"
+            android:layout_width="match_parent"
+            android:fontFamily="@font/sora_semibold"
+            android:letterSpacing="0"
+            android:stateListAnimator="@null"
+            android:text="@string/action_map_first_plot"
+            android:textAllCaps="false"
+            android:textColor="@color/text_on_orange"
+            android:textSize="@dimen/ready_button_text_size"
+            app:backgroundTint="@color/brand_orange"
+            app:cornerRadius="@dimen/ready_button_radius"
+            app:fontFamily="@font/sora_semibold"
+            app:icon="@drawable/ic_map_folded"
+            app:iconGravity="textStart"
+            app:iconPadding="@dimen/space_12"
+            app:iconSize="@dimen/ready_button_icon_size"
+            app:iconTint="@color/text_on_orange" />
+
+        <!-- Two capsules rather than one run of grey text -->
+        <LinearLayout
+            android:layout_height="@dimen/ready_footnote_height"
+            android:layout_marginTop="@dimen/ready_footnote_margin_top"
+            android:layout_width="match_parent"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_height="match_parent"
+                android:layout_marginEnd="@dimen/ready_footnote_gap"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:background="@drawable/bg_chip_teal"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_height="@dimen/ready_footnote_icon_size"
+                    android:layout_width="@dimen/ready_footnote_icon_size"
+                    android:contentDescription="@null"
+                    android:src="@drawable/ic_clock"
+                    app:tint="@color/ink_navy" />
+
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/ready_footnote_icon_text_gap"
+                    android:layout_width="wrap_content"
+                    android:fontFamily="@font/sora_regular"
+                    android:text="@string/meta_duration"
+                    android:textColor="@color/ink_navy"
+                    android:textSize="@dimen/ready_footnote_text_size"
+                    app:fontFamily="@font/sora_regular" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/ready_footnote_gap"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:background="@drawable/bg_chip_teal"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_height="@dimen/ready_footnote_icon_size"
+                    android:layout_width="@dimen/ready_footnote_icon_size"
+                    android:contentDescription="@null"
+                    android:src="@drawable/ic_wifi_off"
+                    app:tint="@color/ink_navy" />
+
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/ready_footnote_icon_text_gap"
+                    android:layout_width="wrap_content"
+                    android:fontFamily="@font/sora_regular"
+                    android:text="@string/meta_offline"
+                    android:textColor="@color/ink_navy"
+                    android:textSize="@dimen/ready_footnote_text_size"
+                    app:fontFamily="@font/sora_regular" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

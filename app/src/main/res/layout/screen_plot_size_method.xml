@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootPlotSize"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/cream_bg"
+    android:fitsSystemWindows="true"
+    tools:context=".ui.onboarding.PlotSizeMethodFragment">
+
+    <!-- Header: logomark + wordmark, then the question -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/headerPlotSize"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="@dimen/plot_size_content_horizontal"
+        android:paddingTop="@dimen/plot_size_header_padding_top"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/imgLogoPlotSize"
+            android:layout_width="@dimen/logo_leaf_masthead_width"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:contentDescription="@string/cd_silvanus_logo"
+            android:src="@drawable/logo_leaf_mark"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvWordmarkPlotSize"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/plot_size_logo_text_gap"
+            android:fontFamily="@font/sora_extrabold"
+            android:letterSpacing="0.08"
+            android:text="@string/brand_silvanus"
+            android:textColor="@color/text_primary"
+            android:textSize="@dimen/plot_size_wordmark_text_size"
+            app:fontFamily="@font/sora_extrabold"
+            app:layout_constraintBottom_toBottomOf="@id/imgLogoPlotSize"
+            app:layout_constraintStart_toEndOf="@id/imgLogoPlotSize"
+            app:layout_constraintTop_toTopOf="@id/imgLogoPlotSize" />
+
+        <TextView
+            android:id="@+id/tvPlotSizeHeadline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/plot_size_title_margin_top"
+            android:fontFamily="@font/sora_semibold"
+            android:text="@string/plot_size_headline"
+            android:textColor="@color/text_primary"
+            android:textSize="@dimen/plot_size_title_text_size"
+            app:fontFamily="@font/sora_semibold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imgLogoPlotSize" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/headerPlotSize">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="@dimen/plot_size_content_horizontal"
+            android:paddingTop="@dimen/plot_size_scroll_padding_top"
+            android:paddingBottom="@dimen/plot_size_scroll_padding_bottom">
+
+            <!-- Size tiles: icon top-left, label bottom-left -->
+            <LinearLayout
+                android:id="@+id/rowPlotSizeTiles"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/tile4haOrLess"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/plot_size_tile_height"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_tile_teal_dark"
+                    android:orientation="vertical"
+                    android:padding="@dimen/plot_size_tile_padding">
+
+                    <ImageView
+                        android:layout_width="@dimen/plot_size_tile_icon"
+                        android:layout_height="@dimen/plot_size_tile_icon"
+                        android:layout_gravity="center_horizontal"
+                        android:contentDescription="@null"
+                        android:src="@drawable/ic_pin_outline" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/sora_semibold"
+                        android:text="@string/option_4ha_or_less"
+                        android:textColor="@color/text_on_teal"
+                        android:textSize="@dimen/plot_size_tile_label_text_size"
+                        app:fontFamily="@font/sora_semibold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/tileMoreThan4ha"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/plot_size_tile_height"
+                    android:layout_marginStart="@dimen/plot_size_tile_gap"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_tile_teal_dark"
+                    android:orientation="vertical"
+                    android:padding="@dimen/plot_size_tile_padding">
+
+                    <ImageView
+                        android:layout_width="@dimen/plot_size_tile_icon"
+                        android:layout_height="@dimen/plot_size_tile_icon"
+                        android:layout_gravity="center_horizontal"
+                        android:contentDescription="@null"
+                        android:src="@drawable/ic_polygon_dots" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/sora_semibold"
+                        android:text="@string/option_more_than_4ha"
+                        android:textColor="@color/text_on_teal"
+                        android:textSize="@dimen/plot_size_tile_label_text_size"
+                        app:fontFamily="@font/sora_semibold" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- "Not sure?" — solid blue-teal, white text -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/plot_size_notsure_margin_top"
+                android:background="@drawable/bg_card_not_sure"
+                android:gravity="center_vertical"
+                android:minHeight="@dimen/plot_size_notsure_min_height"
+                android:orientation="horizontal"
+                android:padding="@dimen/plot_size_notsure_padding">
+
+                <ImageView
+                    android:layout_width="@dimen/plot_size_notsure_icon"
+                    android:layout_height="@dimen/plot_size_notsure_icon"
+                    android:contentDescription="@null"
+                    android:src="@drawable/ic_help_circle" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/plot_size_notsure_icon_gap"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/sora_semibold"
+                        android:text="@string/not_sure_title"
+                        android:textColor="@color/text_on_teal"
+                        android:textSize="@dimen/plot_size_notsure_title_text_size"
+                        app:fontFamily="@font/sora_semibold" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:alpha="0.92"
+                        android:fontFamily="@font/sora_regular"
+                        android:lineSpacingExtra="2dp"
+                        android:text="@string/not_sure_body"
+                        android:textColor="@color/text_on_teal"
+                        android:textSize="@dimen/plot_size_notsure_body_text_size"
+                        app:fontFamily="@font/sora_regular" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/plot_size_section_margin_top"
+                android:fontFamily="@font/sora_semibold"
+                android:text="@string/mark_method_headline"
+                android:textColor="@color/text_primary"
+                android:textSize="@dimen/plot_size_section_text_size"
+                app:fontFamily="@font/sora_semibold" />
+
+            <!-- Method tiles: Walk (orange, recommended) / Draw (mid-teal) -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/plot_size_method_margin_top"
+                android:orientation="horizontal">
+
+                <!-- Tapping a method tile starts that flow directly -->
+                <LinearLayout
+                    android:id="@+id/tileWalkBoundary"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/plot_size_method_height"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_tile_orange"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:orientation="vertical"
+                    android:padding="@dimen/plot_size_method_padding">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/plot_size_method_icon"
+                        android:layout_gravity="center_horizontal"
+                        android:adjustViewBounds="true"
+                        android:contentDescription="@null"
+                        android:src="@drawable/ic_route_walk" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/sora_semibold"
+                        android:lineSpacingExtra="1dp"
+                        android:text="@string/method_walk_title"
+                        android:textColor="@color/text_on_orange"
+                        android:textSize="@dimen/plot_size_method_title_text_size"
+                        app:fontFamily="@font/sora_semibold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/plot_size_method_title_gap"
+                        android:fontFamily="@font/sora_regular"
+                        android:text="@string/method_walk_sub"
+                        android:textColor="@color/orange_pale"
+                        android:textSize="@dimen/plot_size_method_sub_text_size"
+                        app:fontFamily="@font/sora_regular" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/tileDrawOnMap"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/plot_size_method_height"
+                    android:layout_marginStart="@dimen/plot_size_tile_gap"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_tile_teal_medium"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:orientation="vertical"
+                    android:padding="@dimen/plot_size_method_padding">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/plot_size_method_icon"
+                        android:layout_gravity="center_horizontal"
+                        android:adjustViewBounds="true"
+                        android:contentDescription="@null"
+                        android:src="@drawable/ic_map_draw" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/sora_semibold"
+                        android:lineSpacingExtra="1dp"
+                        android:text="@string/method_draw_title"
+                        android:textColor="@color/text_on_teal"
+                        android:textSize="@dimen/plot_size_method_title_text_size"
+                        app:fontFamily="@font/sora_semibold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/plot_size_method_title_gap"
+                        android:fontFamily="@font/sora_regular"
+                        android:text="@string/method_draw_sub"
+                        android:textColor="@color/teal_pale"
+                        android:textSize="@dimen/plot_size_method_sub_text_size"
+                        app:fontFamily="@font/sora_regular" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/plot_size_flex_gap_min"
+                android:layout_weight="1.3" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

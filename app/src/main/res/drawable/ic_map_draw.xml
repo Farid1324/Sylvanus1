@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- A hand tapping a dashed plot boundary inside a map frame — "Draw on
+     the map". The curled fingers are cut out of the fist with an even-odd
+     fill so the notches stay transparent whatever the tile colour is.
+     Traced from the mockup. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="30dp" android:height="24dp"
+    android:viewportWidth="30" android:viewportHeight="24">
+
+    <path android:fillColor="#00000000" android:strokeColor="#FFFFFF"
+        android:strokeLineJoin="round" android:strokeWidth="1.9"
+        android:pathData="M3.8,1.2 L18.2,1.2 Q21.0,1.2 21.0,4.0 L21.0,14.8 Q21.0,17.6 18.2,17.6 L3.8,17.6 Q1.0,17.6 1.0,14.8 L1.0,4.0 Q1.0,1.2 3.8,1.2 Z" />
+    <path android:fillColor="#00000000" android:strokeColor="#FFFFFF"
+        android:strokeLineCap="round" android:strokeWidth="1.1"
+        android:pathData="M10.59,3.2 L11.41,3.6 M13.49,4.6 L14.31,5 M16.77,5.75 L16.83,6.65 M16.97,8.45 L17.03,9.35 M17.58,11.36 L16.82,11.84 M14.73,13.16 L13.97,13.64 M11.92,15.35 L11.08,15.05 M8.87,14.25 L8.03,13.95 M5.48,13.44 L5.32,12.56 M4.98,10.54 L4.82,9.66 M4.01,7.42 L4.79,6.98 M6.21,6.16 L6.99,5.71 M8.41,4.89 L9.19,4.44" />
+
+    <path android:fillColor="#00000000" android:strokeColor="#FFFFFF"
+        android:strokeLineCap="round" android:strokeWidth="2.6"
+        android:pathData="M20.3,18.6 L17.7,20.4" />
+    <path android:fillColor="#FFFFFF" android:fillType="evenOdd"
+        android:pathData="M20.29,17.66 Q20.4,16.4 21.58,15.95 L21.82,15.85 Q23,15.4 24.26,15.55 L25.22,15.66 Q26.4,15.8 27.04,16.8 L27.16,17 Q27.8,18 27.76,19.18 L27.74,20.08 Q27.7,21.2 26.93,22.02 L26.77,22.18 Q26,23 24.88,23.1 L24.09,23.17 Q22.6,23.3 21.43,22.36 L21.17,22.14 Q20,21.2 20.12,19.71 Z M22.7,17.68 L27,17.68 Q27.42,17.68 27.42,18.1 Q27.42,18.52 27,18.52 L22.7,18.52 Q22.28,18.52 22.28,18.1 Q22.28,17.68 22.7,17.68 Z M22.7,19.78 L27,19.78 Q27.42,19.78 27.42,20.2 Q27.42,20.62 27,20.62 L22.7,20.62 Q22.28,20.62 22.28,20.2 Q22.28,19.78 22.7,19.78 Z M22.7,21.88 L27,21.88 Q27.42,21.88 27.42,22.3 Q27.42,22.72 27,22.72 L22.7,22.72 Q22.28,22.72 22.28,22.3 Q22.28,21.88 22.7,21.88 Z" />
+    <path android:fillColor="#00000000" android:strokeColor="#FFFFFF"
+        android:strokeLineCap="round" android:strokeWidth="3"
+        android:pathData="M15.4,11.8 L20.6,17.0" />
+</vector>
