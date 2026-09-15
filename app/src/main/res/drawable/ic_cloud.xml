@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<vector
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="32dp"
+    android:height="32dp"
+    android:viewportWidth="32"
+    android:viewportHeight="32">
+
+    <!-- Cloud -->
+    <path
+        android:fillColor="@android:color/transparent"
+        android:strokeColor="@color/teal_primary"
+        android:strokeWidth="1.8"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"
+        android:pathData="
+            M8,24
+            C4,24 3,21 4,18
+            C5,15 8,14 11,15
+            C11,10 14,7 18,7
+            C22,7 25,10 25,14
+            C28,14 29,16 29,19
+            C29,22 27,24 24,24
+            Z" />
+
+    <!-- Circular arrows -->
+    <path
+        android:fillColor="@android:color/transparent"
+        android:strokeColor="@color/teal_primary"
+        android:strokeWidth="1.5"
+        android:strokeLineCap="round"
+        android:pathData="
+            M10,19
+            C11,17 13,16 15,16
+            M15,16
+            L14,14
+            M15,16
+            L17,16
+            M22,19
+            C21,21 19,22 17,22
+            M17,22
+            L18,24
+            M17,22
+            L15,22" />
+
+</vector>

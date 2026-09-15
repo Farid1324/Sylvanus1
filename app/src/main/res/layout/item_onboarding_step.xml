@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Included 4 times in screen_steps_overview.xml via <merge>, one per step -->
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_card_white"
+        android:minHeight="72dp"
+        android:padding="14dp">
+
+        <TextView
+            android:id="@+id/tvStepBadge"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:background="@drawable/bg_step_badge"
+            android:fontFamily="sans-serif-black"
+            android:gravity="center"
+            android:textColor="@color/text_on_orange"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="1" />
+
+        <ImageView
+            android:id="@+id/imgStepIconChip"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:layout_marginStart="14dp"
+            android:background="@drawable/bg_icon_chip"
+            android:padding="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tvStepBadge"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/teal_primary"
+            tools:src="@drawable/ic_globe" />
+
+        <TextView
+            android:id="@+id/tvStepLabel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="14dp"
+            android:fontFamily="sans-serif-medium"
+            android:textColor="@color/text_primary"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/imgStepIconChip"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Tell us about you" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</merge>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="360dp"
+    android:height="260dp"
+    android:viewportWidth="360"
+    android:viewportHeight="260">
+    <!-- Flat-topped banner with a shallow curved bottom edge, like a wave/smile.
+         Stretches to fill the header container's actual width/height at runtime. -->
+    <path
+        android:fillColor="@color/teal_primary"
+        android:pathData="M0,0 L360,0 L360,190 C280,260 80,260 0,190 Z" />
+</vector>
