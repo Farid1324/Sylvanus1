@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    "Before you draw" — draw-on-map flow intro. Used by BeforeYouDrawActivity and
+    DrawBeforeYouDrawActivity; both only wire btnOpenMap.
+
+    The four step tiles, the undo disc and the Open map glyph are pictures cut
+    from the mockup. The masthead is the shared teal band with the leaf logo.
+    Cards are drawn first, then the connector, then the badges over both.
+-->
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:background="@color/cream_bg"
+    tools:context=".BeforeYouDrawActivity">
+
+    <!-- Teal masthead: fitsSystemWindows puts the insets on the band, the real
+         padding lives on the inner row (same pattern as "Before you start walking"). -->
+    <LinearLayout
+        android:id="@+id/headerTeal"
+        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:background="@color/teal_primary"
+        android:fitsSystemWindows="true"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingBottom="@dimen/before_walk_header_padding_bottom"
+            android:paddingEnd="@dimen/before_walk_content_horizontal"
+            android:paddingStart="@dimen/before_walk_header_padding_start"
+            android:paddingTop="@dimen/before_walk_header_padding_top">
+
+            <ImageView
+                android:id="@+id/imgLogo"
+                android:layout_height="wrap_content"
+                android:layout_width="@dimen/logo_leaf_masthead_width"
+                android:adjustViewBounds="true"
+                android:contentDescription="@string/cd_silvanus_logo"
+                android:scaleType="fitStart"
+                android:src="@drawable/logo_leaf_mark" />
+
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/before_walk_header_brand_gap"
+                android:layout_width="wrap_content"
+                android:fontFamily="@font/sora_extrabold"
+                android:includeFontPadding="false"
+                android:letterSpacing="0.06"
+                android:maxLines="1"
+                android:text="@string/brand_silvanus"
+                android:textColor="@color/cream_bg"
+                android:textSize="@dimen/draw_intro_brand_text_size"
+                app:fontFamily="@font/sora_extrabold" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvHeadline"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/draw_intro_title_margin_start"
+        android:layout_marginTop="@dimen/draw_intro_title_margin_top"
+        android:layout_width="wrap_content"
+        android:fontFamily="@font/sora_bold"
+        android:includeFontPadding="false"
+        android:maxLines="1"
+        android:text="@string/before_you_draw"
+        android:textColor="@color/teal_dark"
+        android:textSize="@dimen/draw_intro_title_text_size"
+        app:fontFamily="@font/sora_bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/headerTeal" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/stepsBlock"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/draw_intro_steps_margin_top"
+        android:layout_width="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvHeadline">
+
+        <LinearLayout
+            android:id="@+id/cardDraw1"
+            style="@style/Widget.Silvanus.DrawStepCard"
+            android:layout_height="@dimen/draw_intro_card_height"
+            android:layout_marginEnd="@dimen/draw_intro_card_margin_end"
+            android:layout_marginStart="@dimen/draw_intro_card_margin_start"
+            android:layout_width="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:layout_height="wrap_content"
+                android:layout_width="@dimen/draw_intro_tile_width"
+                android:adjustViewBounds="true"
+                android:contentDescription="@null"
+                android:src="@drawable/img_draw_tile_1" />
+
+            <TextView
+                style="@style/TextAppearance.Silvanus.DrawStepText"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/draw_intro_text_margin_start"
+                android:layout_width="wrap_content"
+                android:text="@string/draw_step_1" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/cardDraw2"
+            style="@style/Widget.Silvanus.DrawStepCard"
+            android:layout_height="@dimen/draw_intro_card_height"
+            android:layout_marginEnd="@dimen/draw_intro_card_margin_end"
+            android:layout_marginStart="@dimen/draw_intro_card_margin_start"
+            android:layout_marginTop="@dimen/draw_intro_card_gap"
+            android:layout_width="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cardDraw1">
+
+            <ImageView
+                android:layout_height="wrap_content"
+                android:layout_width="@dimen/draw_intro_tile_width"
+                android:adjustViewBounds="true"
+                android:contentDescription="@null"
+                android:src="@drawable/img_draw_tile_2" />
+
+            <TextView
+                style="@style/TextAppearance.Silvanus.DrawStepText"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/draw_intro_text_margin_start"
+                android:layout_width="wrap_content"
+                android:text="@string/draw_step_2" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/cardDraw3"
+            style="@style/Widget.Silvanus.DrawStepCard"
+            android:layout_height="@dimen/draw_intro_card_height"
+            android:layout_marginEnd="@dimen/draw_intro_card_margin_end"
+            android:layout_marginStart="@dimen/draw_intro_card_margin_start"
+            android:layout_marginTop="@dimen/draw_intro_card_gap"
+            android:layout_width="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cardDraw2">
+
+            <ImageView
+                android:layout_height="wrap_content"
+                android:layout_width="@dimen/draw_intro_tile_width"
+                android:adjustViewBounds="true"
+                android:contentDescription="@null"
+                android:src="@drawable/img_draw_tile_3" />
+
+            <TextView
+                style="@style/TextAppearance.Silvanus.DrawStepText"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/draw_intro_text_margin_start"
+                android:layout_width="wrap_content"
+                android:text="@string/draw_step_3" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/cardDraw4"
+            style="@style/Widget.Silvanus.DrawStepCard"
+            android:layout_height="@dimen/draw_intro_card_height"
+            android:layout_marginEnd="@dimen/draw_intro_card_margin_end"
+            android:layout_marginStart="@dimen/draw_intro_card_margin_start"
+            android:layout_marginTop="@dimen/draw_intro_card_gap"
+            android:layout_width="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cardDraw3">
+
+            <ImageView
+                android:layout_height="wrap_content"
+                android:layout_width="@dimen/draw_intro_tile_width"
+                android:adjustViewBounds="true"
+                android:contentDescription="@null"
+                android:src="@drawable/img_draw_tile_4" />
+
+            <TextView
+                style="@style/TextAppearance.Silvanus.DrawStepText"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/draw_intro_text_margin_start"
+                android:layout_width="wrap_content"
+                android:text="@string/draw_step_4" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_height="0dp"
+            android:layout_marginBottom="@dimen/draw_intro_line_inset"
+            android:layout_marginStart="@dimen/draw_intro_line_margin_start"
+            android:layout_marginTop="@dimen/draw_intro_line_inset"
+            android:layout_width="@dimen/draw_intro_line_width"
+            android:background="@color/draw_line_teal"
+            app:layout_constraintBottom_toBottomOf="@id/badgeDraw4"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/badgeDraw1" />
+
+        <TextView
+            android:id="@+id/badgeDraw1"
+            style="@style/TextAppearance.Silvanus.DrawBadge"
+            android:layout_height="@dimen/draw_intro_badge_size"
+            android:layout_marginStart="@dimen/draw_intro_badge_margin_start"
+            android:layout_marginTop="@dimen/draw_intro_badge_offset_top"
+            android:layout_width="@dimen/draw_intro_badge_size"
+            android:text="@string/step_number_1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/cardDraw1" />
+
+        <TextView
+            android:id="@+id/badgeDraw2"
+            style="@style/TextAppearance.Silvanus.DrawBadge"
+            android:layout_height="@dimen/draw_intro_badge_size"
+            android:layout_marginStart="@dimen/draw_intro_badge_margin_start"
+            android:layout_marginTop="@dimen/draw_intro_badge_offset_top"
+            android:layout_width="@dimen/draw_intro_badge_size"
+            android:text="@string/step_number_2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/cardDraw2" />
+
+        <TextView
+            android:id="@+id/badgeDraw3"
+            style="@style/TextAppearance.Silvanus.DrawBadge"
+            android:layout_height="@dimen/draw_intro_badge_size"
+            android:layout_marginStart="@dimen/draw_intro_badge_margin_start"
+            android:layout_marginTop="@dimen/draw_intro_badge_offset_top"
+            android:layout_width="@dimen/draw_intro_badge_size"
+            android:text="@string/step_number_3"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/cardDraw3" />
+
+        <TextView
+            android:id="@+id/badgeDraw4"
+            style="@style/TextAppearance.Silvanus.DrawBadge"
+            android:layout_height="@dimen/draw_intro_badge_size"
+            android:layout_marginStart="@dimen/draw_intro_badge_margin_start"
+            android:layout_marginTop="@dimen/draw_intro_badge_offset_top"
+            android:layout_width="@dimen/draw_intro_badge_size"
+            android:text="@string/step_number_4"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/cardDraw4" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+        android:id="@+id/noteUndo"
+        android:layout_height="@dimen/draw_intro_note_height"
+        android:layout_marginHorizontal="@dimen/draw_intro_note_margin_horizontal"
+        android:layout_marginTop="@dimen/draw_intro_note_margin_top"
+        android:layout_width="0dp"
+        android:background="@drawable/bg_draw_note"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="@dimen/draw_intro_note_padding_start"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/stepsBlock">
+
+        <ImageView
+            android:layout_height="@dimen/draw_intro_note_disc_height"
+            android:layout_width="wrap_content"
+            android:adjustViewBounds="true"
+            android:contentDescription="@null"
+            android:src="@drawable/img_draw_undo_disc" />
+
+        <TextView
+            style="@style/TextAppearance.Silvanus.DrawStepText"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/draw_intro_note_text_margin_start"
+            android:layout_width="wrap_content"
+            android:text="@string/draw_undo_note" />
+
+    </LinearLayout>
+
+    <!-- Plain Material button so the corner radius applies. Text sits where the
+         mockup puts it; the glyph is an overlay ImageView drawn on top. -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnOpenMap"
+        style="@style/Widget.MaterialComponents.Button"
+        android:layout_height="@dimen/draw_intro_button_height"
+        android:layout_marginEnd="@dimen/draw_intro_button_margin_end"
+        android:layout_marginStart="@dimen/draw_intro_note_margin_horizontal"
+        android:layout_marginTop="@dimen/draw_intro_button_margin_top"
+        android:layout_width="0dp"
+        android:elevation="0dp"
+        android:fontFamily="@font/sora_bold"
+        android:gravity="start|center_vertical"
+        android:insetBottom="0dp"
+        android:insetTop="0dp"
+        android:letterSpacing="0"
+        android:paddingStart="@dimen/draw_intro_button_text_start"
+        android:stateListAnimator="@null"
+        android:text="@string/action_open_map"
+        android:textAllCaps="false"
+        android:textColor="@color/text_on_teal"
+        android:textSize="@dimen/draw_intro_button_text_size"
+        app:backgroundTint="@color/teal_primary"
+        app:cornerRadius="@dimen/draw_intro_button_radius"
+        app:fontFamily="@font/sora_bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/noteUndo"
+        app:rippleColor="#40FFFFFF" />
+
+    <ImageView
+        android:layout_height="@dimen/draw_intro_button_icon_height"
+        android:layout_marginStart="@dimen/draw_intro_button_icon_start"
+        android:layout_width="wrap_content"
+        android:adjustViewBounds="true"
+        android:contentDescription="@null"
+        android:src="@drawable/img_draw_open_map_icon"
+        app:layout_constraintBottom_toBottomOf="@id/btnOpenMap"
+        app:layout_constraintStart_toStartOf="@id/btnOpenMap"
+        app:layout_constraintTop_toTopOf="@id/btnOpenMap" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

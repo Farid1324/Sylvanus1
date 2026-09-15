@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    "Mapping complete" for the draw-on-map flow. DrawMappingCompleteActivity wires btnDone.
+
+    Differs from the walk flow's version: no tick disc, the logo sits centred
+    in the header, the upload flow reads Saved / Uploaded / Checked by TANIT,
+    and a next-steps card replaces the separate "What happens next" screen.
+
+    The map, cloud glyph, phone/cloud row, status glyphs and the next-steps
+    icon strip are pictures cut from the mockup. Where the mockup shows its
+    round emblem, the app's leaf logo sits on a cream disc. Inside the cards,
+    children are placed by their measured offsets.
+-->
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:background="@color/cream_bg"
+    android:clipToPadding="false"
+    android:fitsSystemWindows="true"
+    tools:context=".DrawMappingCompleteActivity">
+
+    <!-- ── teal header band, starting above the status-bar padding ── -->
+    <View
+        android:id="@+id/headerTeal"
+        android:layout_height="0dp"
+        android:layout_marginBottom="@dimen/draw_done_band_below_subtitle"
+        android:layout_marginTop="@dimen/draw_done_header_bleed"
+        android:layout_width="0dp"
+        android:background="@color/teal_primary"
+        app:layout_constraintBottom_toBottomOf="@id/tvSaved"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/headerWave"
+        android:layout_height="@dimen/draw_done_wave_height"
+        android:layout_width="0dp"
+        android:contentDescription="@null"
+        android:scaleType="fitXY"
+        android:src="@drawable/bg_draw_done_wave"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/headerTeal" />
+
+    <ImageView
+        android:id="@+id/imgLogoDisc"
+        android:layout_height="@dimen/draw_done_logo_size"
+        android:layout_marginTop="@dimen/draw_done_logo_margin_top"
+        android:layout_width="@dimen/draw_done_logo_size"
+        android:background="@drawable/bg_logo_disc"
+        android:contentDescription="@string/cd_silvanus_logo"
+        android:padding="@dimen/draw_done_logo_padding"
+        android:scaleType="fitCenter"
+        android:src="@drawable/logo_leaf_mark"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvComplete"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/draw_done_title_margin_top"
+        android:layout_width="wrap_content"
+        android:fontFamily="@font/sora_bold"
+        android:includeFontPadding="false"
+        android:maxLines="1"
+        android:text="@string/mapping_complete"
+        android:textColor="@color/cream_bg"
+        android:textSize="@dimen/draw_done_title_text_size"
+        app:fontFamily="@font/sora_bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imgLogoDisc" />
+
+    <TextView
+        android:id="@+id/tvSaved"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/draw_done_subtitle_margin_top"
+        android:layout_width="wrap_content"
+        android:fontFamily="@font/sora_semibold"
+        android:includeFontPadding="false"
+        android:maxLines="1"
+        android:text="@string/map_saved_on_phone"
+        android:textColor="@color/cream_bg"
+        android:textSize="@dimen/draw_done_subtitle_text_size"
+        app:fontFamily="@font/sora_semibold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvComplete" />
+
+    <!-- ── map: takes the height left between header and cards ── -->
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/imgMap"
+        android:layout_height="0dp"
+        android:layout_marginBottom="@dimen/draw_done_map_margin_bottom"
+        android:layout_marginEnd="@dimen/draw_done_card_margin_end"
+        android:layout_marginStart="@dimen/draw_done_card_margin_start"
+        android:layout_marginTop="@dimen/draw_done_map_margin_top"
+        android:layout_width="0dp"
+        android:contentDescription="@string/cd_map_illustration"
+        android:scaleType="centerCrop"
+        android:src="@drawable/img_draw_done_map"
+        app:layout_constraintBottom_toTopOf="@id/waitCard"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/headerWave"
+        app:shapeAppearanceOverlay="@style/ShapeAppearance.Silvanus.DoneMap" />
+
+    <!-- ── waiting for internet ── -->
+    <FrameLayout
+        android:id="@+id/waitCard"
+        android:layout_height="@dimen/draw_done_wait_height"
+        android:layout_marginBottom="@dimen/draw_done_wait_margin_bottom"
+        android:layout_marginEnd="@dimen/draw_done_card_margin_end"
+        android:layout_marginStart="@dimen/draw_done_card_margin_start"
+        android:layout_width="0dp"
+        android:background="@drawable/bg_draw_wait_card"
+        app:layout_constraintBottom_toTopOf="@id/infoCard"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageView
+            android:layout_height="@dimen/draw_done_cloud_height"
+            android:layout_marginStart="@dimen/draw_done_cloud_start"
+            android:layout_marginTop="@dimen/draw_done_cloud_top"
+            android:layout_width="@dimen/draw_done_cloud_width"
+            android:contentDescription="@null"
+            android:src="@drawable/img_draw_cloud_off" />
+
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/draw_done_wait_text_start"
+            android:layout_marginTop="@dimen/draw_done_wait_title_top"
+            android:layout_width="wrap_content"
+            android:fontFamily="@font/sora_bold"
+            android:includeFontPadding="false"
+            android:text="@string/waiting_for_internet"
+            android:textColor="@color/teal_dark"
+            android:textSize="@dimen/draw_done_wait_title_text_size"
+            app:fontFamily="@font/sora_bold" />
+
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/draw_done_wait_text_start"
+            android:layout_marginTop="@dimen/draw_done_wait_body_top"
+            android:layout_width="wrap_content"
+            android:fontFamily="@font/sora_regular"
+            android:includeFontPadding="false"
+            android:lineSpacingExtra="@dimen/draw_done_wait_body_line_spacing"
+            android:text="@string/draw_upload_when_online"
+            android:textColor="@color/teal_dark"
+            android:textSize="@dimen/draw_done_wait_body_text_size"
+            app:fontFamily="@font/sora_regular" />
+
+        <ImageView
+            android:layout_height="@dimen/draw_done_flow_height"
+            android:layout_marginStart="@dimen/draw_done_flow_start"
+            android:layout_marginTop="@dimen/draw_done_flow_top"
+            android:layout_width="@dimen/draw_done_flow_width"
+            android:contentDescription="@null"
+            android:scaleType="fitXY"
+            android:src="@drawable/img_draw_flow_row" />
+
+        <ImageView
+            android:layout_height="@dimen/draw_done_flow_disc_size"
+            android:layout_marginStart="@dimen/draw_done_flow_disc_start"
+            android:layout_marginTop="@dimen/draw_done_flow_disc_top"
+            android:layout_width="@dimen/draw_done_flow_disc_size"
+            android:background="@drawable/bg_logo_disc"
+            android:contentDescription="@null"
+            android:padding="@dimen/draw_done_flow_disc_padding"
+            android:scaleType="fitCenter"
+            android:src="@drawable/logo_leaf_mark" />
+
+        <TextView
+            style="@style/TextAppearance.Silvanus.DrawFlowLabel"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/draw_done_label1_start"
+            android:layout_marginTop="@dimen/draw_done_label_top"
+            android:layout_width="@dimen/draw_done_label_width"
+            android:text="@string/flow_saved" />
+
+        <TextView
+            style="@style/TextAppearance.Silvanus.DrawFlowLabel"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/draw_done_label2_start"
+            android:layout_marginTop="@dimen/draw_done_label_top"
+            android:layout_width="@dimen/draw_done_label_width"
+            android:text="@string/flow_uploaded" />
+
+        <TextView
+            style="@style/TextAppearance.Silvanus.DrawFlowLabel"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/draw_done_label3_start"
+            android:layout_marginTop="@dimen/draw_done_label_top"
+            android:layout_width="@dimen/draw_done_label_width"
+            android:text="@string/flow_checked" />
+
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/draw_done_label3_start"
+            android:layout_marginTop="@dimen/draw_done_by_top"
+            android:layout_width="@dimen/draw_done_label_width"
+            android:fontFamily="@font/sora_regular"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:text="@string/flow_by_tanit"
+            android:textColor="@color/teal_dark"
+            android:textSize="@dimen/draw_done_by_text_size"
+            app:fontFamily="@font/sora_regular" />
+
+        <ImageView
+            android:layout_height="@dimen/draw_done_status_size"
+            android:layout_marginStart="@dimen/draw_done_status1_start"
+            android:layout_marginTop="@dimen/draw_done_status_top"
+            android:layout_width="@dimen/draw_done_status_size"
+            android:contentDescription="@null"
+            android:src="@drawable/img_draw_status_saved" />
+
+        <ImageView
+            android:layout_height="@dimen/draw_done_status_size"
+            android:layout_marginStart="@dimen/draw_done_status2_start"
+            android:layout_marginTop="@dimen/draw_done_status_top"
+            android:layout_width="@dimen/draw_done_status_size"
+            android:contentDescription="@null"
+            android:src="@drawable/img_draw_status_uploaded" />
+
+        <ImageView
+            android:layout_height="@dimen/draw_done_status_size"
+            android:layout_marginStart="@dimen/draw_done_status3_start"
+            android:layout_marginTop="@dimen/draw_done_status3_top"
+            android:layout_width="@dimen/draw_done_status_size"
+            android:contentDescription="@null"
+            android:src="@drawable/img_draw_status_checked" />
+
+    </FrameLayout>
+
+    <!-- ── next steps ── -->
+    <FrameLayout
+        android:id="@+id/infoCard"
+        android:layout_height="@dimen/draw_done_info_height"
+        android:layout_marginBottom="@dimen/draw_done_info_margin_bottom"
+        android:layout_marginEnd="@dimen/draw_done_card_margin_end"
+        android:layout_marginStart="@dimen/draw_done_card_margin_start"
+        android:layout_width="0dp"
+        android:background="@drawable/bg_draw_info_card"
+        app:layout_constraintBottom_toTopOf="@id/btnDone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageView
+            android:layout_height="@dimen/draw_done_strip_height"
+            android:layout_marginStart="@dimen/draw_done_strip_start"
+            android:layout_marginTop="@dimen/draw_done_strip_top"
+            android:layout_width="wrap_content"
+            android:adjustViewBounds="true"
+            android:contentDescription="@null"
+            android:src="@drawable/img_draw_next_strip" />
+
+        <TextView
+            style="@style/TextAppearance.Silvanus.DrawInfoText"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/draw_done_info_text_start"
+            android:layout_marginTop="@dimen/draw_done_info1_top"
+            android:layout_width="wrap_content"
+            android:text="@string/draw_next_check" />
+
+        <TextView
+            style="@style/TextAppearance.Silvanus.DrawInfoText"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/draw_done_info_text_start"
+            android:layout_marginTop="@dimen/draw_done_info2_top"
+            android:layout_width="wrap_content"
+            android:text="@string/draw_next_submit" />
+
+        <TextView
+            style="@style/TextAppearance.Silvanus.DrawInfoText"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/draw_done_info_text_start"
+            android:layout_marginTop="@dimen/draw_done_info3_top"
+            android:layout_width="wrap_content"
+            android:text="@string/no_traces_needed" />
+
+    </FrameLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnDone"
+        style="@style/Widget.MaterialComponents.Button"
+        android:layout_height="@dimen/draw_done_button_height"
+        android:layout_marginBottom="@dimen/draw_done_button_margin_bottom"
+        android:layout_marginEnd="@dimen/draw_done_button_margin_end"
+        android:layout_marginStart="@dimen/draw_done_button_margin_start"
+        android:layout_width="0dp"
+        android:elevation="0dp"
+        android:fontFamily="@font/sora_bold"
+        android:insetBottom="0dp"
+        android:insetTop="0dp"
+        android:letterSpacing="0"
+        android:stateListAnimator="@null"
+        android:text="@string/action_done"
+        android:textAllCaps="false"
+        android:textColor="@color/text_on_teal"
+        android:textSize="@dimen/draw_done_button_text_size"
+        app:backgroundTint="@color/teal_primary"
+        app:cornerRadius="@dimen/draw_done_button_radius"
+        app:fontFamily="@font/sora_bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:rippleColor="#40FFFFFF" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

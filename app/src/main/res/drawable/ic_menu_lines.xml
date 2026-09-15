@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Three-line menu glyph for the draw-flow top bar. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="25dp" android:height="25dp" android:viewportWidth="25" android:viewportHeight="25">
+    <path android:fillColor="#00000000" android:strokeColor="@color/teal_primary" android:strokeWidth="2.6"
+        android:strokeLineCap="round" android:pathData="M2,5 L23,5 M2,12.5 L23,12.5 M2,20 L23,20" />
+</vector>

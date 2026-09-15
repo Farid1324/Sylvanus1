@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Draw flow, step 3 of 3 — check your drawing. Used by DrawCheckDrawingActivity
+    (btnSaveMap) and DrawCheckActivity (btnEditPoints, btnSaveMap).
+
+    The satellite map with the drawn plot is a picture cut from the mockup and
+    takes whatever height is left between the check rows and the area card.
+    The bottom stack is pinned to the bottom; the top stack runs down from the
+    top bar. Button glyphs are overlay ImageViews.
+-->
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:background="@color/cream_bg"
+    android:fitsSystemWindows="true"
+    tools:context=".DrawCheckDrawingActivity">
+
+    <!-- ── logo, step label, help ── -->
+    <FrameLayout
+        android:id="@+id/topRow"
+        android:layout_height="@dimen/draw_check_row_height"
+        android:layout_width="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:layout_gravity="start|center_vertical"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/draw_check_logo_margin_start"
+            android:layout_width="@dimen/logo_leaf_masthead_width"
+            android:adjustViewBounds="true"
+            android:contentDescription="@string/cd_silvanus_logo"
+            android:src="@drawable/logo_leaf_mark" />
+
+        <TextView
+            android:layout_gravity="center"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:fontFamily="@font/sora_regular"
+            android:text="@string/step_3_of_3"
+            android:textColor="@color/ink_navy"
+            android:textSize="@dimen/draw_check_step_text_size"
+            app:fontFamily="@font/sora_regular" />
+
+        <ImageView
+            android:id="@+id/btnHelp"
+            android:layout_gravity="end|center_vertical"
+            android:layout_height="@dimen/draw_check_help_height"
+            android:layout_marginEnd="@dimen/draw_check_help_margin_end"
+            android:layout_width="@dimen/draw_check_help_width"
+            android:contentDescription="@string/cd_help"
+            android:src="@drawable/img_draw_help_ring" />
+
+    </FrameLayout>
+
+    <!-- ── stepper: two done steps, current step 3 ── -->
+    <FrameLayout
+        android:id="@+id/stepper"
+        android:layout_height="@dimen/draw_check_stepper_height"
+        android:layout_marginTop="@dimen/draw_check_stepper_margin_top"
+        android:layout_width="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/topRow">
+
+        <View
+            android:layout_gravity="start|center_vertical"
+            android:layout_height="@dimen/draw_check_stepper_line"
+            android:layout_marginStart="@dimen/draw_check_line1_start"
+            android:layout_width="@dimen/draw_check_line1_width"
+            android:background="@color/teal_dark" />
+
+        <View
+            android:layout_gravity="start|center_vertical"
+            android:layout_height="@dimen/draw_check_stepper_line"
+            android:layout_marginStart="@dimen/draw_check_line2_start"
+            android:layout_width="@dimen/draw_check_line2_width"
+            android:background="@color/teal_dark" />
+
+        <View
+            android:layout_gravity="start|center_vertical"
+            android:layout_height="@dimen/draw_check_stepper_line"
+            android:layout_marginStart="@dimen/draw_check_line3_start"
+            android:layout_width="@dimen/draw_check_line3_width"
+            android:background="@color/orange_primary" />
+
+        <ImageView
+            android:layout_gravity="start|center_vertical"
+            android:layout_height="@dimen/draw_check_stepper_disc"
+            android:layout_marginStart="@dimen/draw_check_disc1_start"
+            android:layout_width="@dimen/draw_check_stepper_disc"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_check_disc" />
+
+        <ImageView
+            android:layout_gravity="start|center_vertical"
+            android:layout_height="@dimen/draw_check_stepper_disc"
+            android:layout_marginStart="@dimen/draw_check_disc2_start"
+            android:layout_width="@dimen/draw_check_stepper_disc"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_check_disc" />
+
+        <TextView
+            android:layout_gravity="start|center_vertical"
+            android:layout_height="@dimen/draw_check_stepper_disc"
+            android:layout_marginStart="@dimen/draw_check_disc3_start"
+            android:layout_width="@dimen/draw_check_stepper_disc"
+            android:background="@drawable/bg_step_badge"
+            android:fontFamily="@font/sora_bold"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:text="@string/step_number_3"
+            android:textColor="@color/text_on_orange"
+            android:textSize="@dimen/draw_check_disc_text_size"
+            app:fontFamily="@font/sora_bold" />
+
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/draw_check_title_margin_top"
+        android:layout_width="wrap_content"
+        android:fontFamily="@font/sora_bold"
+        android:includeFontPadding="false"
+        android:maxLines="1"
+        android:text="@string/check_your_drawing"
+        android:textColor="@color/ink_navy"
+        android:textSize="@dimen/draw_check_title_text_size"
+        app:fontFamily="@font/sora_bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/stepper" />
+
+    <LinearLayout
+        android:id="@+id/rowBoundaryClosed"
+        android:layout_height="@dimen/draw_check_card_height"
+        android:layout_marginEnd="@dimen/draw_check_card_margin_end"
+        android:layout_marginStart="@dimen/draw_check_card_margin_start"
+        android:layout_marginTop="@dimen/draw_check_cards_margin_top"
+        android:layout_width="0dp"
+        android:background="@drawable/bg_draw_check_card"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="@dimen/draw_check_card_padding_start"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvTitle">
+
+        <ImageView
+            android:layout_height="@dimen/draw_check_card_disc"
+            android:layout_width="@dimen/draw_check_card_disc"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_check_disc" />
+
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/draw_check_card_text_start"
+            android:layout_width="wrap_content"
+            android:fontFamily="@font/sora_regular"
+            android:text="@string/boundary_closed"
+            android:textColor="@color/ink_navy"
+            android:textSize="@dimen/draw_check_card_text_size"
+            app:fontFamily="@font/sora_regular" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/rowNoCrossedLines"
+        android:layout_height="@dimen/draw_check_card_height"
+        android:layout_marginEnd="@dimen/draw_check_card_margin_end"
+        android:layout_marginStart="@dimen/draw_check_card_margin_start"
+        android:layout_marginTop="@dimen/draw_check_card_gap"
+        android:layout_width="0dp"
+        android:background="@drawable/bg_draw_check_card"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="@dimen/draw_check_card_padding_start"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/rowBoundaryClosed">
+
+        <ImageView
+            android:layout_height="@dimen/draw_check_card_disc"
+            android:layout_width="@dimen/draw_check_card_disc"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_check_disc" />
+
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/draw_check_card_text_start"
+            android:layout_width="wrap_content"
+            android:fontFamily="@font/sora_regular"
+            android:text="@string/no_crossed_lines"
+            android:textColor="@color/ink_navy"
+            android:textSize="@dimen/draw_check_card_text_size"
+            app:fontFamily="@font/sora_regular" />
+
+    </LinearLayout>
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/imgMap"
+        android:layout_height="0dp"
+        android:layout_marginBottom="@dimen/draw_check_map_margin_bottom"
+        android:layout_marginEnd="@dimen/draw_check_map_margin_end"
+        android:layout_marginStart="@dimen/draw_check_map_margin_start"
+        android:layout_marginTop="@dimen/draw_check_map_margin_top"
+        android:layout_width="0dp"
+        android:contentDescription="@string/cd_map_illustration"
+        android:scaleType="centerCrop"
+        android:src="@drawable/img_draw_check_map"
+        app:layout_constraintBottom_toTopOf="@id/areaCard"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/rowNoCrossedLines"
+        app:shapeAppearanceOverlay="@style/ShapeAppearance.Silvanus.MapTopRounded" />
+
+    <!-- ── bottom stack, pinned to the bottom ── -->
+    <LinearLayout
+        android:id="@+id/areaCard"
+        android:layout_height="@dimen/draw_check_area_height"
+        android:layout_marginBottom="@dimen/draw_check_area_margin_bottom"
+        android:layout_marginEnd="@dimen/draw_check_card_margin_end"
+        android:layout_marginStart="@dimen/draw_check_card_margin_start"
+        android:layout_width="0dp"
+        android:background="@drawable/bg_draw_check_card"
+        android:baselineAligned="true"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@id/hintRow"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:id="@+id/tvArea"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:fontFamily="@font/sora_bold"
+            android:includeFontPadding="false"
+            android:text="4.72"
+            android:textColor="@color/ink_navy"
+            android:textSize="@dimen/draw_check_area_value_text_size"
+            app:fontFamily="@font/sora_bold"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/draw_check_area_unit_start"
+            android:layout_width="wrap_content"
+            android:fontFamily="@font/sora_bold"
+            android:includeFontPadding="false"
+            android:text="@string/unit_hectares"
+            android:textColor="@color/ink_navy"
+            android:textSize="@dimen/draw_check_area_unit_text_size"
+            app:fontFamily="@font/sora_bold" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/hintRow"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/draw_check_hint_margin_bottom"
+        android:layout_marginStart="@dimen/draw_check_hint_margin_start"
+        android:layout_width="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@id/btnEditPoints"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageView
+            android:layout_height="@dimen/draw_check_hint_disc_height"
+            android:layout_width="wrap_content"
+            android:adjustViewBounds="true"
+            android:contentDescription="@null"
+            android:src="@drawable/img_draw_hand_disc" />
+
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/draw_check_hint_text_start"
+            android:layout_width="wrap_content"
+            android:fontFamily="@font/sora_medium"
+            android:includeFontPadding="false"
+            android:text="@string/move_point_hint"
+            android:textColor="@color/ink_navy"
+            android:textSize="@dimen/draw_check_hint_text_size"
+            app:fontFamily="@font/sora_medium" />
+
+    </LinearLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnEditPoints"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:layout_height="@dimen/draw_check_edit_height"
+        android:layout_marginBottom="@dimen/draw_check_edit_margin_bottom"
+        android:layout_marginEnd="@dimen/draw_check_edit_margin_end"
+        android:layout_marginStart="@dimen/draw_check_edit_margin_start"
+        android:layout_width="0dp"
+        android:fontFamily="@font/sora_medium"
+        android:gravity="start|center_vertical"
+        android:insetBottom="0dp"
+        android:insetTop="0dp"
+        android:letterSpacing="0"
+        android:paddingStart="@dimen/draw_check_edit_text_start"
+        android:text="@string/action_edit_points"
+        android:textAllCaps="false"
+        android:textColor="@color/teal_primary"
+        android:textSize="@dimen/draw_check_edit_text_size"
+        app:backgroundTint="@android:color/transparent"
+        app:cornerRadius="@dimen/draw_check_edit_radius"
+        app:fontFamily="@font/sora_medium"
+        app:layout_constraintBottom_toTopOf="@id/btnSaveMap"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:strokeColor="@color/teal_primary"
+        app:strokeWidth="@dimen/draw_check_edit_stroke" />
+
+    <ImageView
+        android:layout_height="@dimen/draw_check_polygon_height"
+        android:layout_marginStart="@dimen/draw_check_polygon_start"
+        android:layout_width="wrap_content"
+        android:adjustViewBounds="true"
+        android:contentDescription="@null"
+        android:src="@drawable/img_draw_polygon_icon"
+        app:layout_constraintBottom_toBottomOf="@id/btnEditPoints"
+        app:layout_constraintStart_toStartOf="@id/btnEditPoints"
+        app:layout_constraintTop_toTopOf="@id/btnEditPoints" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnSaveMap"
+        style="@style/Widget.MaterialComponents.Button"
+        android:layout_height="@dimen/draw_check_save_height"
+        android:layout_marginBottom="@dimen/draw_check_save_margin_bottom"
+        android:layout_marginEnd="@dimen/draw_check_save_margin_end"
+        android:layout_marginStart="@dimen/draw_check_save_margin_start"
+        android:layout_width="0dp"
+        android:elevation="0dp"
+        android:fontFamily="@font/sora_semibold"
+        android:gravity="start|center_vertical"
+        android:insetBottom="0dp"
+        android:insetTop="0dp"
+        android:letterSpacing="0"
+        android:paddingStart="@dimen/draw_check_save_text_start"
+        android:stateListAnimator="@null"
+        android:text="@string/action_save_my_map"
+        android:textAllCaps="false"
+        android:textColor="@color/text_on_orange"
+        android:textSize="@dimen/draw_check_save_text_size"
+        app:backgroundTint="@color/orange_primary"
+        app:cornerRadius="@dimen/draw_check_save_radius"
+        app:fontFamily="@font/sora_semibold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:rippleColor="#40FFFFFF" />
+
+    <ImageView
+        android:layout_height="@dimen/draw_check_save_icon_height"
+        android:layout_marginStart="@dimen/draw_check_save_icon_start"
+        android:layout_width="wrap_content"
+        android:adjustViewBounds="true"
+        android:contentDescription="@null"
+        android:src="@drawable/img_draw_save_icon"
+        app:layout_constraintBottom_toBottomOf="@id/btnSaveMap"
+        app:layout_constraintStart_toStartOf="@id/btnSaveMap"
+        app:layout_constraintTop_toTopOf="@id/btnSaveMap" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

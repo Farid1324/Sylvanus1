@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Draw flow, step 1 of 3 — find your field. DrawFindFieldActivity wires btnFieldVisible.
+
+    The satellite map (with its pin and map controls) is a picture cut from the
+    mockup; the gesture card and the Offline map chip baked into it were erased
+    and rebuilt here as views in the same places. Button glyphs are overlay
+    ImageViews so the pictures keep their own proportions.
+-->
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:background="@color/cream_bg"
+    android:fitsSystemWindows="true"
+    tools:context=".DrawFindFieldActivity">
+
+    <ImageView
+        android:id="@+id/imgMap"
+        android:layout_height="0dp"
+        android:layout_marginBottom="@dimen/draw_find_map_tuck"
+        android:layout_width="0dp"
+        android:contentDescription="@string/cd_map_illustration"
+        android:scaleType="centerCrop"
+        android:src="@drawable/img_draw_find_map"
+        app:layout_constraintBottom_toTopOf="@id/sheet"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/topBar" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/topBar"
+        android:layout_height="@dimen/draw_find_bar_height"
+        android:layout_width="0dp"
+        android:background="@color/cream_bg"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/imgLogo"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/draw_find_logo_margin_start"
+            android:layout_width="@dimen/logo_leaf_masthead_width"
+            android:adjustViewBounds="true"
+            android:contentDescription="@string/cd_silvanus_logo"
+            android:src="@drawable/logo_leaf_mark"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/draw_find_step_margin_start"
+            android:layout_width="wrap_content"
+            android:fontFamily="@font/sora_bold"
+            android:text="@string/step_1_of_3"
+            android:textColor="@color/teal_primary"
+            android:textSize="@dimen/draw_find_step_text_size"
+            app:fontFamily="@font/sora_bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/imgLogo"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/btnMenu"
+            android:layout_height="@dimen/draw_find_menu_size"
+            android:layout_marginEnd="@dimen/draw_find_menu_margin_end"
+            android:layout_width="@dimen/draw_find_menu_size"
+            android:contentDescription="@string/cd_menu"
+            android:padding="@dimen/draw_find_menu_padding"
+            android:src="@drawable/ic_menu_lines"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- ── gesture card ── -->
+    <LinearLayout
+        android:id="@+id/gestureCard"
+        android:layout_height="@dimen/draw_find_card_height"
+        android:layout_marginStart="@dimen/draw_find_card_margin_start"
+        android:layout_marginTop="@dimen/draw_find_card_margin_top"
+        android:layout_width="@dimen/draw_find_card_width"
+        android:background="@drawable/bg_draw_teal_card"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/draw_find_card_padding_bottom"
+        android:paddingTop="@dimen/draw_find_card_padding_top"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/topBar">
+
+        <LinearLayout
+            android:layout_height="@dimen/draw_find_card_row_height"
+            android:layout_width="match_parent"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_height="@dimen/draw_find_drag_icon_height"
+                android:layout_marginStart="@dimen/draw_find_drag_icon_start"
+                android:layout_width="@dimen/draw_find_drag_icon_width"
+                android:contentDescription="@null"
+                android:src="@drawable/img_draw_drag_icon" />
+
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/draw_find_drag_text_start"
+                android:layout_width="wrap_content"
+                android:fontFamily="@font/sora_semibold"
+                android:maxLines="1"
+                android:text="@string/drag_to_move"
+                android:textColor="@color/text_on_teal"
+                android:textSize="@dimen/draw_find_card_text_size"
+                app:fontFamily="@font/sora_semibold" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_height="@dimen/draw_find_card_row_height"
+            android:layout_width="match_parent"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_height="@dimen/draw_find_pinch_icon_height"
+                android:layout_marginStart="@dimen/draw_find_pinch_icon_start"
+                android:layout_width="@dimen/draw_find_pinch_icon_width"
+                android:contentDescription="@null"
+                android:src="@drawable/img_draw_pinch_icon" />
+
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/draw_find_pinch_text_start"
+                android:layout_width="wrap_content"
+                android:fontFamily="@font/sora_semibold"
+                android:maxLines="1"
+                android:text="@string/pinch_to_zoom"
+                android:textColor="@color/text_on_teal"
+                android:textSize="@dimen/draw_find_card_text_size"
+                app:fontFamily="@font/sora_semibold" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- ── Offline map chip, sitting just above the sheet ── -->
+    <LinearLayout
+        android:id="@+id/chipOffline"
+        android:layout_height="@dimen/draw_find_chip_height"
+        android:layout_marginBottom="@dimen/draw_find_chip_margin_bottom"
+        android:layout_marginStart="@dimen/draw_find_chip_margin_start"
+        android:layout_width="@dimen/draw_find_chip_width"
+        android:background="@drawable/bg_draw_chip"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@id/sheet"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageView
+            android:layout_height="@dimen/draw_find_chip_icon_height"
+            android:layout_marginStart="@dimen/draw_find_chip_icon_start"
+            android:layout_width="@dimen/draw_find_chip_icon_width"
+            android:contentDescription="@null"
+            android:src="@drawable/img_draw_chip_cloud" />
+
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/draw_find_chip_text_start"
+            android:layout_width="wrap_content"
+            android:fontFamily="@font/sora_semibold"
+            android:maxLines="1"
+            android:text="@string/offline_map"
+            android:textColor="@color/text_on_teal"
+            android:textSize="@dimen/draw_find_chip_text_size"
+            app:fontFamily="@font/sora_semibold" />
+
+    </LinearLayout>
+
+    <!-- ── bottom sheet ── -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/sheet"
+        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:background="@drawable/bg_draw_sheet"
+        android:paddingBottom="@dimen/draw_find_sheet_padding_bottom"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <View
+            android:layout_height="@dimen/draw_find_handle_height"
+            android:layout_marginTop="@dimen/draw_find_handle_margin_top"
+            android:layout_width="@dimen/draw_find_handle_width"
+            android:background="@drawable/bg_draw_handle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnFieldVisible"
+            style="@style/Widget.MaterialComponents.Button"
+            android:layout_height="@dimen/draw_find_primary_height"
+            android:layout_marginHorizontal="@dimen/draw_find_button_margin_horizontal"
+            android:layout_marginTop="@dimen/draw_find_primary_margin_top"
+            android:layout_width="0dp"
+            android:elevation="0dp"
+            android:fontFamily="@font/sora_bold"
+            android:gravity="start|center_vertical"
+            android:insetBottom="0dp"
+            android:insetTop="0dp"
+            android:letterSpacing="0"
+            android:paddingStart="@dimen/draw_find_primary_text_start"
+            android:stateListAnimator="@null"
+            android:text="@string/action_field_visible"
+            android:textAllCaps="false"
+            android:textColor="@color/text_on_orange"
+            android:textSize="@dimen/draw_find_primary_text_size"
+            app:backgroundTint="@color/orange_primary"
+            app:cornerRadius="@dimen/draw_find_button_radius"
+            app:fontFamily="@font/sora_bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:rippleColor="#40FFFFFF" />
+
+        <ImageView
+            android:layout_height="@dimen/draw_find_eye_height"
+            android:layout_marginStart="@dimen/draw_find_eye_start"
+            android:layout_width="@dimen/draw_find_eye_width"
+            android:contentDescription="@null"
+            android:src="@drawable/img_draw_eye_icon"
+            app:layout_constraintBottom_toBottomOf="@id/btnFieldVisible"
+            app:layout_constraintStart_toStartOf="@id/btnFieldVisible"
+            app:layout_constraintTop_toTopOf="@id/btnFieldVisible" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnMyLocation"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_height="@dimen/draw_find_secondary_height"
+            android:layout_marginHorizontal="@dimen/draw_find_button_margin_horizontal"
+            android:layout_marginTop="@dimen/draw_find_secondary_margin_top"
+            android:layout_width="0dp"
+            android:fontFamily="@font/sora_bold"
+            android:gravity="start|center_vertical"
+            android:insetBottom="0dp"
+            android:insetTop="0dp"
+            android:letterSpacing="0"
+            android:paddingStart="@dimen/draw_find_secondary_text_start"
+            android:stateListAnimator="@null"
+            android:text="@string/action_my_location"
+            android:textAllCaps="false"
+            android:textColor="@color/teal_primary"
+            android:textSize="@dimen/draw_find_secondary_text_size"
+            app:backgroundTint="@android:color/transparent"
+            app:cornerRadius="@dimen/draw_find_button_radius"
+            app:fontFamily="@font/sora_bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnFieldVisible"
+            app:strokeColor="@color/teal_primary"
+            app:strokeWidth="@dimen/draw_find_secondary_stroke" />
+
+        <ImageView
+            android:layout_height="@dimen/draw_find_arrow_height"
+            android:layout_marginStart="@dimen/draw_find_arrow_start"
+            android:layout_width="@dimen/draw_find_arrow_width"
+            android:contentDescription="@null"
+            android:src="@drawable/img_draw_nav_arrow"
+            app:layout_constraintBottom_toBottomOf="@id/btnMyLocation"
+            app:layout_constraintStart_toStartOf="@id/btnMyLocation"
+            app:layout_constraintTop_toTopOf="@id/btnMyLocation" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

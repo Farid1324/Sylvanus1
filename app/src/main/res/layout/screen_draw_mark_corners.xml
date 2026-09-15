@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Draw flow, step 2 of 3 — mark each corner. DrawMarkCornersActivity wires btnCloseBoundary.
+
+    The satellite map with the drawn corners is a picture cut from the mockup;
+    its "Mark each corner" card was erased and rebuilt here. The sheet places
+    each child by its measured offset from the sheet's top edge. Close boundary
+    keeps the mockup's faded look but stays tappable so the prototype can move on.
+-->
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:background="@color/cream_bg"
+    android:fitsSystemWindows="true"
+    tools:context=".DrawMarkCornersActivity">
+
+    <ImageView
+        android:id="@+id/imgMap"
+        android:layout_height="0dp"
+        android:layout_marginBottom="@dimen/draw_mark_map_tuck"
+        android:layout_width="0dp"
+        android:contentDescription="@string/cd_map_illustration"
+        android:scaleType="centerCrop"
+        android:src="@drawable/img_draw_mark_map"
+        app:layout_constraintBottom_toTopOf="@id/sheet"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/topBar" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/topBar"
+        android:layout_height="@dimen/draw_mark_bar_height"
+        android:layout_width="0dp"
+        android:background="@color/cream_bg"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/imgLogo"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/draw_find_logo_margin_start"
+            android:layout_width="@dimen/logo_leaf_masthead_width"
+            android:adjustViewBounds="true"
+            android:contentDescription="@string/cd_silvanus_logo"
+            android:src="@drawable/logo_leaf_mark"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/draw_find_step_margin_start"
+            android:layout_width="wrap_content"
+            android:fontFamily="@font/sora_regular"
+            android:text="@string/step_2_of_3"
+            android:textColor="@color/ink_navy"
+            android:textSize="@dimen/draw_mark_step_text_size"
+            app:fontFamily="@font/sora_regular"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/imgLogo"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/btnHelp"
+            android:layout_height="@dimen/draw_mark_help_size"
+            android:layout_marginEnd="@dimen/draw_mark_help_margin_end"
+            android:layout_width="@dimen/draw_mark_help_size"
+            android:contentDescription="@string/cd_help"
+            android:src="@drawable/img_draw_help_disc"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+        android:id="@+id/markCard"
+        android:layout_height="@dimen/draw_mark_card_height"
+        android:layout_marginEnd="@dimen/draw_mark_card_margin_end"
+        android:layout_marginStart="@dimen/draw_mark_card_margin_start"
+        android:layout_marginTop="@dimen/draw_mark_card_margin_top"
+        android:layout_width="0dp"
+        android:background="@drawable/bg_draw_mark_card"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/topBar">
+
+        <ImageView
+            android:layout_height="@dimen/draw_mark_icon_height"
+            android:layout_marginStart="@dimen/draw_mark_icon_start"
+            android:layout_width="@dimen/draw_mark_icon_width"
+            android:contentDescription="@null"
+            android:src="@drawable/img_draw_mark_icon" />
+
+        <LinearLayout
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/draw_mark_text_start"
+            android:layout_width="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:fontFamily="@font/sora_bold"
+                android:includeFontPadding="false"
+                android:maxLines="1"
+                android:text="@string/mark_each_corner"
+                android:textColor="@color/teal_primary"
+                android:textSize="@dimen/draw_mark_title_text_size"
+                app:fontFamily="@font/sora_bold" />
+
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/draw_mark_subtitle_margin_top"
+                android:layout_width="wrap_content"
+                android:fontFamily="@font/sora_regular"
+                android:includeFontPadding="false"
+                android:maxLines="1"
+                android:text="@string/tap_around_edge"
+                android:textColor="@color/teal_dark"
+                android:textSize="@dimen/draw_mark_subtitle_text_size"
+                app:fontFamily="@font/sora_regular" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- ── bottom sheet ── -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/sheet"
+        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:background="@drawable/bg_draw_sheet_lg"
+        android:paddingBottom="@dimen/draw_mark_sheet_padding_bottom"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <View
+            android:layout_height="@dimen/draw_mark_handle_height"
+            android:layout_marginTop="@dimen/draw_mark_handle_margin_top"
+            android:layout_width="@dimen/draw_mark_handle_width"
+            android:background="@drawable/bg_draw_handle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:layout_height="@dimen/draw_mark_pin_height"
+            android:layout_marginStart="@dimen/draw_mark_pin_start"
+            android:layout_marginTop="@dimen/draw_mark_pin_top"
+            android:layout_width="@dimen/draw_mark_pin_width"
+            android:contentDescription="@null"
+            android:src="@drawable/img_draw_pin_outline"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvPointsAdded"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/draw_mark_count_start"
+            android:layout_marginTop="@dimen/draw_mark_count_top"
+            android:layout_width="wrap_content"
+            android:fontFamily="@font/sora_bold"
+            android:text="4 points added"
+            android:textColor="@color/teal_dark"
+            android:textSize="@dimen/draw_mark_count_text_size"
+            app:fontFamily="@font/sora_bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/draw_mark_count_start"
+            android:layout_marginTop="@dimen/draw_mark_hint_top"
+            android:layout_width="wrap_content"
+            android:fontFamily="@font/sora_regular"
+            android:text="@string/tap_first_to_finish"
+            android:textColor="@color/teal_dark"
+            android:textSize="@dimen/draw_mark_hint_text_size"
+            app:fontFamily="@font/sora_regular"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:layout_height="@dimen/draw_mark_divider_height"
+            android:layout_marginEnd="@dimen/draw_mark_divider_margin_end"
+            android:layout_marginStart="@dimen/draw_mark_divider_margin_start"
+            android:layout_marginTop="@dimen/draw_mark_divider_top"
+            android:layout_width="0dp"
+            android:background="@color/divider_sand"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnUndo"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_height="@dimen/draw_mark_button_height"
+            android:layout_marginStart="@dimen/draw_mark_button_start"
+            android:layout_marginTop="@dimen/draw_mark_row_top"
+            android:layout_width="@dimen/draw_mark_half_width"
+            android:fontFamily="@font/sora_semibold"
+            android:gravity="start|center_vertical"
+            android:insetBottom="0dp"
+            android:insetTop="0dp"
+            android:letterSpacing="0"
+            android:paddingStart="@dimen/draw_mark_undo_text_start"
+            android:text="@string/action_undo"
+            android:textAllCaps="false"
+            android:textColor="@color/teal_primary"
+            android:textSize="@dimen/draw_mark_button_text_size"
+            app:backgroundTint="@android:color/transparent"
+            app:cornerRadius="@dimen/draw_mark_button_radius"
+            app:fontFamily="@font/sora_semibold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:strokeColor="@color/teal_primary"
+            app:strokeWidth="@dimen/draw_mark_button_stroke" />
+
+        <ImageView
+            android:layout_height="@dimen/draw_mark_undo_icon_height"
+            android:layout_marginStart="@dimen/draw_mark_undo_icon_start"
+            android:layout_width="@dimen/draw_mark_undo_icon_width"
+            android:contentDescription="@null"
+            android:src="@drawable/img_draw_undo_icon"
+            app:layout_constraintBottom_toBottomOf="@id/btnUndo"
+            app:layout_constraintStart_toStartOf="@id/btnUndo"
+            app:layout_constraintTop_toTopOf="@id/btnUndo" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnClear"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_height="@dimen/draw_mark_button_height"
+            android:layout_marginEnd="@dimen/draw_mark_button_end"
+            android:layout_marginTop="@dimen/draw_mark_row_top"
+            android:layout_width="@dimen/draw_mark_half_width"
+            android:fontFamily="@font/sora_semibold"
+            android:gravity="start|center_vertical"
+            android:insetBottom="0dp"
+            android:insetTop="0dp"
+            android:letterSpacing="0"
+            android:paddingStart="@dimen/draw_mark_clear_text_start"
+            android:text="@string/action_clear"
+            android:textAllCaps="false"
+            android:textColor="@color/teal_primary"
+            android:textSize="@dimen/draw_mark_button_text_size"
+            app:backgroundTint="@android:color/transparent"
+            app:cornerRadius="@dimen/draw_mark_button_radius"
+            app:fontFamily="@font/sora_semibold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:strokeColor="@color/teal_primary"
+            app:strokeWidth="@dimen/draw_mark_button_stroke" />
+
+        <ImageView
+            android:layout_height="@dimen/draw_mark_trash_icon_height"
+            android:layout_marginStart="@dimen/draw_mark_trash_icon_start"
+            android:layout_width="@dimen/draw_mark_trash_icon_width"
+            android:contentDescription="@null"
+            android:src="@drawable/img_draw_trash_icon"
+            app:layout_constraintBottom_toBottomOf="@id/btnClear"
+            app:layout_constraintStart_toStartOf="@id/btnClear"
+            app:layout_constraintTop_toTopOf="@id/btnClear" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnCloseBoundary"
+            style="@style/Widget.MaterialComponents.Button"
+            android:layout_height="@dimen/draw_mark_button_height"
+            android:layout_marginEnd="@dimen/draw_mark_button_end"
+            android:layout_marginStart="@dimen/draw_mark_button_start"
+            android:layout_marginTop="@dimen/draw_mark_close_top"
+            android:layout_width="0dp"
+            android:elevation="0dp"
+            android:fontFamily="@font/sora_semibold"
+            android:gravity="start|center_vertical"
+            android:insetBottom="0dp"
+            android:insetTop="0dp"
+            android:letterSpacing="0"
+            android:paddingStart="@dimen/draw_mark_close_text_start"
+            android:stateListAnimator="@null"
+            android:text="@string/action_close_boundary"
+            android:textAllCaps="false"
+            android:textColor="@color/orange_soft_text"
+            android:textSize="@dimen/draw_mark_close_text_size"
+            app:backgroundTint="@color/orange_soft"
+            app:cornerRadius="@dimen/draw_mark_button_radius"
+            app:fontFamily="@font/sora_semibold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:rippleColor="#40FFFFFF" />
+
+        <ImageView
+            android:layout_height="@dimen/draw_mark_lock_height"
+            android:layout_marginStart="@dimen/draw_mark_lock_start"
+            android:layout_width="@dimen/draw_mark_lock_width"
+            android:contentDescription="@null"
+            android:src="@drawable/img_draw_lock_icon"
+            app:layout_constraintBottom_toBottomOf="@id/btnCloseBoundary"
+            app:layout_constraintStart_toStartOf="@id/btnCloseBoundary"
+            app:layout_constraintTop_toTopOf="@id/btnCloseBoundary" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
