@@ -1,0 +1,1476 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- ══════════════════════════════════════════════════════════════
+         SILVANUS DESIGN TOKENS
+         Everything below is derived from a 4dp base grid and a single
+         type ramp. Prefer these over ad-hoc values: if a screen needs a
+         size that is not here, add it here first.
+         ══════════════════════════════════════════════════════════════ -->
+
+    <!-- ── Spacing scale (4dp base) ──────────────────────────────── -->
+    <dimen name="space_2">2dp</dimen>
+    <dimen name="space_4">4dp</dimen>
+    <dimen name="space_8">8dp</dimen>
+    <dimen name="space_12">12dp</dimen>
+    <dimen name="space_16">16dp</dimen>
+    <dimen name="space_20">20dp</dimen>
+    <dimen name="space_24">24dp</dimen>
+    <dimen name="space_32">32dp</dimen>
+    <dimen name="space_40">40dp</dimen>
+    <dimen name="space_48">48dp</dimen>
+
+    <!-- ── Corner radii ──────────────────────────────────────────── -->
+    <dimen name="radius_card">20dp</dimen>
+    <dimen name="radius_button">16dp</dimen>
+    <dimen name="radius_pill">28dp</dimen>
+
+    <!-- ── Type ramp ─────────────────────────────────────────────────
+         display   32sp  wordmark
+         headline  26sp  screen title
+         title     20sp  step label, primary button
+         body      16sp  supporting copy
+         label     15sp  pills, chips
+         caption   13sp  "by TANIT", helper text
+         Minimum on-screen size is 13sp; nothing smaller ships.
+         ──────────────────────────────────────────────────────────── -->
+    <dimen name="text_display">32sp</dimen>
+    <dimen name="text_headline">26sp</dimen>
+    <dimen name="text_title">20sp</dimen>
+    <dimen name="text_body">16sp</dimen>
+    <dimen name="text_label">15sp</dimen>
+    <dimen name="text_caption">13sp</dimen>
+
+    <!-- ── Icon sizes ────────────────────────────────────────────── -->
+    <dimen name="icon_sm">20dp</dimen>
+    <dimen name="icon_md">24dp</dimen>
+    <dimen name="icon_lg">42dp</dimen>
+
+
+    <!-- =========================================================
+         GENERAL SPACING
+         ========================================================= -->
+
+    <dimen name="spacing_xxs">2dp</dimen>
+    <dimen name="spacing_xs">4dp</dimen>
+    <dimen name="spacing_sm">6dp</dimen>
+    <dimen name="spacing_sm_med">8dp</dimen>
+    <dimen name="spacing_med">10dp</dimen>
+    <dimen name="spacing_med_lg">12dp</dimen>
+    <dimen name="spacing_lg">14dp</dimen>
+    <dimen name="spacing_lg_xl">16dp</dimen>
+    <dimen name="spacing_xl">18dp</dimen>
+    <dimen name="spacing_xl_xxl">20dp</dimen>
+    <dimen name="spacing_xxl">24dp</dimen>
+    <dimen name="spacing_xxxl">28dp</dimen>
+    <dimen name="spacing_huge">56dp</dimen>
+
+
+    <!-- =========================================================
+         SCREEN PADDING
+         ========================================================= -->
+
+    <dimen name="screen_padding_horizontal">20dp</dimen>
+    <dimen name="screen_padding_horizontal_welcome">24dp</dimen>
+
+
+    <!-- =========================================================
+         LOGOS
+         ========================================================= -->
+
+    <dimen name="logo_size_small">36dp</dimen>
+
+    <!-- The leaf logomark, shared by Create your account, How big is your plot,
+         Your first plot, Before you start walking and Are you at the plot? so
+         the brand reads the same size screen to screen. The leaf is 3.19:1 and
+         sized on width; adjustViewBounds gives 132dp wide a 41dp height. -->
+    <dimen name="logo_leaf_masthead_width">132dp</dimen>
+    <dimen name="logo_size_medium">80dp</dimen>
+    <dimen name="logo_size_large">88dp</dimen>
+    <dimen name="header_logo_margin_top">20dp</dimen>
+
+
+    <!-- =========================================================
+         ICONS
+         ========================================================= -->
+
+    <dimen name="icon_size_xs">16dp</dimen>
+    <dimen name="icon_size_sm">20dp</dimen>
+
+    <!-- Large step icon -->
+    <dimen name="icon_size_chip">64dp</dimen>
+
+
+    <!-- =========================================================
+         STEP CARDS
+         ========================================================= -->
+
+
+    <dimen name="step_card_min_height">78dp</dimen>
+
+
+    <dimen name="step_icon_margin_start">20dp</dimen>
+
+
+
+
+    <!-- =========================================================
+         CONNECTOR
+         ========================================================= -->
+
+
+
+    <!-- =========================================================
+         DOT INDICATOR
+         ========================================================= -->
+
+    <dimen name="dot_indicator_size">8dp</dimen>
+    <dimen name="dot_indicator_spacing">8dp</dimen>
+    <dimen name="dot_indicator_margin_bottom">20dp</dimen>
+    <dimen name="dot_indicator_margin_bottom_welcome">20dp</dimen>
+
+
+    <!-- =========================================================
+         BUTTONS
+         ========================================================= -->
+
+    <dimen name="button_height_primary">60dp</dimen>
+    <dimen name="button_margin_bottom">14dp</dimen>
+    <dimen name="button_margin_bottom_about_you">20dp</dimen>
+
+
+    <!-- =========================================================
+         OFFLINE CHIP
+         ========================================================= -->
+
+    <dimen name="chip_offline_height">56dp</dimen>
+    <dimen name="chip_offline_padding_horizontal">20dp</dimen>
+    <dimen name="chip_offline_margin_bottom">14dp</dimen>
+    <dimen name="chip_offline_icon_text_gap">10dp</dimen>
+
+
+    <!-- =========================================================
+         WELCOME
+         ========================================================= -->
+
+    <!-- ── Masthead ───────────────────────────────────────────────
+         Vertical rhythm on a 411 x 869dp reference device:
+           logo          52 + 108   -> 160
+           wordmark       4 +  38   -> 190
+           "by TANIT"     2 +  20   -> 212
+           headline      22 +  38   -> 272
+           subtext        6 +  42   -> 320
+           illustration  free space, biased toward the headline
+         ─────────────────────────────────────────────────────────── -->
+
+    <dimen name="welcome_logo_margin_top">52dp</dimen>
+    <dimen name="welcome_brand_margin_top">4dp</dimen>
+    <dimen name="welcome_brand_sub_margin_top">2dp</dimen>
+
+    <!-- Rules flanking "by TANIT" -->
+    <dimen name="welcome_brand_rule_width">48dp</dimen>
+    <dimen name="welcome_brand_rule_height">3dp</dimen>
+    <dimen name="welcome_brand_rule_gap">10dp</dimen>
+
+    <dimen name="welcome_headline_margin_top">22dp</dimen>
+    <dimen name="welcome_subtext_margin_top">6dp</dimen>
+
+    <!-- Pulls the subtext in so it breaks over two lines like the mockup -->
+    <dimen name="welcome_subtext_margin_horizontal">56dp</dimen>
+    <dimen name="welcome_subtext_line_spacing">4dp</dimen>
+
+
+    <!-- ── Illustration ───────────────────────────────────────────
+         The scene keeps the 1672:941 ratio of @drawable/bac; the pin is
+         anchored to a guideline that sits on the plot's dashed edge.
+         ─────────────────────────────────────────────────────────── -->
+
+    <dimen name="welcome_illustration_height">220dp</dimen>
+    <dimen name="welcome_illustration_margin_top">12dp</dimen>
+    <dimen name="welcome_illustration_margin_bottom">20dp</dimen>
+
+    <!-- Matches the 64 x 88 viewport of @drawable/ic_map_pin_hero -->
+    <dimen name="welcome_pin_width">78dp</dimen>
+    <dimen name="welcome_pin_height">107dp</dimen>
+
+
+    <!-- ── Bottom bar ─────────────────────────────────────────────
+           label          -> field   8
+           field  56, ->  button    18
+           button 60, ->  dots      20
+           dots   8,  ->  bottom    28
+         ─────────────────────────────────────────────────────────── -->
+
+    <dimen name="welcome_language_label_margin_bottom">10dp</dimen>
+    <dimen name="welcome_field_radius">14dp</dimen>
+    <dimen name="welcome_field_padding_vertical">17dp</dimen>
+    <dimen name="welcome_field_margin_bottom">18dp</dimen>
+
+    <dimen name="welcome_button_height">70dp</dimen>
+    <dimen name="welcome_button_radius">14dp</dimen>
+    <dimen name="welcome_button_margin_bottom">20dp</dimen>
+
+    <dimen name="welcome_dot_size">11dp</dimen>
+    <dimen name="welcome_dot_spacing">12dp</dimen>
+    <dimen name="welcome_bottom_bar_padding_bottom">28dp</dimen>
+
+
+    <!-- =========================================================
+         TEAL HEADER
+         ========================================================= -->
+
+    <dimen name="header_teal_padding_top">20dp</dimen>
+    <dimen name="header_teal_padding_bottom">22dp</dimen>
+
+
+    <!-- =========================================================
+         ABOUT YOU
+         ========================================================= -->
+
+    <dimen name="about_you_header_padding_top">24dp</dimen>
+    <dimen name="about_you_content_padding_top">20dp</dimen>
+    <dimen name="form_field_margin_top">12dp</dimen>
+
+
+    <!-- =========================================================
+         TEXT
+         ========================================================= -->
+
+    <dimen name="text_size_caption">13sp</dimen>
+
+    <dimen name="text_size_small">13sp</dimen>
+
+    <dimen name="text_size_body_sm">14sp</dimen>
+
+    <dimen name="text_size_body">15sp</dimen>
+
+    <dimen name="text_size_badge">18sp</dimen>
+
+    <!-- STEP TEXT — increased -->
+    <dimen name="text_size_step_label">18sp</dimen>
+
+    <dimen name="text_size_brand_sm">18sp</dimen>
+
+    <!-- HEADER TITLE -->
+    <dimen name="text_size_headline_sm">24sp</dimen>
+
+    <!-- "Map your farm", "About you" -->
+    <dimen name="text_size_headline">28sp</dimen>
+
+    <dimen name="text_size_brand_lg">30sp</dimen>
+    <!-- ══════════════════════════════════════════════════════════════
+         SCREEN: "About you"  (screen_about_you.xml)
+
+         Vertical rhythm on a 411 x 869dp reference device:
+           masthead       36 + 126   -> 162   (logo, wordmark, "by TANIT")
+           step label     16 +  18   -> 196
+           dots           12 +  11   -> 219
+           title          20 +  36   -> 275
+           form           24 + 378   -> 677   (4 rows of 84 + 3 gaps of 14)
+           security note  18 +  34   -> 729
+           button         14 +  56   -> 799   (pinned to the bottom, +28)
+         ══════════════════════════════════════════════════════════════ -->
+
+
+    <!-- ============================================================
+         ABOUT YOU — HEADER
+         ============================================================ -->
+
+    <dimen name="about_you_header_margin_top">36dp</dimen>
+    <dimen name="about_you_logo_size">100dp</dimen>
+
+    <!-- The leaf logomark runs 170dp wide on the welcome screen; this masthead
+         has four form rows to make room for, so it is pulled in -->
+    <dimen name="about_you_logo_width">170dp</dimen>
+
+    <dimen name="about_you_brand_margin_top">8dp</dimen>
+    <dimen name="about_you_by_tanit_margin_top">0dp</dimen>
+    <dimen name="about_you_step_margin_top">16dp</dimen>
+    <dimen name="about_you_dots_margin_top">12dp</dimen>
+    <dimen name="about_you_title_margin_top">20dp</dimen>
+
+
+    <!-- ============================================================
+         ABOUT YOU — FORM
+         ============================================================ -->
+
+    <dimen name="about_you_form_margin_top">24dp</dimen>
+    <dimen name="about_you_form_padding_horizontal">22dp</dimen>
+
+    <dimen name="about_you_field_height">84dp</dimen>
+    <dimen name="about_you_field_spacing">14dp</dimen>
+
+    <!-- Card shell -->
+    <dimen name="about_you_field_card_radius">14dp</dimen>
+    <dimen name="about_you_field_card_stroke">1dp</dimen>
+
+    <!-- Tinted leading panel. Its radius is the card radius less the stroke,
+         so the two curves stay concentric. -->
+    <dimen name="about_you_field_panel_width">80dp</dimen>
+    <dimen name="about_you_field_panel_radius">13dp</dimen>
+    <!-- Inset that leaves a 46dp glyph inside the 80dp panel: (80 - 46) / 2 -->
+    <dimen name="about_you_field_icon_inset">17dp</dimen>
+
+    <!-- Field body, to the right of the panel -->
+    <dimen name="about_you_field_padding_start">16dp</dimen>
+    <dimen name="about_you_field_padding_end">14dp</dimen>
+    <dimen name="about_you_field_underline_width">1.5dp</dimen>
+    <dimen name="about_you_field_underline_width_focused">2dp</dimen>
+
+    <!-- National ID -->
+    <dimen name="about_you_camera_size">46dp</dimen>
+    <dimen name="about_you_camera_radius">12dp</dimen>
+    <dimen name="about_you_camera_margin_end">12dp</dimen>
+    <!-- 46 - 2 * 9 leaves a 28dp glyph on the button face -->
+    <dimen name="about_you_camera_padding">9dp</dimen>
+
+
+    <!-- ============================================================
+         ABOUT YOU — SECURITY MESSAGE
+         ============================================================ -->
+
+    <dimen name="about_you_security_height">34dp</dimen>
+    <dimen name="about_you_security_margin_top">18dp</dimen>
+    <dimen name="about_you_security_icon_size">18dp</dimen>
+    <dimen name="about_you_security_icon_text_gap">8dp</dimen>
+
+
+    <!-- ============================================================
+         ABOUT YOU — CONTINUE BUTTON
+         ============================================================ -->
+
+    <dimen name="about_you_button_height">56dp</dimen>
+    <dimen name="about_you_button_margin_horizontal">22dp</dimen>
+    <dimen name="about_you_button_margin_top">14dp</dimen>
+    <dimen name="about_you_button_margin_bottom">28dp</dimen>
+    <dimen name="about_you_button_radius">14dp</dimen>
+
+
+    <!-- ============================================================
+         ABOUT YOU — DOTS
+         ============================================================ -->
+
+    <dimen name="about_you_dot_size">11dp</dimen>
+    <dimen name="about_you_dot_spacing">16dp</dimen>
+
+
+    <!-- ============================================================
+         ABOUT YOU — TEXT
+         ============================================================ -->
+
+    <dimen name="about_you_brand_text_size">25sp</dimen>
+    <dimen name="about_you_by_tanit_text_size">13sp</dimen>
+    <dimen name="about_you_step_text_size">16sp</dimen>
+    <dimen name="about_you_title_text_size">26sp</dimen>
+    <dimen name="about_you_label_text_size">15sp</dimen>
+    <dimen name="about_you_field_text_size">18sp</dimen>
+    <dimen name="about_you_security_text_size">15sp</dimen>
+    <dimen name="about_you_button_text_size">20sp</dimen>
+
+
+    <!-- ══════════════════════════════════════════════════════════════
+         SCREEN: "Create your account"  (screen_create_account.xml)
+
+         Vertical rhythm on a 411 x 869dp reference device:
+           masthead        status bar + 74 (brand block + the cream lip)
+           dots           14 +  10   -> 118
+           title          20 +  36   -> 194
+           illustration   18 + 230   -> 422
+           phone label    22 +  20   -> 464
+           phone field    10 +  60   -> 534
+           code label     16 +  20   -> 570
+           code field     10 +  60   -> 640
+           sms note       14 +  22   -> 676
+           button         20 +  56   -> 752
+           sign in        20 +  20   -> 792
+         ══════════════════════════════════════════════════════════════ -->
+
+
+    <!-- ============================================================
+         CREATE ACCOUNT — HEADER
+         ============================================================ -->
+
+    <!-- The header wraps its content: fitsSystemWindows overwrites a view's
+         padding with the window insets, so the status bar goes on the outer
+         view and all real padding lives on the inner row. Fixing a header
+         height here would mean guessing at the status bar. -->
+    <dimen name="create_account_header_padding_horizontal">20dp</dimen>
+    <dimen name="create_account_header_content_padding_top">6dp</dimen>
+
+    <!-- Clears the lip (28dp) plus breathing room, so "by TANIT" never lands
+         on the cream. -->
+    <dimen name="create_account_header_content_padding_bottom">34dp</dimen>
+
+    <dimen name="create_account_header_sheet_radius">24dp</dimen>
+    <dimen name="create_account_header_sheet_depth">28dp</dimen>
+
+    <dimen name="create_account_header_brand_margin_start">10dp</dimen>
+    <dimen name="create_account_header_brand_text_size">18sp</dimen>
+    <dimen name="create_account_header_subtitle_text_size">12sp</dimen>
+
+
+    <!-- ============================================================
+         CREATE ACCOUNT — PROGRESS
+         ============================================================ -->
+
+    <dimen name="create_account_dots_margin_top">14dp</dimen>
+    <dimen name="create_account_dot_size">10dp</dimen>
+    <dimen name="create_account_dot_spacing">16dp</dimen>
+
+
+    <!-- ============================================================
+         CREATE ACCOUNT — TITLE
+         ============================================================ -->
+
+    <dimen name="create_account_content_padding_horizontal">22dp</dimen>
+
+    <dimen name="create_account_title_margin_top">20dp</dimen>
+    <dimen name="create_account_title_text_size">26sp</dimen>
+
+
+    <!-- ============================================================
+         CREATE ACCOUNT — ILLUSTRATION
+         ============================================================ -->
+
+    <dimen name="create_account_illustration_margin_top">18dp</dimen>
+    <dimen name="create_account_illustration_size">230dp</dimen>
+
+
+    <!-- ============================================================
+         CREATE ACCOUNT — FORM
+         ============================================================ -->
+
+    <dimen name="create_account_form_margin_top">22dp</dimen>
+
+    <dimen name="create_account_field_height">60dp</dimen>
+    <dimen name="create_account_field_spacing">16dp</dimen>
+    <dimen name="create_account_field_radius">12dp</dimen>
+
+    <dimen name="create_account_label_text_size">14sp</dimen>
+    <dimen name="create_account_label_field_spacing">10dp</dimen>
+
+    <dimen name="create_account_field_text_size">16sp</dimen>
+
+    <dimen name="create_account_field_padding_start">6dp</dimen>
+    <dimen name="create_account_field_padding_end">12dp</dimen>
+
+
+    <!-- ============================================================
+         CREATE ACCOUNT — SMS
+         ============================================================ -->
+
+    <dimen name="create_account_sms_margin_top">14dp</dimen>
+    <dimen name="create_account_sms_icon_size">20dp</dimen>
+    <dimen name="create_account_sms_dot_text_gap">8dp</dimen>
+    <dimen name="create_account_sms_text_size">14sp</dimen>
+
+
+    <!-- ============================================================
+         CREATE ACCOUNT — BUTTON
+         ============================================================ -->
+
+    <dimen name="create_account_button_height">56dp</dimen>
+    <dimen name="create_account_button_margin_horizontal">22dp</dimen>
+    <dimen name="create_account_button_margin_top">20dp</dimen>
+    <dimen name="create_account_button_radius">12dp</dimen>
+    <dimen name="create_account_button_text_size">18sp</dimen>
+
+
+    <!-- ============================================================
+         CREATE ACCOUNT — SIGN IN
+         ============================================================ -->
+
+    <dimen name="create_account_signin_margin_top">20dp</dimen>
+    <dimen name="create_account_signin_gap">4dp</dimen>
+    <dimen name="create_account_signin_text_size">14sp</dimen>
+
+
+    <!-- ══════════════════════════════════════════════════════════════
+         SCREEN: "Ready to map your farm"  (screen_ready_to_map.xml)
+
+         Vertical rhythm on a 411 x 869dp reference device:
+           dots           14 +  10   ->  24
+           logo           20 +  63   -> 107   (leaf sized on width)
+           title          16 +  30   -> 153
+           illustration   18 + 231   -> 402   (full bleed, 400:225)
+           info cards     20 + 185   -> 607
+           allow location            ->  52   pinned to the bottom
+           button         14 +  60
+           chips          14 +  44
+         ══════════════════════════════════════════════════════════════ -->
+
+    <dimen name="ready_dots_margin_top">18dp</dimen>
+    <dimen name="ready_dot_size">8dp</dimen>
+    <dimen name="ready_dot_spacing">16dp</dimen>
+
+    <dimen name="ready_logo_width">190dp</dimen>
+    <dimen name="ready_logo_margin_top">12dp</dimen>
+
+    <dimen name="ready_title_margin_top">20dp</dimen>
+    <dimen name="ready_title_text_size">26sp</dimen>
+
+    <!-- Full bleed, so no horizontal margin: the height follows the
+         400:225 viewport of @drawable/img_farm_field_illustration -->
+    <dimen name="ready_illustration_margin_top">4dp</dimen>
+
+    <dimen name="ready_content_padding_horizontal">16dp</dimen>
+
+    <!-- Info cards. The mockup runs them nearly square, which is what keeps
+         the screen from emptying out above the bottom block. -->
+    <dimen name="ready_cards_margin_top">12dp</dimen>
+    <dimen name="ready_card_height">150dp</dimen>
+    <dimen name="ready_card_gap">12dp</dimen>
+    <dimen name="ready_card_radius">16dp</dimen>
+    <dimen name="ready_card_icon_size">42dp</dimen>
+    <dimen name="ready_card_icon_text_gap">14dp</dimen>
+    <dimen name="ready_card_text_size">14sp</dimen>
+
+    <!-- Bottom block -->
+    <dimen name="ready_chip_radius">14dp</dimen>
+
+    <dimen name="ready_allow_height">56dp</dimen>
+    <dimen name="ready_allow_padding_horizontal">16dp</dimen>
+    <dimen name="ready_allow_text_size">16sp</dimen>
+
+    <dimen name="ready_button_margin_top">12dp</dimen>
+    <dimen name="ready_button_height">86dp</dimen>
+    <dimen name="ready_button_radius">14dp</dimen>
+    <dimen name="ready_button_text_size">21sp</dimen>
+    <dimen name="ready_button_icon_size">36dp</dimen>
+
+    <dimen name="ready_footnote_margin_top">12dp</dimen>
+    <dimen name="ready_footnote_height">40dp</dimen>
+    <dimen name="ready_footnote_gap">12dp</dimen>
+    <dimen name="ready_footnote_icon_size">16dp</dimen>
+    <dimen name="ready_footnote_icon_text_gap">7dp</dimen>
+    <dimen name="ready_footnote_text_size">13sp</dimen>
+
+    <dimen name="ready_bottom_margin">18dp</dimen>
+
+
+    <!-- ============================================================
+     READY TO MAP YOUR FARM — ILLUSTRATION
+     ============================================================ -->
+
+    <dimen name="map_farm_illustration_width">315dp</dimen>
+    <dimen name="map_farm_illustration_height">145dp</dimen>
+    <dimen name="map_farm_illustration_corner_radius">16dp</dimen>
+
+    <dimen name="map_farm_illustration_margin_top">18dp</dimen>
+
+    <!-- Location pin -->
+    <dimen name="map_farm_pin_size">72dp</dimen>
+
+    <!-- Instruction cards -->
+    <dimen name="map_farm_instruction_margin_top">16dp</dimen>
+    <dimen name="map_farm_instruction_spacing">12dp</dimen>
+
+    <!-- Bottom controls -->
+    <dimen name="map_farm_bottom_horizontal">24dp</dimen>
+    <dimen name="map_farm_button_height">52dp</dimen>
+    <dimen name="map_farm_button_radius">26dp</dimen>
+
+
+    <!-- =========================================================
+         STEPS OVERVIEW  (screen_steps_overview.xml)
+         ========================================================= -->
+
+    <!-- Must match the viewport height of bg_header_teal_curved.xml (360x208)
+         or the wave will stretch out of shape -->
+
+    <dimen name="text_size_headline_steps">26sp</dimen>
+
+    <!-- Left gutter that holds the numbered badges -->
+
+
+
+    <!-- ══════════════════════════════════════════════════════════════
+         SCREEN: "What you will do"  (screen_steps_overview.xml)
+
+         Vertical rhythm on a 411 x 869dp reference device:
+           header            208
+           title       10 +   36   -> 254
+           step block  12 + ~418   -> 684   (4 rows of 95.5 + 3 gaps of 12)
+           offline pill 8 +   56   -> 748
+           next button 14 +   60   -> 822
+           dots        18 +   11   -> 851   (+20 bottom margin)
+
+         The step rows are weighted, so the 95.5dp row height flexes with
+         the screen; every other value below is fixed.
+         ══════════════════════════════════════════════════════════════ -->
+
+    <!-- Must match the viewport height of bg_header_teal_curved.xml
+         (360 x 208) or the wave stretches out of shape -->
+    <dimen name="header_teal_height">250dp</dimen>
+
+    <!-- The wave view runs past the masthead so its fade has room to reach
+         zero; without the headroom the gradient clips and the view's own
+         bottom edge becomes a hard line. 208 + FADE_EXTRA_DP. -->
+    <dimen name="header_wave_view_height">348dp</dimen>
+    <dimen name="steps_logo_size">92dp</dimen>
+    <dimen name="steps_logo_margin_top">26dp</dimen>
+    <!-- Sora carries generous line spacing, so the tagline is pulled up
+         to sit tight under the wordmark -->
+    <!-- Supplied SYLVANUS logotype (drawable-*/logo_sylvanus_wordmark.png).
+         Authored at 240dp wide; height follows via adjustViewBounds. -->
+    <!-- Leaf logomark (drawable-*/logo_leaf_mark.png), authored 170dp wide -->
+    <dimen name="brand_leaf_width">170dp</dimen>
+    <dimen name="brand_leaf_margin_top">34dp</dimen>
+
+    <dimen name="brand_wordmark_width">240dp</dimen>
+    <dimen name="brand_wordmark_margin_top">10dp</dimen>
+
+    <dimen name="brand_tagline_margin_top">2dp</dimen>
+
+    <dimen name="steps_headline_margin_top">10dp</dimen>
+
+    <!-- Left gutter holding the numbered badges. Badge centre lands at
+         steps_column_padding_start + step_badge_size / 2 = 35dp. -->
+    <dimen name="steps_column_padding_start">15dp</dimen>
+    <dimen name="step_badge_size">40dp</dimen>
+
+    <!-- Card starts 34dp into the gutter, so the badge overlaps it by 10dp -->
+    <dimen name="step_label_margin_start">34dp</dimen>
+    <dimen name="step_card_gap">12dp</dimen>
+    <dimen name="step_card_padding">16dp</dimen>
+
+    <!-- Icon disc fills most of the card height: 78dp disc in a ~95dp row.
+         The 18dp inset leaves a 42dp glyph (@dimen/icon_lg). -->
+    <dimen name="step_icon_chip_size">68dp</dimen>
+    <dimen name="step_icon_chip_padding">16dp</dimen>
+    <dimen name="step_icon_chip_margin_start">19dp</dimen>
+    <dimen name="step_text_margin_start">20dp</dimen>
+
+    <!-- Dashed connector sits centred on the badge column; the top and
+         bottom insets are half a row, putting its ends on badges 1 and 4 -->
+    <dimen name="step_connector_width">36dp</dimen>
+    <dimen name="step_connector_margin_start">17dp</dimen>
+    <dimen name="step_connector_height">42dp</dimen>
+
+    <dimen name="dot_indicator_size_active">11dp</dimen>
+
+
+    <!-- ══════════════════════════════════════════════════════════════
+         SCREEN: "How big is your plot?"  (screen_plot_size_method.xml)
+
+         Two solid-teal size tiles (icon top, label bottom), a solid
+         blue-teal "Not sure?" card, then two solid method tiles
+         (Walk = orange / Draw = mid-teal) laid out the same way.
+         ══════════════════════════════════════════════════════════════ -->
+
+    <dimen name="plot_size_content_horizontal">20dp</dimen>
+    <dimen name="plot_size_header_padding_top">18dp</dimen>
+
+    <dimen name="plot_size_logo_text_gap">8dp</dimen>
+    <dimen name="plot_size_wordmark_text_size">18sp</dimen>
+
+    <dimen name="plot_size_title_margin_top">18dp</dimen>
+    <dimen name="plot_size_title_text_size">22sp</dimen>
+
+    <dimen name="plot_size_scroll_padding_top">16dp</dimen>
+    <dimen name="plot_size_scroll_padding_bottom">16dp</dimen>
+
+    <!-- Flex gaps: absorb the leftover height so the screen fills edge to edge -->
+    <dimen name="plot_size_flex_gap_min">16dp</dimen>
+
+    <!-- Size tiles — big icon top / label bottom -->
+    <dimen name="plot_size_tile_height">210dp</dimen>
+    <dimen name="plot_size_tile_gap">14dp</dimen>
+    <dimen name="plot_size_tile_radius">18dp</dimen>
+    <dimen name="plot_size_tile_padding">18dp</dimen>
+    <dimen name="plot_size_tile_icon">104dp</dimen>
+    <dimen name="plot_size_tile_label_text_size">16sp</dimen>
+
+    <!-- "Not sure?" card -->
+    <dimen name="plot_size_notsure_margin_top">14dp</dimen>
+    <dimen name="plot_size_notsure_min_height">112dp</dimen>
+    <dimen name="plot_size_notsure_padding">18dp</dimen>
+    <dimen name="plot_size_notsure_icon">52dp</dimen>
+    <dimen name="plot_size_notsure_icon_gap">14dp</dimen>
+    <dimen name="plot_size_notsure_title_text_size">15sp</dimen>
+    <dimen name="plot_size_notsure_body_text_size">13sp</dimen>
+
+    <!-- "How would you like to mark it?" -->
+    <dimen name="plot_size_section_margin_top">24dp</dimen>
+    <dimen name="plot_size_section_text_size">19sp</dimen>
+
+    <!-- Method tiles. The icons are landscape vectors, so only the height is
+         pinned — adjustViewBounds lets the width follow the artwork. -->
+    <dimen name="plot_size_method_margin_top">14dp</dimen>
+    <dimen name="plot_size_method_height">276dp</dimen>
+    <dimen name="plot_size_method_padding">18dp</dimen>
+    <dimen name="plot_size_method_icon">98dp</dimen>
+    <dimen name="plot_size_method_title_text_size">16sp</dimen>
+    <dimen name="plot_size_method_sub_text_size">11sp</dimen>
+    <dimen name="plot_size_method_title_gap">4dp</dimen>
+
+    <!-- ══════════════════════════════════════════════════════════════
+         SCREEN: "Your first plot"  (screen_your_first_plot.xml)
+
+         Teal masthead, then a step badge, the headline, three outlined
+         rows (icon disc + label), the offline pill and the teal CTA.
+         ══════════════════════════════════════════════════════════════ -->
+
+    <dimen name="first_plot_content_horizontal">24dp</dimen>
+
+    <dimen name="first_plot_header_padding_horizontal">20dp</dimen>
+    <dimen name="first_plot_header_padding_vertical">14dp</dimen>
+    <dimen name="first_plot_header_brand_gap">12dp</dimen>
+    <dimen name="first_plot_header_brand_text_size">19sp</dimen>
+
+    <dimen name="first_plot_step_margin_top">18dp</dimen>
+    <dimen name="first_plot_step_badge_size">40dp</dimen>
+    <dimen name="first_plot_step_badge_text_size">19sp</dimen>
+    <dimen name="first_plot_step_gap">12dp</dimen>
+    <dimen name="first_plot_step_text_size">18sp</dimen>
+
+    <dimen name="first_plot_title_margin_top">12dp</dimen>
+    <dimen name="first_plot_title_text_size">28sp</dimen>
+
+    <!-- Rows -->
+    <dimen name="first_plot_row_margin_top">18dp</dimen>
+    <dimen name="first_plot_row_min_height">140dp</dimen>
+    <dimen name="first_plot_row_padding">18dp</dimen>
+    <dimen name="first_plot_row_icon_size">86dp</dimen>
+    <dimen name="first_plot_row_icon_padding">18dp</dimen>
+    <dimen name="first_plot_row_icon_gap">18dp</dimen>
+    <dimen name="first_plot_row_label_text_size">13sp</dimen>
+    <dimen name="first_plot_row_value_text_size">19sp</dimen>
+    <dimen name="first_plot_row_chevron_size">24dp</dimen>
+
+    <!-- Offline pill + CTA -->
+    <dimen name="first_plot_pill_margin_top">20dp</dimen>
+    <dimen name="first_plot_pill_padding_horizontal">22dp</dimen>
+    <dimen name="first_plot_pill_padding_vertical">13dp</dimen>
+    <dimen name="first_plot_pill_icon_size">28dp</dimen>
+    <dimen name="first_plot_pill_gap">10dp</dimen>
+    <dimen name="first_plot_pill_text_size">16sp</dimen>
+
+    <dimen name="first_plot_button_margin_top">18dp</dimen>
+    <dimen name="first_plot_button_margin_bottom">22dp</dimen>
+    <dimen name="first_plot_button_height">62dp</dimen>
+    <dimen name="first_plot_button_radius">16dp</dimen>
+    <dimen name="first_plot_button_text_size">19sp</dimen>
+    <dimen name="first_plot_button_icon_size">22dp</dimen>
+
+    <!-- ══════════════════════════════════════════════════════════════
+         SCREEN: "Before you start walking"  (screen_before_walking.xml)
+
+         Five step rows on a fixed pitch so the dashed connector between
+         two badges is exactly (card_height + gap) - badge = 73dp. Each run
+         also tucks before_walk_connector_overlap under both badges, so
+         @drawable/dashed_connector_vertical is authored 73 + 6 + 6 = 85dp.
+         Change the card height or the gap and that vector needs the same
+         edit or the dashes stretch.
+         ══════════════════════════════════════════════════════════════ -->
+
+    <dimen name="before_walk_content_horizontal">20dp</dimen>
+    <!-- The masthead wraps its content, like the other onboarding headers:
+         fitsSystemWindows sizes the outer band to the real status bar, so no
+         height is fixed here. A fixed 114dp lost to a 41dp status bar plus
+         the 24dp navigation inset left the logo row 16dp tall. -->
+    <dimen name="before_walk_header_padding_top">4dp</dimen>
+    <dimen name="before_walk_header_padding_bottom">2dp</dimen>
+    <!-- Depth of @drawable/bg_header_wave_edge under the band. -->
+    <dimen name="before_walk_header_wave_height">10dp</dimen>
+    <!-- Lines the logo up with the headline's leading edge, as in the mockup. -->
+    <dimen name="before_walk_header_padding_start">20dp</dimen>
+    <dimen name="before_walk_header_brand_gap">12dp</dimen>
+    <dimen name="before_walk_header_brand_text_size">22sp</dimen>
+
+    <dimen name="before_walk_title_margin_top">10dp</dimen>
+    <dimen name="before_walk_title_text_size">27sp</dimen>
+
+    <dimen name="before_walk_steps_margin_top">8dp</dimen>
+    <!-- badge 1 overhangs its card, so the scroll needs room for it -->
+    <dimen name="before_walk_steps_padding_top">6dp</dimen>
+    <dimen name="before_walk_badge_size">36dp</dimen>
+    <!-- badges sit near the card top, overhanging it, as in the mockup -->
+    <dimen name="before_walk_badge_margin_top">-5dp</dimen>
+    <dimen name="before_walk_badge_text_size">26sp</dimen>
+    <!-- Cards start inside the badge column so each badge sits on the card
+         edge, as in the mockup; the card pads its start to clear it. -->
+    <dimen name="before_walk_card_inset">4dp</dimen>
+    <dimen name="before_walk_card_padding_start">19dp</dimen>
+
+    <dimen name="before_walk_card_height">98dp</dimen>
+    <dimen name="before_walk_card_gap">11dp</dimen>
+    <dimen name="before_walk_card_padding">3dp</dimen>
+    <dimen name="before_walk_illustration_width">132dp</dimen>
+    <dimen name="before_walk_illustration_height">92dp</dimen>
+    <dimen name="before_walk_step_text_margin_start">14dp</dimen>
+    <dimen name="before_walk_step_text_size">17sp</dimen>
+
+    <!-- the connector spans the badge so its dashes can sit on the badge's
+         left edge, where the mockup runs them -->
+    <dimen name="before_walk_connector_width">36dp</dimen>
+    <!-- Negative: each run reaches this far under both badges, so its dashes
+         meet the badge rims instead of stopping short. -->
+    <dimen name="before_walk_connector_overlap">-6dp</dimen>
+
+    <dimen name="before_walk_note_margin_top">18dp</dimen>
+    <dimen name="before_walk_note_padding">16dp</dimen>
+    <dimen name="before_walk_note_icon_size">28dp</dimen>
+    <dimen name="before_walk_note_gap">12dp</dimen>
+    <dimen name="before_walk_note_text_size">16sp</dimen>
+
+    <dimen name="before_walk_button_margin_top">12dp</dimen>
+    <dimen name="before_walk_button_margin_bottom">18dp</dimen>
+    <dimen name="before_walk_button_height">68dp</dimen>
+    <dimen name="before_walk_button_text_size">19sp</dimen>
+    <dimen name="before_walk_button_icon_size">22dp</dimen>
+
+    <!-- ══════════════════════════════════════════════════════════════
+         SCREEN: "Are you at the plot?"  (screen_at_the_plot.xml)
+
+         Logo beside a 1-2-3 stepper, the question, the plot illustration
+         cut from the mockup, three ready checks, Start mapping and a hint.
+         The bottom stack is pinned to the bottom edge; the illustration
+         takes the height left over and runs behind the top of the card.
+         ══════════════════════════════════════════════════════════════ -->
+
+    <dimen name="at_plot_content_horizontal">16dp</dimen>
+    <dimen name="at_plot_header_margin_top">10dp</dimen>
+
+    <dimen name="at_plot_step_label_text_size">14sp</dimen>
+    <dimen name="at_plot_step_row_margin_top">6dp</dimen>
+    <dimen name="at_plot_step_circle_size">34dp</dimen>
+    <dimen name="at_plot_step_number_text_size">16sp</dimen>
+    <dimen name="at_plot_step_line_width">22dp</dimen>
+    <dimen name="at_plot_step_line_height">2dp</dimen>
+
+    <dimen name="at_plot_title_margin_top">14dp</dimen>
+    <dimen name="at_plot_title_text_size">28sp</dimen>
+    <dimen name="at_plot_sub_margin_top">4dp</dimen>
+    <dimen name="at_plot_sub_text_size">16sp</dimen>
+
+    <dimen name="at_plot_scene_margin_top">6dp</dimen>
+    <!-- Negative: how far the illustration reaches down behind the card. Kept
+         shallow so the card covers only the faded tail, not the bushes. -->
+    <dimen name="at_plot_card_overlap">-6dp</dimen>
+
+    <dimen name="at_plot_row_height">70dp</dimen>
+    <dimen name="at_plot_row_padding_horizontal">14dp</dimen>
+    <dimen name="at_plot_row_disc_size">46dp</dimen>
+    <dimen name="at_plot_row_disc_padding">11dp</dimen>
+    <dimen name="at_plot_row_label_margin_start">16dp</dimen>
+    <dimen name="at_plot_row_label_text_size">18sp</dimen>
+    <dimen name="at_plot_row_check_size">32dp</dimen>
+    <dimen name="at_plot_row_divider_height">1dp</dimen>
+    <dimen name="at_plot_card_margin_bottom">12dp</dimen>
+
+    <dimen name="at_plot_button_height">70dp</dimen>
+    <dimen name="at_plot_button_text_size">22sp</dimen>
+    <dimen name="at_plot_button_icon_size">28dp</dimen>
+    <dimen name="at_plot_button_icon_padding">12dp</dimen>
+    <dimen name="at_plot_button_margin_bottom">10dp</dimen>
+
+    <dimen name="at_plot_hint_height">54dp</dimen>
+    <dimen name="at_plot_hint_padding_horizontal">16dp</dimen>
+    <dimen name="at_plot_hint_icon_size">22dp</dimen>
+    <dimen name="at_plot_hint_gap">12dp</dimen>
+    <dimen name="at_plot_hint_text_size">14sp</dimen>
+    <dimen name="at_plot_hint_margin_bottom">14dp</dimen>
+
+    <!-- ══════════════════════════════════════════════════════════════
+         SCREEN: "Mapping in progress"  (screen_mapping_in_progress.xml)
+
+         A satellite map cut from the mockup fills the middle. Over it: a
+         cream header, the teal instruction card and the stacked GPS /
+         Offline pill; below it, the cream sheet with the step bar, the area
+         and point stats, Pause and I'm back at the start.
+
+         The card and pill tops are measured off the picture: the card sits
+         43dp below the picture's top, and the picture starts 28dp above the
+         header's bottom edge, so 43 - 28 = 15dp below the header.
+         ══════════════════════════════════════════════════════════════ -->
+
+    <dimen name="map_progress_content_horizontal">16dp</dimen>
+
+    <dimen name="map_progress_header_padding_top">8dp</dimen>
+    <dimen name="map_progress_header_padding_bottom">10dp</dimen>
+    <dimen name="map_progress_title_margin_start">12dp</dimen>
+    <dimen name="map_progress_title_text_size">20sp</dimen>
+    <!-- Negative: the picture tucks this far under the header so the map shows
+         through its rounded lower corners. -->
+    <dimen name="map_progress_map_overlap">-28dp</dimen>
+
+    <dimen name="map_progress_overlay_margin_top">14.6dp</dimen>
+    <dimen name="map_progress_card_min_height">119.9dp</dimen>
+    <dimen name="map_progress_card_padding">14dp</dimen>
+    <dimen name="map_progress_card_gap">7.0dp</dimen>
+    <dimen name="map_progress_walk_disc_size">60dp</dimen>
+    <dimen name="map_progress_walk_disc_padding">12dp</dimen>
+    <dimen name="map_progress_card_text_margin_start">14dp</dimen>
+    <dimen name="map_progress_card_title_text_size">19sp</dimen>
+    <dimen name="map_progress_card_body_text_size">15sp</dimen>
+
+    <dimen name="map_progress_card_margin_start">9.9dp</dimen>
+    <dimen name="map_progress_pill_margin_end">4.8dp</dimen>
+    <dimen name="map_progress_pill_width">61.6dp</dimen>
+    <dimen name="map_progress_pill_height">162.2dp</dimen>
+    <dimen name="map_progress_pill_stroke">1.5dp</dimen>
+    <dimen name="map_progress_pill_icon_size">24dp</dimen>
+    <dimen name="map_progress_pill_text_size">12sp</dimen>
+
+    <dimen name="map_progress_sheet_padding_top">16dp</dimen>
+    <dimen name="map_progress_sheet_padding_horizontal">20dp</dimen>
+    <dimen name="map_progress_sheet_padding_bottom">14dp</dimen>
+    <dimen name="map_progress_step_text_size">17sp</dimen>
+
+    <dimen name="map_progress_bar_margin_top">10dp</dimen>
+    <dimen name="map_progress_bar_height">16dp</dimen>
+    <dimen name="map_progress_bar_line_height">5dp</dimen>
+    <dimen name="map_progress_bar_dot_start">12dp</dimen>
+    <dimen name="map_progress_bar_dot_current">14dp</dimen>
+    <dimen name="map_progress_bar_dot_next">10dp</dimen>
+    <dimen name="map_progress_bar_ring">14dp</dimen>
+
+    <dimen name="map_progress_stats_margin_top">14dp</dimen>
+    <dimen name="map_progress_area_icon_width">34dp</dimen>
+    <dimen name="map_progress_area_icon_height">26dp</dimen>
+    <dimen name="map_progress_pin_icon_size">28dp</dimen>
+    <dimen name="map_progress_stat_value_margin_start">10dp</dimen>
+    <dimen name="map_progress_stat_value_text_size">30sp</dimen>
+    <dimen name="map_progress_stat_unit_margin_start">5dp</dimen>
+    <dimen name="map_progress_stat_unit_text_size">17sp</dimen>
+
+    <dimen name="map_progress_pause_margin_top">14dp</dimen>
+    <dimen name="map_progress_pause_height">54dp</dimen>
+    <dimen name="map_progress_button_margin_top">10dp</dimen>
+    <dimen name="map_progress_button_height">56dp</dimen>
+    <dimen name="map_progress_button_text_size">19sp</dimen>
+    <dimen name="map_progress_button_icon_size">24dp</dimen>
+    <dimen name="map_progress_button_icon_padding">12dp</dimen>
+    <dimen name="map_progress_button_radius">12dp</dimen>
+    <dimen name="map_progress_button_stroke">1.5dp</dimen>
+
+    <!-- ══════════════════════════════════════════════════════════════
+         SCREEN: "Check your boundary"  (screen_check_boundary.xml)
+
+         Measured off the hi-res mockup: its screen is 651px wide, so
+         1px = 0.632dp. Horizontal sizes are taken as-is. This phone is
+         ~60dp shorter than the mockup's, so the map absorbs the difference:
+         it fills the gap between header and sheet, and the map picture was
+         cut to that height so the whole boundary sits between banner and sheet.
+         Text sizes are matched to the mockup's text widths in Sora.
+         ══════════════════════════════════════════════════════════════ -->
+
+    <dimen name="check_boundary_content_horizontal">17dp</dimen>
+
+    <dimen name="check_boundary_header_height">87dp</dimen>
+    <dimen name="check_boundary_back_width">43dp</dimen>
+    <dimen name="check_boundary_back_height">40dp</dimen>
+    <dimen name="check_boundary_back_margin_top">2dp</dimen>
+    <dimen name="check_boundary_step_margin_top">7.5dp</dimen>
+    <dimen name="check_boundary_step_text_size">14.5sp</dimen>
+    <dimen name="check_boundary_headline_margin_top">9dp</dimen>
+    <dimen name="check_boundary_headline_text_size">25.5sp</dimen>
+
+    <!-- Negative: the map runs this far under the sheet so it shows through
+         the sheet's rounded top corners. -->
+    <dimen name="check_boundary_map_tuck">-12.5dp</dimen>
+
+    <dimen name="check_boundary_banner_margin_top">11.4dp</dimen>
+    <dimen name="check_boundary_banner_margin_end">16.5dp</dimen>
+    <dimen name="check_boundary_banner_height">64dp</dimen>
+    <dimen name="check_boundary_banner_padding_start">17.7dp</dimen>
+    <dimen name="check_boundary_banner_disc_size">40dp</dimen>
+    <dimen name="check_boundary_banner_text_margin_start">8.8dp</dimen>
+    <dimen name="check_boundary_banner_text_size">15sp</dimen>
+
+    <dimen name="check_boundary_sheet_padding_top">18.3dp</dimen>
+    <dimen name="check_boundary_sheet_padding_bottom">8dp</dimen>
+
+    <dimen name="check_boundary_card_padding_start">9dp</dimen>
+    <dimen name="check_boundary_card_gap">2.5dp</dimen>
+
+    <dimen name="check_boundary_stats_height">70.8dp</dimen>
+    <dimen name="check_boundary_area_disc_size">52.5dp</dimen>
+    <dimen name="check_boundary_area_text_margin_start">17dp</dimen>
+    <dimen name="check_boundary_area_text_size">23.5sp</dimen>
+    <dimen name="check_boundary_divider_width">1dp</dimen>
+    <dimen name="check_boundary_divider_height">43dp</dimen>
+    <dimen name="check_boundary_points_icon_size">34dp</dimen>
+    <dimen name="check_boundary_points_text_margin_start">20dp</dimen>
+    <dimen name="check_boundary_points_text_size">15.5sp</dimen>
+
+    <dimen name="check_boundary_check_height">68dp</dimen>
+    <dimen name="check_boundary_check_disc_size">50.5dp</dimen>
+    <dimen name="check_boundary_check_text_margin_start">23dp</dimen>
+    <dimen name="check_boundary_check_text_size">18sp</dimen>
+
+    <dimen name="check_boundary_button_margin_end">4dp</dimen>
+    <dimen name="check_boundary_button_radius">10dp</dimen>
+    <dimen name="check_boundary_button_text_size">18sp</dimen>
+    <dimen name="check_boundary_button_icon_size">40dp</dimen>
+    <dimen name="check_boundary_fix_margin_top">12.6dp</dimen>
+    <dimen name="check_boundary_fix_height">59.4dp</dimen>
+    <dimen name="check_boundary_fix_stroke">1.9dp</dimen>
+    <dimen name="check_boundary_fix_icon_padding">19dp</dimen>
+    <dimen name="check_boundary_save_margin_top">11.4dp</dimen>
+    <dimen name="check_boundary_save_height">60dp</dimen>
+    <dimen name="check_boundary_save_icon_padding">18dp</dimen>
+
+    <!-- ══════════════════════════════════════════════════════════════
+         SCREEN: "What happens next"  (screen_what_happens_next.xml)
+
+         Measured off the hi-res mockup: its screen is 637px wide, so
+         1px = 0.646dp. Widths are taken as-is. The mockup phone is ~120dp
+         taller than this one, so: the leaf logo (the app's shared mark)
+         replaces the tall emblem and shares a row with the back arrow, and
+         vertical sizes and gaps are scaled by 0.945 so Done still fits
+         without scrolling. Text sizes match the mockup's text widths in Sora.
+         ══════════════════════════════════════════════════════════════ -->
+
+    <dimen name="whn_content_horizontal">23dp</dimen>
+    <dimen name="whn_bottom_padding">10dp</dimen>
+
+    <dimen name="whn_header_height">51dp</dimen>
+    <dimen name="whn_back_size">45dp</dimen>
+    <dimen name="whn_back_padding">10dp</dimen>
+    <dimen name="whn_back_margin_start">8dp</dimen>
+    <dimen name="whn_logo_margin_top">5dp</dimen>
+    <dimen name="whn_headline_margin_top">12dp</dimen>
+    <dimen name="whn_headline_text_size">28sp</dimen>
+
+    <dimen name="whn_steps_margin_top">18dp</dimen>
+    <dimen name="whn_card_margin_start">80dp</dimen>
+    <dimen name="whn_card_margin_end">25.8dp</dimen>
+    <dimen name="whn_card_gap">8.5dp</dimen>
+    <dimen name="whn_card1_height">92dp</dimen>
+    <dimen name="whn_card2_height">90dp</dimen>
+    <dimen name="whn_card3_height">89dp</dimen>
+    <dimen name="whn_card4_height">117dp</dimen>
+    <!-- Icons are centred in this slot; the text starts just after it. -->
+    <dimen name="whn_card_icon_slot">104dp</dimen>
+    <dimen name="whn_step1_icon_width">75.6dp</dimen>
+    <dimen name="whn_step2_icon_width">73.6dp</dimen>
+    <dimen name="whn_step3_icon_width">79.4dp</dimen>
+    <dimen name="whn_step4_icon_width">74.3dp</dimen>
+    <dimen name="whn_card_text_margin_start">7dp</dimen>
+    <dimen name="whn_card_text_size">16sp</dimen>
+    <dimen name="whn_card_text_line_spacing">3dp</dimen>
+
+    <dimen name="whn_badge_size">39dp</dimen>
+    <dimen name="whn_badge_margin_start">24.7dp</dimen>
+    <dimen name="whn_badge_offset_top">11dp</dimen>
+    <dimen name="whn_badge_text_size">24sp</dimen>
+    <dimen name="whn_connector_width">3.2dp</dimen>
+    <dimen name="whn_connector_margin_start">42.6dp</dimen>
+    <dimen name="whn_connector_inset">19.5dp</dimen>
+
+    <dimen name="whn_see_margin_top">11dp</dimen>
+    <dimen name="whn_see_height">159dp</dimen>
+    <dimen name="whn_see_title_margin_top">9dp</dimen>
+    <dimen name="whn_see_title_text_size">16.5sp</dimen>
+    <dimen name="whn_see_row_margin_top">10dp</dimen>
+    <dimen name="whn_see_divider_width">1.3dp</dimen>
+    <dimen name="whn_see_divider_height">103dp</dimen>
+    <dimen name="whn_status_disc_size">64dp</dimen>
+    <dimen name="whn_status_label_margin_top">6dp</dimen>
+    <dimen name="whn_status_label_text_size">13sp</dimen>
+
+    <dimen name="whn_note_margin_top">11dp</dimen>
+    <dimen name="whn_note_height">38dp</dimen>
+    <dimen name="whn_note_icon_size">24.5dp</dimen>
+    <dimen name="whn_note_text_margin_start">18dp</dimen>
+    <dimen name="whn_note_text_size">13sp</dimen>
+
+    <dimen name="whn_done_margin_top">10dp</dimen>
+    <dimen name="whn_done_height">59dp</dimen>
+    <dimen name="whn_done_radius">10dp</dimen>
+    <dimen name="whn_done_text_size">21.5sp</dimen>
+
+    <!-- ══════════════════════════════════════════════════════════════
+         SCREEN: "Mapping complete"  (screen_mapping_complete.xml)
+
+         Measured off the hi-res mockup: its screen is 701px wide, so
+         1px = 0.587dp. Widths are taken as-is. The mockup phone is ~80dp
+         taller, so a few inner gaps are trimmed and the map card takes
+         whatever height is left (its picture is centre-cropped around the
+         plot). The teal header runs up behind the status bar.
+         ══════════════════════════════════════════════════════════════ -->
+
+    <!-- Negative: the teal band starts above the status-bar padding. -->
+    <dimen name="mc_header_bleed">-80dp</dimen>
+    <!-- Negative: the band ends this far below the subtitle, then the wave. -->
+    <dimen name="mc_header_below_subtitle">-19dp</dimen>
+    <dimen name="mc_wave_height">27dp</dimen>
+
+    <dimen name="mc_check_disc_margin_top">3dp</dimen>
+    <dimen name="mc_check_disc_size">82dp</dimen>
+    <dimen name="mc_logo_disc_size">66dp</dimen>
+    <dimen name="mc_logo_disc_padding">6dp</dimen>
+    <dimen name="mc_logo_disc_margin_top">2dp</dimen>
+    <dimen name="mc_logo_disc_margin_end">11.7dp</dimen>
+    <dimen name="mc_title_margin_top">9dp</dimen>
+    <dimen name="mc_title_text_size">29sp</dimen>
+    <dimen name="mc_rule_margin_top">15dp</dimen>
+    <dimen name="mc_rule_width">53.4dp</dimen>
+    <dimen name="mc_rule_height">4dp</dimen>
+    <dimen name="mc_subtitle_margin_top">14dp</dimen>
+    <dimen name="mc_subtitle_text_size">16sp</dimen>
+
+    <dimen name="mc_map_card_margin_top">8dp</dimen>
+    <dimen name="mc_map_card_margin_start">18.8dp</dimen>
+    <dimen name="mc_map_card_margin_end">16.4dp</dimen>
+    <dimen name="mc_map_card_margin_bottom">13dp</dimen>
+    <dimen name="mc_map_card_radius">9dp</dimen>
+    <dimen name="mc_map_card_stroke">1.2dp</dimen>
+
+    <dimen name="mc_wait_margin_start">19.4dp</dimen>
+    <dimen name="mc_wait_margin_end">17.6dp</dimen>
+    <dimen name="mc_wait_margin_bottom">11dp</dimen>
+    <dimen name="mc_wait_padding_start">21dp</dimen>
+    <dimen name="mc_wait_padding_top">18dp</dimen>
+    <dimen name="mc_wait_padding_bottom">11dp</dimen>
+    <dimen name="mc_wait_title_text_size">19.5sp</dimen>
+    <dimen name="mc_wifi_width">49.3dp</dimen>
+    <dimen name="mc_wifi_height">39.9dp</dimen>
+    <dimen name="mc_wifi_margin_end">18dp</dimen>
+    <dimen name="mc_wait_body_margin_top">6dp</dimen>
+    <dimen name="mc_wait_body_text_size">14.5sp</dimen>
+    <dimen name="mc_wait_body_line_spacing">4.6dp</dimen>
+    <dimen name="mc_flow_margin_top">6dp</dimen>
+    <dimen name="mc_flow_height">92.1dp</dimen>
+    <dimen name="mc_flow_picture_width">243.6dp</dimen>
+    <dimen name="mc_flow_picture_margin_start">30dp</dimen>
+    <dimen name="mc_flow_logo_disc_size">68dp</dimen>
+    <dimen name="mc_flow_logo_disc_padding">7dp</dimen>
+    <dimen name="mc_flow_logo_disc_margin_start">277dp</dimen>
+    <dimen name="mc_flow_logo_disc_margin_top">2.3dp</dimen>
+    <!-- Labels are centred under each icon: 59dp, 178dp and 309dp into the card. -->
+    <dimen name="mc_label_width">120dp</dimen>
+    <dimen name="mc_label2_margin_start">118.4dp</dimen>
+    <dimen name="mc_label3_margin_start">249.3dp</dimen>
+    <dimen name="mc_label_text_size">12.5sp</dimen>
+    <dimen name="mc_label_line_spacing">1.8dp</dimen>
+
+    <dimen name="mc_note_margin_start">15.8dp</dimen>
+    <dimen name="mc_note_margin_end">17.6dp</dimen>
+    <dimen name="mc_note_margin_bottom">9dp</dimen>
+    <dimen name="mc_note_height">50dp</dimen>
+    <dimen name="mc_note_radius">9dp</dimen>
+    <dimen name="mc_note_padding_start">21.7dp</dimen>
+    <dimen name="mc_note_icon_size">32dp</dimen>
+    <dimen name="mc_note_text_margin_start">20dp</dimen>
+    <dimen name="mc_note_text_size">13.5sp</dimen>
+
+    <dimen name="mc_button_height">49.3dp</dimen>
+    <dimen name="mc_button_margin_bottom">8dp</dimen>
+    <dimen name="mc_button_radius">12dp</dimen>
+    <dimen name="mc_button_text_size">16.9sp</dimen>
+    <dimen name="mc_button_padding_end">28dp</dimen>
+
+    <!-- ══════════════════════════════════════════════════════════════
+         SCREEN: Before you draw  (screen_before_you_draw.xml)
+
+         Mockup screen 660px wide (1px = 0.623dp). Widths as measured; the phone is shorter than the mockup, so card, tile, note and button heights and the gaps between them are scaled by 0.887 to keep Open map on screen.
+         ══════════════════════════════════════════════════════════════ -->
+
+    <dimen name="draw_intro_brand_text_size">29sp</dimen>
+    <dimen name="draw_intro_title_margin_top">19.6dp</dimen>
+    <dimen name="draw_intro_title_margin_start">31.8dp</dimen>
+    <dimen name="draw_intro_title_text_size">32sp</dimen>
+    <dimen name="draw_intro_steps_margin_top">17.5dp</dimen>
+    <dimen name="draw_intro_card_margin_start">53dp</dimen>
+    <dimen name="draw_intro_card_margin_end">16.8dp</dimen>
+    <dimen name="draw_intro_card_height">112.8dp</dimen>
+    <dimen name="draw_intro_card_gap">14dp</dimen>
+    <dimen name="draw_intro_tile_inset">10.6dp</dimen>
+    <dimen name="draw_intro_tile_width">109dp</dimen>
+    <dimen name="draw_intro_text_margin_start">32.4dp</dimen>
+    <dimen name="draw_intro_text_size">16.3sp</dimen>
+    <dimen name="draw_intro_text_line_spacing">2.2dp</dimen>
+    <dimen name="draw_intro_badge_size">37.4dp</dimen>
+    <dimen name="draw_intro_badge_margin_start">14.7dp</dimen>
+    <dimen name="draw_intro_badge_offset_top">10dp</dimen>
+    <dimen name="draw_intro_badge_text_size">22sp</dimen>
+    <dimen name="draw_intro_line_width">3.1dp</dimen>
+    <dimen name="draw_intro_line_margin_start">31.8dp</dimen>
+    <dimen name="draw_intro_line_inset">18.7dp</dimen>
+    <dimen name="draw_intro_note_margin_top">16.6dp</dimen>
+    <dimen name="draw_intro_note_margin_horizontal">16.2dp</dimen>
+    <dimen name="draw_intro_note_height">72.4dp</dimen>
+    <dimen name="draw_intro_note_padding_start">32.4dp</dimen>
+    <dimen name="draw_intro_note_disc_height">56.4dp</dimen>
+    <dimen name="draw_intro_note_text_margin_start">48.2dp</dimen>
+    <dimen name="draw_intro_button_margin_top">17.7dp</dimen>
+    <dimen name="draw_intro_button_margin_end">17.4dp</dimen>
+    <dimen name="draw_intro_button_height">69.6dp</dimen>
+    <dimen name="draw_intro_button_radius">13.7dp</dimen>
+    <dimen name="draw_intro_button_text_start">151.5dp</dimen>
+    <dimen name="draw_intro_button_text_size">24sp</dimen>
+    <dimen name="draw_intro_button_icon_start">59.8dp</dimen>
+    <dimen name="draw_intro_button_icon_height">51dp</dimen>
+
+    <!-- ══════════════════════════════════════════════════════════════
+         SCREEN: Draw flow step 1, find your field  (screen_draw_find_field.xml)
+
+         Mockup screen 694px wide (1px = 0.593dp). The satellite map fills the gap between the top bar and the sheet; its picture is cut so its bottom lines up with the sheet as in the mockup.
+         ══════════════════════════════════════════════════════════════ -->
+
+    <dimen name="draw_find_bar_height">65.3dp</dimen>
+    <dimen name="draw_find_logo_margin_start">13dp</dimen>
+    <dimen name="draw_find_step_margin_start">10dp</dimen>
+    <dimen name="draw_find_step_text_size">20sp</dimen>
+    <dimen name="draw_find_menu_size">44dp</dimen>
+    <dimen name="draw_find_menu_padding">9.5dp</dimen>
+    <dimen name="draw_find_menu_margin_end">13.5dp</dimen>
+    <dimen name="draw_find_map_tuck">-21dp</dimen>
+    <dimen name="draw_find_card_margin_top">19.6dp</dimen>
+    <dimen name="draw_find_card_margin_start">15.4dp</dimen>
+    <dimen name="draw_find_card_width">342.6dp</dimen>
+    <dimen name="draw_find_card_height">170.7dp</dimen>
+    <dimen name="draw_find_card_padding_top">13dp</dimen>
+    <dimen name="draw_find_card_padding_bottom">15.5dp</dimen>
+    <dimen name="draw_find_card_row_height">71.1dp</dimen>
+    <dimen name="draw_find_drag_icon_start">18.4dp</dimen>
+    <dimen name="draw_find_drag_icon_width">48.6dp</dimen>
+    <dimen name="draw_find_drag_icon_height">59.3dp</dimen>
+    <dimen name="draw_find_drag_text_start">33.2dp</dimen>
+    <dimen name="draw_find_pinch_icon_start">16dp</dimen>
+    <dimen name="draw_find_pinch_icon_width">54.5dp</dimen>
+    <dimen name="draw_find_pinch_icon_height">56.9dp</dimen>
+    <dimen name="draw_find_pinch_text_start">29.7dp</dimen>
+    <dimen name="draw_find_card_text_size">19sp</dimen>
+    <dimen name="draw_find_chip_margin_start">14.8dp</dimen>
+    <dimen name="draw_find_chip_margin_bottom">19dp</dimen>
+    <dimen name="draw_find_chip_width">156.5dp</dimen>
+    <dimen name="draw_find_chip_height">57.5dp</dimen>
+    <dimen name="draw_find_chip_icon_start">11.9dp</dimen>
+    <dimen name="draw_find_chip_icon_width">41.5dp</dimen>
+    <dimen name="draw_find_chip_icon_height">35.6dp</dimen>
+    <dimen name="draw_find_chip_text_start">4.1dp</dimen>
+    <dimen name="draw_find_chip_text_size">13.9sp</dimen>
+    <dimen name="draw_find_sheet_padding_bottom">4dp</dimen>
+    <dimen name="draw_find_handle_margin_top">14.2dp</dimen>
+    <dimen name="draw_find_handle_width">52dp</dimen>
+    <dimen name="draw_find_handle_height">5dp</dimen>
+    <dimen name="draw_find_primary_margin_top">36.2dp</dimen>
+    <dimen name="draw_find_button_margin_horizontal">27.3dp</dimen>
+    <dimen name="draw_find_primary_height">74.1dp</dimen>
+    <dimen name="draw_find_button_radius">13dp</dimen>
+    <dimen name="draw_find_primary_text_start">119dp</dimen>
+    <dimen name="draw_find_primary_text_size">26sp</dimen>
+    <dimen name="draw_find_eye_start">51.6dp</dimen>
+    <dimen name="draw_find_eye_width">49.8dp</dimen>
+    <dimen name="draw_find_eye_height">38.5dp</dimen>
+    <dimen name="draw_find_secondary_margin_top">18.3dp</dimen>
+    <dimen name="draw_find_secondary_height">67.6dp</dimen>
+    <dimen name="draw_find_secondary_stroke">2.4dp</dimen>
+    <dimen name="draw_find_secondary_text_start">139.3dp</dimen>
+    <dimen name="draw_find_secondary_text_size">21.7sp</dimen>
+    <dimen name="draw_find_arrow_start">80dp</dimen>
+    <dimen name="draw_find_arrow_width">39.1dp</dimen>
+    <dimen name="draw_find_arrow_height">40.3dp</dimen>
+
+    <!-- ══════════════════════════════════════════════════════════════
+         SCREEN: Draw flow step 2, mark each corner  (screen_draw_mark_corners.xml)
+
+         Mockup screen 659px wide (1px = 0.624dp). Sheet children are placed by their measured offsets from the sheet top.
+         ══════════════════════════════════════════════════════════════ -->
+
+    <dimen name="draw_mark_bar_height">56dp</dimen>
+    <dimen name="draw_mark_step_text_size">15sp</dimen>
+    <dimen name="draw_mark_help_size">35.6dp</dimen>
+    <dimen name="draw_mark_help_margin_end">11.9dp</dimen>
+    <dimen name="draw_mark_map_tuck">-25dp</dimen>
+    <dimen name="draw_mark_card_margin_top">29.3dp</dimen>
+    <dimen name="draw_mark_card_margin_start">18.1dp</dimen>
+    <dimen name="draw_mark_card_margin_end">17.5dp</dimen>
+    <dimen name="draw_mark_card_height">96.1dp</dimen>
+    <dimen name="draw_mark_icon_start">15.6dp</dimen>
+    <dimen name="draw_mark_icon_width">63.7dp</dimen>
+    <dimen name="draw_mark_icon_height">56.2dp</dimen>
+    <dimen name="draw_mark_text_start">13.7dp</dimen>
+    <dimen name="draw_mark_title_text_size">23.6sp</dimen>
+    <dimen name="draw_mark_subtitle_margin_top">5dp</dimen>
+    <dimen name="draw_mark_subtitle_text_size">14.6sp</dimen>
+    <dimen name="draw_mark_sheet_padding_bottom">14dp</dimen>
+    <dimen name="draw_mark_handle_margin_top">12.5dp</dimen>
+    <dimen name="draw_mark_handle_width">42.5dp</dimen>
+    <dimen name="draw_mark_handle_height">4.4dp</dimen>
+    <dimen name="draw_mark_pin_start">22.5dp</dimen>
+    <dimen name="draw_mark_pin_top">35dp</dimen>
+    <dimen name="draw_mark_pin_width">38.1dp</dimen>
+    <dimen name="draw_mark_pin_height">47.4dp</dimen>
+    <dimen name="draw_mark_count_start">76.2dp</dimen>
+    <dimen name="draw_mark_count_top">36.2dp</dimen>
+    <dimen name="draw_mark_count_text_size">16.7sp</dimen>
+    <dimen name="draw_mark_hint_top">66.8dp</dimen>
+    <dimen name="draw_mark_hint_text_size">13.9sp</dimen>
+    <dimen name="draw_mark_divider_top">100.5dp</dimen>
+    <dimen name="draw_mark_divider_margin_start">25dp</dimen>
+    <dimen name="draw_mark_divider_margin_end">26.2dp</dimen>
+    <dimen name="draw_mark_divider_height">1.2dp</dimen>
+    <dimen name="draw_mark_row_top">116.1dp</dimen>
+    <dimen name="draw_mark_button_start">23.7dp</dimen>
+    <dimen name="draw_mark_button_end">25dp</dimen>
+    <dimen name="draw_mark_half_width">173.6dp</dimen>
+    <dimen name="draw_mark_button_height">63dp</dimen>
+    <dimen name="draw_mark_button_radius">10dp</dimen>
+    <dimen name="draw_mark_button_stroke">1.2dp</dimen>
+    <dimen name="draw_mark_button_text_size">15.3sp</dimen>
+    <dimen name="draw_mark_undo_icon_start">40.6dp</dimen>
+    <dimen name="draw_mark_undo_icon_width">33.1dp</dimen>
+    <dimen name="draw_mark_undo_icon_height">30.6dp</dimen>
+    <dimen name="draw_mark_undo_text_start">86.2dp</dimen>
+    <dimen name="draw_mark_trash_icon_start">43dp</dimen>
+    <dimen name="draw_mark_trash_icon_width">29.3dp</dimen>
+    <dimen name="draw_mark_trash_icon_height">32.5dp</dimen>
+    <dimen name="draw_mark_clear_text_start">85dp</dimen>
+    <dimen name="draw_mark_close_top">192.3dp</dimen>
+    <dimen name="draw_mark_close_text_start">136dp</dimen>
+    <dimen name="draw_mark_close_text_size">15.4sp</dimen>
+    <dimen name="draw_mark_lock_start">94.9dp</dimen>
+    <dimen name="draw_mark_lock_width">27.5dp</dimen>
+    <dimen name="draw_mark_lock_height">32.5dp</dimen>
+
+    <!-- ══════════════════════════════════════════════════════════════
+         SCREEN: Draw flow step 3, check your drawing  (screen_draw_check.xml)
+
+         Mockup screen 664px wide (1px = 0.620dp). The mockup phone is ~110dp taller: the map takes the height left over, and card, button and gap heights are trimmed so the whole plot still fits.
+         ══════════════════════════════════════════════════════════════ -->
+
+    <dimen name="draw_check_row_height">50dp</dimen>
+    <dimen name="draw_check_logo_margin_start">15.5dp</dimen>
+    <dimen name="draw_check_step_text_size">15.3sp</dimen>
+    <dimen name="draw_check_help_width">44dp</dimen>
+    <dimen name="draw_check_help_height">40.9dp</dimen>
+    <dimen name="draw_check_help_margin_end">15.5dp</dimen>
+    <dimen name="draw_check_stepper_margin_top">11dp</dimen>
+    <dimen name="draw_check_stepper_height">27.3dp</dimen>
+    <dimen name="draw_check_stepper_disc">27.3dp</dimen>
+    <dimen name="draw_check_stepper_line">3.1dp</dimen>
+    <dimen name="draw_check_line1_start">96dp</dimen>
+    <dimen name="draw_check_line1_width">110dp</dimen>
+    <dimen name="draw_check_line2_start">206dp</dimen>
+    <dimen name="draw_check_line2_width">63.5dp</dimen>
+    <dimen name="draw_check_line3_start">269.5dp</dimen>
+    <dimen name="draw_check_line3_width">45.3dp</dimen>
+    <dimen name="draw_check_disc1_start">82.3dp</dimen>
+    <dimen name="draw_check_disc2_start">192.3dp</dimen>
+    <dimen name="draw_check_disc3_start">301.1dp</dimen>
+    <dimen name="draw_check_disc_text_size">14sp</dimen>
+    <dimen name="draw_check_title_margin_top">22dp</dimen>
+    <dimen name="draw_check_title_text_size">30.5sp</dimen>
+    <dimen name="draw_check_cards_margin_top">18.7dp</dimen>
+    <dimen name="draw_check_card_margin_start">16.7dp</dimen>
+    <dimen name="draw_check_card_margin_end">15.5dp</dimen>
+    <dimen name="draw_check_card_height">56dp</dimen>
+    <dimen name="draw_check_card_gap">7dp</dimen>
+    <dimen name="draw_check_card_padding_start">13dp</dimen>
+    <dimen name="draw_check_card_disc">34dp</dimen>
+    <dimen name="draw_check_card_text_start">16.2dp</dimen>
+    <dimen name="draw_check_card_text_size">16.5sp</dimen>
+    <dimen name="draw_check_map_margin_top">11dp</dimen>
+    <dimen name="draw_check_map_margin_bottom">8dp</dimen>
+    <dimen name="draw_check_map_margin_start">9.3dp</dimen>
+    <dimen name="draw_check_map_margin_end">7.4dp</dimen>
+    <dimen name="draw_check_map_radius">13.6dp</dimen>
+    <dimen name="draw_check_area_height">60dp</dimen>
+    <dimen name="draw_check_area_margin_bottom">16dp</dimen>
+    <dimen name="draw_check_area_value_text_size">50sp</dimen>
+    <dimen name="draw_check_area_unit_start">13dp</dimen>
+    <dimen name="draw_check_area_unit_text_size">27sp</dimen>
+    <dimen name="draw_check_hint_margin_start">14.3dp</dimen>
+    <dimen name="draw_check_hint_margin_bottom">14dp</dimen>
+    <dimen name="draw_check_hint_disc_height">52dp</dimen>
+    <dimen name="draw_check_hint_text_start">22.2dp</dimen>
+    <dimen name="draw_check_hint_text_size">18sp</dimen>
+    <dimen name="draw_check_edit_margin_bottom">8dp</dimen>
+    <dimen name="draw_check_edit_height">54dp</dimen>
+    <dimen name="draw_check_edit_margin_start">16.1dp</dimen>
+    <dimen name="draw_check_edit_margin_end">16.7dp</dimen>
+    <dimen name="draw_check_edit_stroke">1.9dp</dimen>
+    <dimen name="draw_check_edit_radius">12.4dp</dimen>
+    <dimen name="draw_check_edit_text_start">150.6dp</dimen>
+    <dimen name="draw_check_edit_text_size">17.9sp</dimen>
+    <dimen name="draw_check_polygon_start">36.6dp</dimen>
+    <dimen name="draw_check_polygon_height">40dp</dimen>
+    <dimen name="draw_check_save_margin_bottom">8dp</dimen>
+    <dimen name="draw_check_save_height">58dp</dimen>
+    <dimen name="draw_check_save_margin_start">15.5dp</dimen>
+    <dimen name="draw_check_save_margin_end">14.2dp</dimen>
+    <dimen name="draw_check_save_radius">13.6dp</dimen>
+    <dimen name="draw_check_save_text_start">132.6dp</dimen>
+    <dimen name="draw_check_save_text_size">20.5sp</dimen>
+    <dimen name="draw_check_save_icon_start">41.5dp</dimen>
+    <dimen name="draw_check_save_icon_height">36dp</dimen>
+
+    <!-- ══════════════════════════════════════════════════════════════
+         SCREEN: Draw flow, mapping complete  (screen_draw_mapping_complete.xml)
+
+         Mockup screen 678px wide (1px = 0.607dp). The teal header runs up behind the status bar. The mockup phone is ~90dp taller, so the waiting and next-step cards are scaled to about 0.9 of their height and the map takes what is left.
+         ══════════════════════════════════════════════════════════════ -->
+
+    <dimen name="draw_done_header_bleed">-80dp</dimen>
+    <dimen name="draw_done_band_below_subtitle">-2dp</dimen>
+    <dimen name="draw_done_wave_height">23dp</dimen>
+    <dimen name="draw_done_logo_margin_top">3.6dp</dimen>
+    <dimen name="draw_done_logo_size">72dp</dimen>
+    <dimen name="draw_done_logo_padding">8dp</dimen>
+    <dimen name="draw_done_title_margin_top">6.2dp</dimen>
+    <dimen name="draw_done_title_text_size">29.5sp</dimen>
+    <dimen name="draw_done_subtitle_margin_top">5.5dp</dimen>
+    <dimen name="draw_done_subtitle_text_size">14.5sp</dimen>
+    <dimen name="draw_done_map_margin_top">6dp</dimen>
+    <dimen name="draw_done_map_margin_bottom">10dp</dimen>
+    <dimen name="draw_done_map_radius">12dp</dimen>
+    <dimen name="draw_done_card_margin_start">23dp</dimen>
+    <dimen name="draw_done_card_margin_end">21.2dp</dimen>
+    <dimen name="draw_done_wait_height">222dp</dimen>
+    <dimen name="draw_done_wait_margin_bottom">9dp</dimen>
+    <dimen name="draw_done_cloud_start">12.7dp</dimen>
+    <dimen name="draw_done_cloud_top">6dp</dimen>
+    <dimen name="draw_done_cloud_width">45.5dp</dimen>
+    <dimen name="draw_done_cloud_height">37.6dp</dimen>
+    <dimen name="draw_done_wait_text_start">63.1dp</dimen>
+    <dimen name="draw_done_wait_title_top">7.9dp</dimen>
+    <dimen name="draw_done_wait_title_text_size">17.3sp</dimen>
+    <dimen name="draw_done_wait_body_top">33.7dp</dimen>
+    <dimen name="draw_done_wait_body_text_size">11.6sp</dimen>
+    <dimen name="draw_done_wait_body_line_spacing">4dp</dimen>
+    <dimen name="draw_done_flow_start">24.9dp</dimen>
+    <dimen name="draw_done_flow_top">75.5dp</dimen>
+    <dimen name="draw_done_flow_width">234.8dp</dimen>
+    <dimen name="draw_done_flow_height">86.8dp</dimen>
+    <dimen name="draw_done_flow_disc_start">270.7dp</dimen>
+    <dimen name="draw_done_flow_disc_top">86.2dp</dimen>
+    <dimen name="draw_done_flow_disc_size">65.5dp</dimen>
+    <dimen name="draw_done_flow_disc_padding">7dp</dimen>
+    <dimen name="draw_done_label_width">96dp</dimen>
+    <dimen name="draw_done_label1_start">3.6dp</dimen>
+    <dimen name="draw_done_label2_start">129.5dp</dimen>
+    <dimen name="draw_done_label3_start">254.8dp</dimen>
+    <dimen name="draw_done_label_top">157dp</dimen>
+    <dimen name="draw_done_label_text_size">12.1sp</dimen>
+    <dimen name="draw_done_by_top">173.5dp</dimen>
+    <dimen name="draw_done_by_text_size">10.9sp</dimen>
+    <dimen name="draw_done_status_size">32.8dp</dimen>
+    <dimen name="draw_done_status1_start">35.8dp</dimen>
+    <dimen name="draw_done_status2_start">160.2dp</dimen>
+    <dimen name="draw_done_status3_start">286.4dp</dimen>
+    <dimen name="draw_done_status_top">174.3dp</dimen>
+    <dimen name="draw_done_status3_top">189.7dp</dimen>
+    <dimen name="draw_done_info_height">172dp</dimen>
+    <dimen name="draw_done_info_margin_bottom">10dp</dimen>
+    <dimen name="draw_done_strip_start">10.9dp</dimen>
+    <dimen name="draw_done_strip_top">2.7dp</dimen>
+    <dimen name="draw_done_strip_height">166dp</dimen>
+    <dimen name="draw_done_info_text_start">82.5dp</dimen>
+    <dimen name="draw_done_info_text_size">11.2sp</dimen>
+    <dimen name="draw_done_info_line_spacing">2.5dp</dimen>
+    <dimen name="draw_done_info1_top">14.6dp</dimen>
+    <dimen name="draw_done_info2_top">71.5dp</dimen>
+    <dimen name="draw_done_info3_top">134.5dp</dimen>
+    <dimen name="draw_done_button_height">54dp</dimen>
+    <dimen name="draw_done_button_margin_bottom">8dp</dimen>
+    <dimen name="draw_done_button_margin_start">21.8dp</dimen>
+    <dimen name="draw_done_button_margin_end">20.6dp</dimen>
+    <dimen name="draw_done_button_radius">13.3dp</dimen>
+    <dimen name="draw_done_button_text_size">23.9sp</dimen>
+
+</resources>

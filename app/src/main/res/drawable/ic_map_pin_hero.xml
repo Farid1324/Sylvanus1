@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Welcome-screen map pin.
+
+    @drawable/ic_map_pin is the 24dp list/button glyph and stays that way;
+    this is the hero version, authored on a 64 x 88 viewport so the drop keeps
+    its proportions at size: a 26r head centred on (32,30) tapering to a point
+    at (32,86). Draw it at welcome_pin_width x welcome_pin_height so the tip
+    reaches the bottom edge and can be pinned straight to a guideline sitting
+    on the plot boundary.
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="64dp"
+    android:height="88dp"
+    android:viewportWidth="64"
+    android:viewportHeight="88">
+
+    <!-- Teardrop body -->
+    <path
+        android:fillColor="@color/orange_primary"
+        android:pathData="M32,86 C25,72 6,49 6,30 C6,15.64 17.64,4 32,4 C46.36,4 58,15.64 58,30 C58,49 39,72 32,86 Z" />
+
+    <!-- Punched-out centre -->
+    <path
+        android:fillColor="@color/surface_white"
+        android:pathData="M32,19 C38.08,19 43,23.92 43,30 C43,36.08 38.08,41 32,41 C25.92,41 21,36.08 21,30 C21,23.92 25.92,19 32,19 Z" />
+
+</vector>

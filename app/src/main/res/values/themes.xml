@@ -1,5 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-    <style name="Theme.MyApplication" parent="android:Theme.Material.Light.NoActionBar" />
+    <!-- values/themes.xml -->
+    <style name="Theme.Silvius12" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Brand typeface, applied app-wide -->
+        <item name="android:fontFamily">@font/sora</item>
+        <item name="fontFamily">@font/sora</item>
+        <item name="colorPrimary">@color/teal_primary</item>
+        <item name="colorPrimaryVariant">@color/teal_dark</item>
+        <item name="colorOnPrimary">@color/text_on_teal</item>
+        <item name="colorSecondary">@color/orange_primary</item>
+        <item name="android:statusBarColor">@color/brand_teal</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:navigationBarColor">@color/cream_bg</item>
+    </style>
 </resources>

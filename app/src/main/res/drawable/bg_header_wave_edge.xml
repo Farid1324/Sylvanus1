@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    The wavy lower edge of the "Before you start walking" masthead, on its own.
+
+    The masthead band now wraps its content so fitsSystemWindows can size it to
+    whatever status bar the device has. A band that wraps cannot carry
+    @drawable/bg_header_teal_curved as its background, because that vector's
+    208dp intrinsic height would become the band's minimum height, and that
+    drawable is shared by four other screens so its size cannot change. This
+    strip sits directly under the solid band and supplies only the curve.
+
+    Same wave as bg_header_teal_curved, its bottom 15 units lifted to the top.
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="360dp"
+    android:height="10dp"
+    android:viewportWidth="360"
+    android:viewportHeight="15">
+
+    <path
+        android:fillColor="@color/teal_primary"
+        android:pathData="M0,0 L0,1.5 C12,2.5 24,4 36,4.2 C58,4.8 80,2 100,1.2 C116,0.6 136,1 152,4.6 C166,7.8 178,12.8 194,13.8 C208,14.6 224,11.2 248,10.4 C272,9.8 296,13 320,11.6 C336,10.6 348,8 360,5 L360,0 Z" />
+
+</vector>

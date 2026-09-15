@@ -1,10 +1,101 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="purple_200">#FFBB86FC</color>
-    <color name="purple_500">#FF6200EE</color>
-    <color name="purple_700">#FF3700B3</color>
-    <color name="teal_200">#FF03DAC5</color>
-    <color name="teal_700">#FF018786</color>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <!-- Brand -->
+    <color name="teal_primary">#225F71</color>
+    <color name="teal_dark">#163F4B</color>
+    <color name="teal_medium">#4C8496</color>
+    <color name="teal_pale">#CFE1E6</color>
+    <color name="teal_pale_dark">#A9C8D0</color>
+
+    <color name="orange_primary">#DD6A36</color>
+    <color name="orange_dark">#C25B24</color>
+    <color name="orange_pale">#F6D9C8</color>
+
+    <!-- Neutrals -->
+    <color name="cream_bg">#F9F1DC</color>
+    <color name="surface_white">#FFFFFF</color>
+    <color name="surface_card">#FEFCF8</color>
+
+    <color name="text_primary">#1D5C6F</color>
+    <color name="text_secondary">#6E7C82</color>
+    <color name="text_on_teal">#FFFFFF</color>
+    <color name="text_on_orange">#FFFFFF</color>
+
+    <color name="border_light">#DCE3E4</color>
+    <color name="dot_inactive">#C7D8DB</color>
+    <color name="dot_active">@color/orange_primary</color>
+
+    <color name="success_green">#3E8E5A</color>
+    <color name="bg_cream">@color/cream_bg</color>
+    <color name="green">@color/success_green</color>
+    <color name="border">#DCE3E4</color>
+    <color name="border_focused">#1D5C6F</color>
+    <color name="field_tint_bg">#E8F0F2</color>
+    <color name="blue_primary">#1E3A5F</color>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         ONBOARDING TOKENS — sampled from the design mockup
+         ═══════════════════════════════════════════════════════════ -->
+
+    <!-- Icon + heading ink. Deliberately darker than teal_primary so
+         line-art icons and step labels read at small stroke weights. -->
+    <color name="ink_navy">#0C2F3F</color>
+
+    <!-- Pale disc behind each step icon -->
+    <color name="teal_chip">#C4D9DB</color>
+
+    <!-- Lighter still: the ready-to-map capsules and info cards -->
+    <color name="teal_chip_pale">#D8E9ED</color>
+
+    <!-- "Works without internet" pill -->
+    <color name="pill_surface">#D3E0E0</color>
+
+    <!-- Step card face: warmer than surface_card so it sits gently on cream -->
+    <color name="surface_step_card">#FBF7EB</color>
+
+    <!-- Water band inside the Silvanus emblem -->
+    <color name="teal_water">#56A0AB</color>
+
+
+    <!-- ═══════════════════════════════════════════════════════════
+         BRAND — sampled directly from the TANIT logo on
+         tanit.solutions. These are the source of truth for the mark;
+         do not hand-tweak them.
+         ═══════════════════════════════════════════════════════════ -->
+    <color name="brand_cream">#F9F1DC</color>
+    <color name="brand_teal">#225F71</color>
+    <!-- Top of the masthead gradient; keeps the panel from reading flat -->
+    <color name="brand_teal_deep">#125061</color>
+    <!-- Where the masthead sits just before it dissolves -->
+    <color name="brand_teal_light">#206073</color>
+    <color name="brand_orange">#DD6A36</color>
+    <color name="brand_water">#56A0AB</color>
+    <!-- The pale aqua of the plot in the Welcome illustration; the language
+         field under it uses the same colour so the screen reads as one palette. -->
+    <color name="brand_aqua_pale">#CDEBEB</color>
+    <!-- "What happens next": the You will see panel, its dividers, and the TRACES note strip. -->
+    <color name="mist_card">#DBE6E7</color>
+    <color name="mist_card_stroke">#C2D8DC</color>
+    <color name="mist_divider">#BAD0D3</color>
+    <color name="note_pill">#F7EEDE</color>
+    <color name="note_pill_stroke">#EEE5D5</color>
+    <!-- "Mapping complete": the Waiting for internet card, the map card edge and the note strip edge. -->
+    <color name="wait_card_blue">#9ABFC4</color>
+    <color name="map_card_stroke">#E4D9C5</color>
+    <color name="note_strip_stroke">#E0D7C4</color>
+    <!-- Draw-on-map flow, sampled from its mockups. -->
+    <color name="draw_card_stroke">#E1D5C0</color>
+    <color name="draw_line_teal">#377E8A</color>
+    <color name="note_mint">#C6DAD5</color>
+    <color name="note_mint_stroke">#8FBCBC</color>
+    <color name="orange_soft">#E28758</color>
+    <color name="orange_soft_text">#F8D6C2</color>
+    <color name="divider_sand">#D2CBB9</color>
+    <color name="check_card_fill">#FAF6EF</color>
+    <color name="check_card_stroke">#E5DBC9</color>
+    <color name="wait_card_mist">#D8E3E1</color>
+    <color name="info_card_cream">#FBF5EA</color>
+    <!-- Hairline between the area and point stats on "Check your boundary". -->
+    <color name="divider_warm">#DDDAD2</color>
+
 </resources>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Tinted leading panel of an About-you field row. Sits inside the 1dp
+    border of @drawable/bg_field_card, so its corners are one step tighter
+    than the card radius and only the leading edge is rounded.
+-->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid android:color="@color/teal_chip" />
+    <corners
+        android:topLeftRadius="@dimen/about_you_field_panel_radius"
+        android:bottomLeftRadius="@dimen/about_you_field_panel_radius"
+        android:topRightRadius="0dp"
+        android:bottomRightRadius="0dp" />
+</shape>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Pressed: slightly lower elevation + subtle scale feel -->
+    <item android:state_pressed="true">
+        <objectAnimator
+            android:propertyName="translationZ"
+            android:valueTo="2dp"
+            android:duration="100"
+            android:valueType="floatType" />
+    </item>
+    <!-- Default / hovered -->
+    <item>
+        <objectAnimator
+            android:propertyName="translationZ"
+            android:valueTo="6dp"
+            android:duration="150"
+            android:valueType="floatType" />
+    </item>
+</selector>

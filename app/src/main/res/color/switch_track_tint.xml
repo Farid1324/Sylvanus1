@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Allow-location toggle: brand teal track when on, pale teal when off -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:color="@color/brand_teal" android:state_checked="true" />
+    <item android:color="@color/teal_chip" />
+</selector>

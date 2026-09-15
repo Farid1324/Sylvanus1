@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         Primary teal button (Get started, etc.)
+         ═══════════════════════════════════════════════════════════ -->
+    <style name="Widget.Silvanus.Button.Primary" parent="Widget.MaterialComponents.Button">
+        <item name="backgroundTint">@null</item>
+        <item name="android:background">@drawable/bg_button_teal</item>
+        <item name="android:textColor">@color/text_on_teal</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:fontFamily">@font/sora_medium</item>
+        <item name="fontFamily">@font/sora_medium</item>
+        <item name="android:letterSpacing">-0.01</item>
+        <item name="cornerRadius">12dp</item>
+        <item name="rippleColor">#40FFFFFF</item>
+        <item name="android:elevation">6dp</item>
+        <item name="android:stateListAnimator">@animator/btn_press</item>
+        <item name="iconTint">@color/text_on_teal</item>
+        <item name="iconPadding">8dp</item>
+    </style>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         Orange accent button
+         ═══════════════════════════════════════════════════════════ -->
+    <style name="Widget.Silvanus.Button.Orange" parent="Widget.MaterialComponents.Button">
+        <item name="backgroundTint">@null</item>
+        <item name="android:background">@drawable/bg_button_orange</item>
+        <item name="android:textColor">@color/text_on_orange</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:fontFamily">@font/sora_medium</item>
+        <item name="fontFamily">@font/sora_medium</item>
+        <item name="cornerRadius">12dp</item>
+        <item name="rippleColor">#40FFFFFF</item>
+        <item name="android:elevation">6dp</item>
+        <item name="android:stateListAnimator">@animator/btn_press</item>
+    </style>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         Text / ghost button
+         ═══════════════════════════════════════════════════════════ -->
+    <style name="Widget.Silvanus.Button.Text" parent="Widget.MaterialComponents.Button.TextButton">
+        <item name="android:textColor">@color/teal_primary</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">@font/sora_medium</item>
+        <item name="fontFamily">@font/sora_medium</item>
+        <item name="rippleColor">#200F3D4C</item>
+    </style>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         Outlined text field
+         ═══════════════════════════════════════════════════════════ -->
+    <style name="Widget.Silvanus.TextField" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxStrokeColor">@color/border_selector</item>
+        <item name="boxStrokeWidth">1.5dp</item>
+        <item name="boxStrokeWidthFocused">2dp</item>
+        <item name="boxCornerRadiusTopStart">12dp</item>
+        <item name="boxCornerRadiusTopEnd">12dp</item>
+        <item name="boxCornerRadiusBottomStart">12dp</item>
+        <item name="boxCornerRadiusBottomEnd">12dp</item>
+        <item name="boxBackgroundColor">@color/surface_card</item>
+        <item name="hintTextColor">@color/text_secondary</item>
+        <item name="startIconTint">@color/text_secondary</item>
+        <item name="endIconTint">@color/text_secondary</item>
+    </style>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         Language / dropdown field
+         ═══════════════════════════════════════════════════════════ -->
+    <style name="Widget.Silvanus.Dropdown" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
+        <item name="boxStrokeColor">@color/border_selector</item>
+        <item name="boxStrokeWidth">1.5dp</item>
+        <item name="boxStrokeWidthFocused">2dp</item>
+        <item name="boxCornerRadiusTopStart">12dp</item>
+        <item name="boxCornerRadiusTopEnd">12dp</item>
+        <item name="boxCornerRadiusBottomStart">12dp</item>
+        <item name="boxCornerRadiusBottomEnd">12dp</item>
+        <item name="boxBackgroundColor">@color/surface_card</item>
+        <item name="hintEnabled">false</item>
+        <item name="endIconMode">dropdown_menu</item>
+        <item name="endIconTint">@color/text_secondary</item>
+        <item name="startIconTint">@color/text_secondary</item>
+    </style>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         About-you form rows
+
+         Both styles sit inside @drawable/bg_field_card, so the box itself
+         is transparent and only the parts the mockup shows survive: a label
+         that stays collapsed above a rule on the typed fields, and a label
+         that floats up out of the way on the two pickers.
+         ═══════════════════════════════════════════════════════════ -->
+
+    <!-- Typed field: label pinned small at the top, underline beneath it -->
+    <style name="Widget.Silvanus.AboutYou.Field" parent="Widget.MaterialComponents.TextInputLayout.FilledBox">
+        <item name="boxBackgroundColor">@android:color/transparent</item>
+        <item name="boxStrokeColor">@color/field_underline_selector</item>
+        <item name="boxStrokeWidth">@dimen/about_you_field_underline_width</item>
+        <item name="boxStrokeWidthFocused">@dimen/about_you_field_underline_width_focused</item>
+        <item name="expandedHintEnabled">false</item>
+        <item name="hintAnimationEnabled">false</item>
+        <item name="hintTextColor">@color/text_primary</item>
+        <item name="android:textColorHint">@color/text_primary</item>
+        <item name="errorEnabled">false</item>
+        <item name="boxCollapsedPaddingTop">0dp</item>
+    </style>
+
+    <!-- Picker: no rule; the label sits centred until a value floats it up -->
+    <style name="Widget.Silvanus.AboutYou.Picker" parent="Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu">
+        <item name="boxBackgroundColor">@android:color/transparent</item>
+        <item name="boxStrokeWidth">0dp</item>
+        <item name="boxStrokeWidthFocused">0dp</item>
+        <item name="hintTextColor">@color/text_primary</item>
+        <item name="android:textColorHint">@color/text_primary</item>
+        <item name="errorEnabled">false</item>
+    </style>
+
+    <!-- Collapsed field label — "Your full name", "Main crop" -->
+    <style name="TextAppearance.Silvanus.FieldLabel" parent="TextAppearance.MaterialComponents.Caption">
+        <item name="android:textSize">@dimen/about_you_label_text_size</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="fontFamily">@font/sora_regular</item>
+        <item name="android:fontFamily">@font/sora_regular</item>
+    </style>
+
+    <!-- "What happens next": orange number badges and the You will see labels. -->
+    <style name="TextAppearance.Silvanus.WhnBadge" parent="android:Widget.TextView">
+        <item name="android:background">@drawable/bg_step_badge</item>
+        <item name="android:gravity">center</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:fontFamily">@font/sora_bold</item>
+        <item name="fontFamily">@font/sora_bold</item>
+        <item name="android:textColor">@color/text_on_orange</item>
+        <item name="android:textSize">@dimen/whn_badge_text_size</item>
+    </style>
+
+    <style name="TextAppearance.Silvanus.WhnStatusLabel" parent="android:Widget.TextView">
+        <item name="android:gravity">center</item>
+        <item name="android:fontFamily">@font/sora_regular</item>
+        <item name="fontFamily">@font/sora_regular</item>
+        <item name="android:textColor">@color/ink_navy</item>
+        <item name="android:textSize">@dimen/whn_status_label_text_size</item>
+    </style>
+
+    <!-- "Mapping complete": rounded map card and the labels under the upload flow. -->
+    <style name="ShapeAppearance.Silvanus.MapCard" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">@dimen/mc_map_card_radius</item>
+    </style>
+
+    <style name="TextAppearance.Silvanus.McFlowLabel" parent="android:Widget.TextView">
+        <item name="android:gravity">center</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:fontFamily">@font/sora_regular</item>
+        <item name="fontFamily">@font/sora_regular</item>
+        <item name="android:textColor">@color/teal_dark</item>
+        <item name="android:textSize">@dimen/mc_label_text_size</item>
+        <item name="android:lineSpacingExtra">@dimen/mc_label_line_spacing</item>
+    </style>
+
+    <!-- Draw-on-map flow: numbered badges and map-card corner shapes. -->
+    <style name="TextAppearance.Silvanus.DrawBadge" parent="android:Widget.TextView">
+        <item name="android:background">@drawable/bg_step_badge</item>
+        <item name="android:gravity">center</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:fontFamily">@font/sora_bold</item>
+        <item name="fontFamily">@font/sora_bold</item>
+        <item name="android:textColor">@color/text_on_orange</item>
+        <item name="android:textSize">@dimen/draw_intro_badge_text_size</item>
+    </style>
+
+    <style name="ShapeAppearance.Silvanus.MapTopRounded" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeTopLeft">@dimen/draw_check_map_radius</item>
+        <item name="cornerSizeTopRight">@dimen/draw_check_map_radius</item>
+        <item name="cornerSizeBottomLeft">0dp</item>
+        <item name="cornerSizeBottomRight">0dp</item>
+    </style>
+
+    <style name="ShapeAppearance.Silvanus.DoneMap" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">@dimen/draw_done_map_radius</item>
+    </style>
+
+    <!-- Before you draw: step card container and its copy. -->
+    <style name="Widget.Silvanus.DrawStepCard" parent="">
+        <item name="android:background">@drawable/bg_draw_step_card</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:paddingStart">@dimen/draw_intro_tile_inset</item>
+    </style>
+
+    <style name="TextAppearance.Silvanus.DrawStepText" parent="android:Widget.TextView">
+        <item name="android:fontFamily">@font/sora_medium</item>
+        <item name="fontFamily">@font/sora_medium</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:textColor">@color/teal_dark</item>
+        <item name="android:textSize">@dimen/draw_intro_text_size</item>
+        <item name="android:lineSpacingExtra">@dimen/draw_intro_text_line_spacing</item>
+    </style>
+
+    <!-- Draw-flow Mapping complete: upload-flow labels and next-step lines. -->
+    <style name="TextAppearance.Silvanus.DrawFlowLabel" parent="android:Widget.TextView">
+        <item name="android:gravity">center</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:fontFamily">@font/sora_bold</item>
+        <item name="fontFamily">@font/sora_bold</item>
+        <item name="android:textColor">@color/teal_dark</item>
+        <item name="android:textSize">@dimen/draw_done_label_text_size</item>
+    </style>
+
+    <style name="TextAppearance.Silvanus.DrawInfoText" parent="android:Widget.TextView">
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:fontFamily">@font/sora_regular</item>
+        <item name="fontFamily">@font/sora_regular</item>
+        <item name="android:textColor">@color/teal_dark</item>
+        <item name="android:textSize">@dimen/draw_done_info_text_size</item>
+        <item name="android:lineSpacingExtra">@dimen/draw_done_info_line_spacing</item>
+    </style>
+
+</resources>

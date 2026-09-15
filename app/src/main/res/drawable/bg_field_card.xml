@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    One row of the About-you form: a soft card that holds the tinted icon
+    panel (@drawable/bg_field_icon_panel) and the field itself. The row pads
+    itself by the stroke width so the panel butts against the inside of the
+    border instead of painting over it.
+-->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid android:color="@color/surface_card" />
+    <stroke
+        android:width="@dimen/about_you_field_card_stroke"
+        android:color="@color/border_light" />
+    <corners android:radius="@dimen/about_you_field_card_radius" />
+</shape>

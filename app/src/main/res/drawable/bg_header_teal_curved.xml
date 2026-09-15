@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Silvanus onboarding header.
+
+    A single solid teal panel whose bottom edge is a soft, low-amplitude
+    wave (~13dp peak-to-trough): it sits high across the left third, slides
+    down through the middle, runs low across the right, then lifts again at
+    the right edge.
+
+    Traced from the design mockup. The 360 x 208 viewport must stay in sync
+    with @dimen/header_teal_height or the wave will stretch.
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="360dp"
+    android:height="208dp"
+    android:viewportWidth="360"
+    android:viewportHeight="208">
+
+    <path
+        android:fillColor="@color/teal_primary"
+        android:pathData="M0,0 L0,193.5 C12,194.5 24,196 36,196.2 C58,196.8 80,194 100,193.2 C116,192.6 136,193 152,196.6 C166,199.8 178,204.8 194,205.8 C208,206.6 224,203.2 248,202.4 C272,201.8 296,205 320,203.6 C336,202.6 348,200 360,197 L360,0 Z" />
+
+</vector>

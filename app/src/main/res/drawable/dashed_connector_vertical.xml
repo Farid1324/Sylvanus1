@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Dashed run from one step badge to the next.
+
+     Traced off the mockup: the line swings from about 8dp inside the badge
+     out towards its left edge at mid-gap and back, so the column reads as one
+     woven thread rather than a ruled line. The swing stops short of x=0 by
+     more than half the stroke, because anything past the view's left edge is
+     clipped and the dashes come out sliced flat.
+
+     The run reaches 6dp under both badges (negative margins in the layout)
+     and the dashes are flush to both ends, so the line meets each badge's rim
+     instead of stopping short of it. What falls under a badge is hidden by it.
+
+     A <shape> line only ever draws horizontally and vector drawables have no
+     stroke-dasharray, so every dash is its own curved segment. Authored at the
+     exact run height, the 73dp gap between badges plus 6dp at each end, and
+     the badge width, so nothing stretches. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="36dp" android:height="85dp"
+    android:viewportWidth="36" android:viewportHeight="85">
+
+    <path android:fillColor="#00000000" android:strokeColor="@color/orange_primary"
+        android:strokeLineCap="round" android:strokeWidth="3.0"
+        android:pathData="M7.80,0.00 Q7.28,2.50 6.77,5.00 M5.15,13.33 Q4.71,15.83 4.29,18.33 M3.13,26.67 Q2.87,29.17 2.64,31.67 M2.22,40.00 Q2.20,42.50 2.22,45.00 M2.64,53.33 Q2.87,55.83 3.13,58.33 M4.29,66.67 Q4.71,69.17 5.15,71.67 M6.77,80.00 Q7.28,82.50 7.80,85.00" />
+</vector>

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Adaptive launcher icon plate. Cream, so the teal leaf mark reads. -->
+    <color name="ic_launcher_background">#F9F1DC</color>
+</resources>

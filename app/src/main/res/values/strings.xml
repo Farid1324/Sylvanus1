@@ -1,3 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">My Application</string>
+    <string name="app_name">Silvius12</string>
+    <!-- Brand -->
+    <string name="brand_silvanus">SILVANUS</string>
+    <string name="brand_by_tanit">by TANIT</string>
+
+    <!-- Screen 1: Welcome -->
+    <string name="welcome_headline">Map your farm</string>
+    <string name="welcome_subtext">Keep your farm connected to trusted markets</string>
+    <string name="label_choose_language">Choose language</string>
+    <string name="language_english">English</string>
+    <string name="action_get_started">Get started</string>
+    <string name="cd_silvanus_logo">Silvanus logo</string>
+    <string name="cd_back">Back</string>
+    <string name="cd_plot_illustration">Illustration of a mapped farm plot</string>
+
+    <!-- Screen 2: What you will do -->
+    <string name="steps_headline">What you will do</string>
+    <string name="step_1_title">Tell us about you</string>
+    <string name="step_2_title">Add your farm</string>
+    <string name="step_3_title">Map your plot</string>
+    <string name="step_4_title">Save and send</string>
+    <string name="chip_works_offline">Works without internet</string>
+    <string name="action_next">Next</string>
+
+    <!-- Screen 3: About you -->
+    <string name="step_indicator_1_of_2">Step 1 of 2</string>
+    <string name="about_you_headline">About you</string>
+    <string name="hint_full_name">Your full name</string>
+    <string name="hint_national_id">National ID</string>
+    <string name="hint_country">Country</string>
+    <string name="hint_main_crop">Main crop</string>
+    <string name="value_main_crop_coffee">Coffee</string>
+    <string name="note_info_secure">Your information is saved securely</string>
+    <string name="action_continue">Continue</string>
+    <string name="cd_capture_id_photo">Capture ID photo</string>
+
+    <!-- Screen 4: Create account -->
+    <string name="create_account_headline">Create your account</string>
+    <string name="hint_phone_number">Your phone number</string>
+    <string name="hint_country_code">Country code</string>
+    <string name="note_sms_code">We will text you a 6-digit code</string>
+    <string name="action_send_code">Send code</string>
+    <string name="prompt_have_account">Already have an account?</string>
+    <string name="action_sign_in">Sign in</string>
+
+    <!-- Screen 5: Ready to map -->
+    <string name="ready_to_map_headline">Ready to map your farm</string>
+    <string name="option_go_to_plot">Go to the plot\nyou want to register</string>
+    <string name="option_stand_where_visible">Stand where\nyou can see the field</string>
+    <string name="note_location_rationale">We need your location to map your farm\'s boundary</string>
+    <string name="label_allow_location">Allow location</string>
+    <string name="action_map_first_plot">Map my first plot</string>
+    <string name="meta_duration">About 5–15 minutes</string>
+    <string name="meta_offline">Works offline</string>
+
+    <!-- Screen 6: Plot size + method -->
+    <string name="plot_size_headline">How big is your plot?</string>
+    <string name="option_4ha_or_less">4 ha or less</string>
+    <string name="option_more_than_4ha">More than 4 ha</string>
+    <string name="not_sure_title">Not sure?</string>
+    <string name="not_sure_body">Choose Walk the boundary\nand Silvanus will measure it</string>
+    <string name="mark_method_headline">How would you like to mark it?</string>
+    <string name="method_walk_title">Walk the\nboundary</string>
+    <string name="method_walk_sub">Recommended if\nyou are at the field</string>
+    <string name="method_draw_title">Draw on\nthe map</string>
+    <string name="method_draw_sub">Best if you can clearly\nsee your field on the map</string>
+
+    <!-- Screen 8: Before you start walking -->
+    <string name="before_walking_headline">Before you start walking</string>
+    <string name="walk_step_1">Go to your plot</string>
+    <string name="walk_step_2">Stand at one corner</string>
+    <string name="walk_step_3">Tap Start mapping</string>
+    <string name="walk_step_4">Walk slowly around the edge</string>
+    <string name="walk_step_5">Return to where you started</string>
+    <string name="walk_keep_open">Keep the app open while you walk</string>
+    <string name="label_start">START</string>
+
+    <!-- Screen 9: Are you at the plot? -->
+    <string name="at_plot_headline">Are you at the plot?</string>
+    <string name="at_plot_sub">Stand at the edge of your field</string>
+    <string name="step_1_of_3">Step 1 of 3</string>
+    <string name="check_location_ready">Location ready</string>
+    <string name="check_gps_strong">GPS strong</string>
+    <string name="check_offline_map">Offline map ready</string>
+    <string name="action_start_mapping">Start mapping</string>
+    <string name="note_move_outdoors">Move outdoors if the signal is weak.</string>
+    <string name="cd_plot_edge_illustration">Plot edge illustration</string>
+
+    <!-- Screen 10: Mapping in progress -->
+    <string name="mapping_in_progress">Mapping in progress</string>
+    <string name="walk_along_edge">Walk along the edge</string>
+    <string name="walk_until_flag">Keep going until you return to the orange flag</string>
+    <string name="gps_strong">GPS strong</string>
+    <string name="action_center">Center</string>
+    <string name="step_2_of_3">Step 2 of 3</string>
+    <string name="label_ha">%1$s ha</string>
+    <string name="label_points">%1$d points</string>
+    <string name="action_pause">Pause</string>
+    <string name="label_offline">Offline</string>
+    <string name="unit_hectares">ha</string>
+    <string name="unit_points">points</string>
+    <string name="action_back_at_start">I\'m back at the start</string>
+
+    <!-- Screen 11: Check your boundary -->
+    <string name="check_boundary_headline">Check your boundary</string>
+    <string name="step_3_of_3">Step 3 of 3</string>
+    <string name="returned_to_start">You returned to the starting point</string>
+    <string name="boundary_closed">Boundary closed</string>
+    <string name="no_crossed_lines">No crossed lines</string>
+    <string name="action_fix_boundary">Fix boundary</string>
+    <string name="action_save_my_map">Save my map</string>
+    <!-- Screen 12: Mapping complete -->
+    <string name="mapping_complete">Mapping complete</string>
+    <string name="map_saved_on_phone">Your map is saved on this phone</string>
+    <string name="waiting_for_internet">Waiting for internet</string>
+    <string name="upload_when_online">When you reach Wi‑Fi or\nmobile data, Silvanus will\nupload it securely to TANIT</string>
+    <string name="saved_on_phone">Saved on\nthis phone</string>
+    <string name="waiting_for_internet_short">Waiting for\ninternet</string>
+    <string name="uploaded_to_tanit">Uploaded\nto TANIT</string>
+    <string name="no_action_needed">You do not need to do anything</string>
+    <string name="action_view_what_next">View what happens next</string>
+
+    <!-- Screen 13: What happens next -->
+    <!-- Line breaks follow the mockup; these strings are only used on this screen. -->
+    <string name="what_happens_next">What happens next</string>
+    <string name="next_step_1">TANIT receives\nyour map</string>
+    <string name="next_step_2">TANIT checks\nthe boundary</string>
+    <string name="next_step_3">Your plot is linked\nto your crop records</string>
+    <string name="next_step_4">TANIT submits the\nrequired data to EU\nTRACES when a\nshipment is prepared</string>
+    <string name="you_will_see">You will see</string>
+    <string name="status_plot_registered">Plot\nregistered</string>
+    <string name="status_action_needed">Action\nneeded</string>
+    <string name="status_verified_shipment">Included in a\nverified shipment</string>
+    <string name="no_traces_needed">You do not need to use TRACES</string>
+    <string name="action_done">Done</string>
+    <!-- Draw on map flow -->
+    <string name="before_you_draw">Before you draw</string>
+    <string name="draw_step_1">Find your field\non the satellite map</string>
+    <string name="draw_step_2">Zoom in until you\nsee the edges</string>
+    <string name="draw_step_3">Tap each\ncorner of the field</string>
+    <string name="draw_step_4">Tap the first point\nagain to close\nthe boundary</string>
+    <string name="draw_undo_note">You can undo\nor move a point</string>
+    <string name="action_open_map">Open map</string>
+
+    <string name="drag_to_move">Drag the map to move</string>
+    <string name="pinch_to_zoom">Pinch to zoom</string>
+    <string name="offline_map">Offline map</string>
+    <string name="action_field_visible">Field visible</string>
+    <string name="action_my_location">My location</string>
+
+    <string name="mark_each_corner">Mark each corner</string>
+    <string name="tap_around_edge">Tap around the edge of your field</string>
+    <string name="points_added">%1$d points added</string>
+    <string name="tap_first_to_finish">Tap the first point to finish</string>
+    <string name="action_undo">Undo</string>
+    <string name="action_clear">Clear</string>
+    <string name="action_close_boundary">Close boundary</string>
+
+    <string name="check_your_drawing">Check your drawing</string>
+    <string name="move_point_hint">Move any point that\nis not correct</string>
+    <string name="action_edit_points">Edit points</string>
+    <!-- Draw flow: "Mapping complete" (screen_draw_mapping_complete.xml). Line breaks follow the mockup. -->
+    <string name="draw_upload_when_online">When Wi‑Fi or mobile data returns,\nSilvanus will upload it securely to TANIT</string>
+    <string name="flow_saved">Saved</string>
+    <string name="flow_uploaded">Uploaded</string>
+    <string name="flow_checked">Checked</string>
+    <string name="flow_by_tanit">by TANIT</string>
+    <string name="draw_next_check">TANIT will check your map\nand prepare the compliance data</string>
+    <string name="draw_next_submit">TANIT or the responsible EU buyer\nwill submit it when a shipment is prepared</string>
+    <string name="cd_menu">Menu</string>
+    <string name="cd_help">Help</string>
+    <string name="cd_map_illustration">Farm map illustration</string>
+    <!-- Screen: "Your first plot" (screen_your_first_plot.xml) -->
+    <string name="step_2_of_2">Step 2 of 2</string>
+    <string name="step_number_1">1</string>
+    <string name="step_number_2">2</string>
+    <string name="step_number_3">3</string>
+    <string name="step_number_4">4</string>
+    <string name="step_number_5">5</string>
+    <string name="first_plot_headline">Your first plot</string>
+    <string name="hint_plot_name">Plot name</string>
+    <string name="label_estimated_size">Estimated size</string>
+    <string name="value_size_not_sure">I\'m not sure</string>
+    <string name="label_saved_offline">Saved offline</string>
+    <string name="action_continue_to_map">Continue to map</string>
+
+
+    <!-- Onboarding form validation -->
+    <string name="error_name_required">Please enter your full name</string>
+    <string name="error_phone_required">Please enter your phone number</string>
+    <string name="error_save_failed">Could not save your details. Please try again.</string>
+    <string name="error_profile_missing">Please fill in the About you step first</string>
+    <string name="error_phone_taken">This number is already registered</string>
 </resources>
