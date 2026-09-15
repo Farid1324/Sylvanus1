@@ -1,0 +1,498 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:background="@color/cream_bg"
+    tools:context=".BeforeWalkingActivity">
+
+    <!--
+        Teal masthead. Wraps its content, like the other onboarding headers:
+        fitsSystemWindows overwrites a view's padding with the window insets,
+        so the outer band carries only those and the real padding lives on the
+        inner row. A fixed height here lost the status bar and the navigation
+        inset out of the same 114dp and crushed the logo row to 16dp.
+
+        The band is solid teal; its wavy lower edge is the strip just below.
+    -->
+    <LinearLayout
+        android:id="@+id/headerTeal"
+        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:background="@color/teal_primary"
+        android:fitsSystemWindows="true"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingBottom="@dimen/before_walk_header_padding_bottom"
+            android:paddingEnd="@dimen/before_walk_content_horizontal"
+            android:paddingStart="@dimen/before_walk_header_padding_start"
+            android:paddingTop="@dimen/before_walk_header_padding_top">
+
+            <!-- fitStart holds the leaf on the leading edge. fitCenter floated a
+                 squeezed logo to the middle of its box, which read as the logo
+                 sitting far from the edge. -->
+            <ImageView
+                android:id="@+id/imgLogo"
+                android:layout_height="wrap_content"
+                android:layout_width="@dimen/logo_leaf_masthead_width"
+                android:adjustViewBounds="true"
+                android:contentDescription="@string/cd_silvanus_logo"
+                android:scaleType="fitStart"
+                android:src="@drawable/logo_leaf_mark" />
+
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/before_walk_header_brand_gap"
+                android:layout_width="wrap_content"
+                android:fontFamily="@font/sora_extrabold"
+                android:includeFontPadding="false"
+                android:letterSpacing="0.06"
+                android:text="@string/brand_silvanus"
+                android:textColor="@color/text_on_teal"
+                android:textSize="@dimen/before_walk_header_brand_text_size"
+                app:fontFamily="@font/sora_extrabold" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- The masthead's wavy lower edge. Laps 1dp under the band so no cream
+         seam can open at the join. -->
+    <ImageView
+        android:id="@+id/headerWave"
+        android:layout_height="@dimen/before_walk_header_wave_height"
+        android:layout_marginTop="-1dp"
+        android:layout_width="0dp"
+        android:contentDescription="@null"
+        android:scaleType="fitXY"
+        android:src="@drawable/bg_header_wave_edge"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/headerTeal" />
+
+    <TextView
+        android:id="@+id/tvHeadline"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/before_walk_content_horizontal"
+        android:layout_marginTop="@dimen/before_walk_title_margin_top"
+        android:layout_width="0dp"
+        android:fontFamily="@font/sora_semibold"
+        android:text="@string/before_walking_headline"
+        android:textColor="@color/text_primary"
+        android:textSize="@dimen/before_walk_title_text_size"
+        app:fontFamily="@font/sora_semibold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/headerWave" />
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scrollSteps"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/before_walk_steps_margin_top"
+        android:layout_width="0dp"
+        android:clipToPadding="false"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toTopOf="@id/noteKeepOpen"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvHeadline">
+
+        <!--
+            Fixed card height + gap keeps every badge-to-badge gap at exactly
+            badge pitch 109 - badge 36 = 73dp. Each run adds 6dp under both
+            badges, so @drawable/dashed_connector_vertical is authored 85dp and
+            the dashes never stretch.
+        -->
+        <!-- clipToPadding off: badge 1 overhangs its card into this padding,
+             and a ViewGroup clips children to its padded area by default. -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:clipToPadding="false"
+            android:paddingHorizontal="@dimen/before_walk_content_horizontal"
+            android:paddingTop="@dimen/before_walk_steps_padding_top">
+
+            <!-- ── cards ── -->
+
+            <!-- ── step 1 ── -->
+            <LinearLayout
+                android:id="@+id/card1"
+                android:layout_height="@dimen/before_walk_card_height"
+                android:layout_marginStart="@dimen/before_walk_card_inset"
+                android:layout_width="0dp"
+                android:background="@drawable/bg_card_step"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="@dimen/before_walk_card_padding"
+                android:paddingStart="@dimen/before_walk_card_padding_start"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:layout_height="@dimen/before_walk_illustration_height"
+                    android:layout_width="@dimen/before_walk_illustration_width"
+                    android:contentDescription="@null"
+                    android:src="@drawable/img_walk_step_go_to_plot" />
+
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/before_walk_step_text_margin_start"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:fontFamily="@font/sora_semibold"
+                    android:text="@string/walk_step_1"
+                    android:textColor="@color/text_primary"
+                    android:textSize="@dimen/before_walk_step_text_size"
+                    app:fontFamily="@font/sora_semibold" />
+
+            </LinearLayout>
+
+            <!-- ── step 2 ── -->
+            <LinearLayout
+                android:id="@+id/card2"
+                android:layout_height="@dimen/before_walk_card_height"
+                android:layout_marginStart="@dimen/before_walk_card_inset"
+                android:layout_marginTop="@dimen/before_walk_card_gap"
+                android:layout_width="0dp"
+                android:background="@drawable/bg_card_step"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="@dimen/before_walk_card_padding"
+                android:paddingStart="@dimen/before_walk_card_padding_start"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/card1">
+
+                <ImageView
+                    android:layout_height="@dimen/before_walk_illustration_height"
+                    android:layout_width="@dimen/before_walk_illustration_width"
+                    android:contentDescription="@null"
+                    android:src="@drawable/img_walk_step_stand_corner" />
+
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/before_walk_step_text_margin_start"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:fontFamily="@font/sora_semibold"
+                    android:text="@string/walk_step_2"
+                    android:textColor="@color/text_primary"
+                    android:textSize="@dimen/before_walk_step_text_size"
+                    app:fontFamily="@font/sora_semibold" />
+
+            </LinearLayout>
+
+            <!-- ── step 3 ── -->
+            <LinearLayout
+                android:id="@+id/card3"
+                android:layout_height="@dimen/before_walk_card_height"
+                android:layout_marginStart="@dimen/before_walk_card_inset"
+                android:layout_marginTop="@dimen/before_walk_card_gap"
+                android:layout_width="0dp"
+                android:background="@drawable/bg_card_step"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="@dimen/before_walk_card_padding"
+                android:paddingStart="@dimen/before_walk_card_padding_start"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/card2">
+
+                <!-- START is part of the artwork, cut from the mockup -->
+                <ImageView
+                    android:layout_height="@dimen/before_walk_illustration_height"
+                    android:layout_width="@dimen/before_walk_illustration_width"
+                    android:contentDescription="@null"
+                    android:src="@drawable/img_walk_step_start_burst" />
+
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/before_walk_step_text_margin_start"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:fontFamily="@font/sora_semibold"
+                    android:text="@string/walk_step_3"
+                    android:textColor="@color/text_primary"
+                    android:textSize="@dimen/before_walk_step_text_size"
+                    app:fontFamily="@font/sora_semibold" />
+
+            </LinearLayout>
+
+            <!-- ── step 4 ── -->
+            <LinearLayout
+                android:id="@+id/card4"
+                android:layout_height="@dimen/before_walk_card_height"
+                android:layout_marginStart="@dimen/before_walk_card_inset"
+                android:layout_marginTop="@dimen/before_walk_card_gap"
+                android:layout_width="0dp"
+                android:background="@drawable/bg_card_step"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="@dimen/before_walk_card_padding"
+                android:paddingStart="@dimen/before_walk_card_padding_start"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/card3">
+
+                <ImageView
+                    android:layout_height="@dimen/before_walk_illustration_height"
+                    android:layout_width="@dimen/before_walk_illustration_width"
+                    android:contentDescription="@null"
+                    android:src="@drawable/img_walk_step_walk_edge" />
+
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/before_walk_step_text_margin_start"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:fontFamily="@font/sora_semibold"
+                    android:text="@string/walk_step_4"
+                    android:textColor="@color/text_primary"
+                    android:textSize="@dimen/before_walk_step_text_size"
+                    app:fontFamily="@font/sora_semibold" />
+
+            </LinearLayout>
+
+            <!-- ── step 5 ── -->
+            <LinearLayout
+                android:id="@+id/card5"
+                android:layout_height="@dimen/before_walk_card_height"
+                android:layout_marginStart="@dimen/before_walk_card_inset"
+                android:layout_marginTop="@dimen/before_walk_card_gap"
+                android:layout_width="0dp"
+                android:background="@drawable/bg_card_step"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="@dimen/before_walk_card_padding"
+                android:paddingStart="@dimen/before_walk_card_padding_start"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/card4">
+
+                <ImageView
+                    android:layout_height="@dimen/before_walk_illustration_height"
+                    android:layout_width="@dimen/before_walk_illustration_width"
+                    android:contentDescription="@null"
+                    android:src="@drawable/img_walk_step_return_start" />
+
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/before_walk_step_text_margin_start"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:fontFamily="@font/sora_semibold"
+                    android:text="@string/walk_step_5"
+                    android:textColor="@color/text_primary"
+                    android:textSize="@dimen/before_walk_step_text_size"
+                    app:fontFamily="@font/sora_semibold" />
+
+            </LinearLayout>
+
+            <!-- ── connectors: over the cards, under the badges ──
+                 Drawn after the cards so a card can no longer hide the ends of a
+                 run, and before the badges so each run tucks neatly under them.
+                 Each run reaches before_walk_connector_overlap under both
+                 badges, so the dashes meet the rims with no gap. -->
+            <ImageView
+                android:layout_height="0dp"
+                android:layout_marginBottom="@dimen/before_walk_connector_overlap"
+                android:layout_marginTop="@dimen/before_walk_connector_overlap"
+                android:layout_width="@dimen/before_walk_connector_width"
+                android:contentDescription="@null"
+                android:src="@drawable/dashed_connector_vertical"
+                app:layout_constraintBottom_toTopOf="@id/badge2"
+                app:layout_constraintEnd_toEndOf="@id/badge1"
+                app:layout_constraintStart_toStartOf="@id/badge1"
+                app:layout_constraintTop_toBottomOf="@id/badge1" />
+
+            <ImageView
+                android:layout_height="0dp"
+                android:layout_marginBottom="@dimen/before_walk_connector_overlap"
+                android:layout_marginTop="@dimen/before_walk_connector_overlap"
+                android:layout_width="@dimen/before_walk_connector_width"
+                android:contentDescription="@null"
+                android:src="@drawable/dashed_connector_vertical"
+                app:layout_constraintBottom_toTopOf="@id/badge3"
+                app:layout_constraintEnd_toEndOf="@id/badge2"
+                app:layout_constraintStart_toStartOf="@id/badge2"
+                app:layout_constraintTop_toBottomOf="@id/badge2" />
+
+            <ImageView
+                android:layout_height="0dp"
+                android:layout_marginBottom="@dimen/before_walk_connector_overlap"
+                android:layout_marginTop="@dimen/before_walk_connector_overlap"
+                android:layout_width="@dimen/before_walk_connector_width"
+                android:contentDescription="@null"
+                android:src="@drawable/dashed_connector_vertical"
+                app:layout_constraintBottom_toTopOf="@id/badge4"
+                app:layout_constraintEnd_toEndOf="@id/badge3"
+                app:layout_constraintStart_toStartOf="@id/badge3"
+                app:layout_constraintTop_toBottomOf="@id/badge3" />
+
+            <ImageView
+                android:layout_height="0dp"
+                android:layout_marginBottom="@dimen/before_walk_connector_overlap"
+                android:layout_marginTop="@dimen/before_walk_connector_overlap"
+                android:layout_width="@dimen/before_walk_connector_width"
+                android:contentDescription="@null"
+                android:src="@drawable/dashed_connector_vertical"
+                app:layout_constraintBottom_toTopOf="@id/badge5"
+                app:layout_constraintEnd_toEndOf="@id/badge4"
+                app:layout_constraintStart_toStartOf="@id/badge4"
+                app:layout_constraintTop_toBottomOf="@id/badge4" />
+
+            <!-- ── badges, drawn last so they sit on top of everything ── -->
+
+            <TextView
+                android:id="@+id/badge1"
+                android:layout_height="@dimen/before_walk_badge_size"
+                android:layout_marginTop="@dimen/before_walk_badge_margin_top"
+                android:layout_width="@dimen/before_walk_badge_size"
+                android:background="@drawable/bg_step_badge"
+                android:fontFamily="@font/sora_semibold"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:text="@string/step_number_1"
+                android:textColor="@color/text_on_orange"
+                android:textSize="@dimen/before_walk_badge_text_size"
+                app:fontFamily="@font/sora_semibold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/card1" />
+
+            <TextView
+                android:id="@+id/badge2"
+                android:layout_height="@dimen/before_walk_badge_size"
+                android:layout_marginTop="@dimen/before_walk_badge_margin_top"
+                android:layout_width="@dimen/before_walk_badge_size"
+                android:background="@drawable/bg_step_badge"
+                android:fontFamily="@font/sora_semibold"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:text="@string/step_number_2"
+                android:textColor="@color/text_on_orange"
+                android:textSize="@dimen/before_walk_badge_text_size"
+                app:fontFamily="@font/sora_semibold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/card2" />
+
+            <TextView
+                android:id="@+id/badge3"
+                android:layout_height="@dimen/before_walk_badge_size"
+                android:layout_marginTop="@dimen/before_walk_badge_margin_top"
+                android:layout_width="@dimen/before_walk_badge_size"
+                android:background="@drawable/bg_step_badge"
+                android:fontFamily="@font/sora_semibold"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:text="@string/step_number_3"
+                android:textColor="@color/text_on_orange"
+                android:textSize="@dimen/before_walk_badge_text_size"
+                app:fontFamily="@font/sora_semibold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/card3" />
+
+            <TextView
+                android:id="@+id/badge4"
+                android:layout_height="@dimen/before_walk_badge_size"
+                android:layout_marginTop="@dimen/before_walk_badge_margin_top"
+                android:layout_width="@dimen/before_walk_badge_size"
+                android:background="@drawable/bg_step_badge"
+                android:fontFamily="@font/sora_semibold"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:text="@string/step_number_4"
+                android:textColor="@color/text_on_orange"
+                android:textSize="@dimen/before_walk_badge_text_size"
+                app:fontFamily="@font/sora_semibold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/card4" />
+
+            <TextView
+                android:id="@+id/badge5"
+                android:layout_height="@dimen/before_walk_badge_size"
+                android:layout_marginTop="@dimen/before_walk_badge_margin_top"
+                android:layout_width="@dimen/before_walk_badge_size"
+                android:background="@drawable/bg_step_badge"
+                android:fontFamily="@font/sora_semibold"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:text="@string/step_number_5"
+                android:textColor="@color/text_on_orange"
+                android:textSize="@dimen/before_walk_badge_text_size"
+                app:fontFamily="@font/sora_semibold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/card5" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <LinearLayout
+        android:id="@+id/noteKeepOpen"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/before_walk_content_horizontal"
+        android:layout_marginTop="@dimen/before_walk_note_margin_top"
+        android:layout_width="0dp"
+        android:background="@drawable/bg_card_teal_pale"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="@dimen/before_walk_note_padding"
+        app:layout_constraintBottom_toTopOf="@id/btnNext"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageView
+            android:layout_height="@dimen/before_walk_note_icon_size"
+            android:layout_width="@dimen/before_walk_note_icon_size"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_smartphone"
+            app:tint="@color/teal_primary" />
+
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/before_walk_note_gap"
+            android:layout_width="wrap_content"
+            android:fontFamily="@font/sora_regular"
+            android:text="@string/walk_keep_open"
+            android:textColor="@color/text_primary"
+            android:textSize="@dimen/before_walk_note_text_size"
+            app:fontFamily="@font/sora_regular" />
+
+    </LinearLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnNext"
+        style="@style/Widget.Silvanus.Button.Primary"
+        android:layout_height="@dimen/before_walk_button_height"
+        android:layout_marginBottom="@dimen/before_walk_button_margin_bottom"
+        android:layout_marginHorizontal="@dimen/before_walk_content_horizontal"
+        android:layout_marginTop="@dimen/before_walk_button_margin_top"
+        android:layout_width="0dp"
+        android:background="@drawable/bg_button_teal_rounded"
+        android:fontFamily="@font/sora_semibold"
+        android:stateListAnimator="@null"
+        android:text="@string/action_next"
+        android:textAllCaps="false"
+        android:textSize="@dimen/before_walk_button_text_size"
+        app:fontFamily="@font/sora_semibold"
+        app:icon="@drawable/ic_chevron_right"
+        app:iconGravity="end"
+        app:iconPadding="@dimen/space_8"
+        app:iconSize="@dimen/before_walk_button_icon_size"
+        app:iconTint="@color/text_on_teal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

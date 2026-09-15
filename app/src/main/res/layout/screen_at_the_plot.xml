@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    "Are you at the plot?" — walk flow, step 1 of 3.
+
+    Top to bottom: logo beside a 1-2-3 stepper, the question, the plot
+    illustration (cut from the mockup), a card of three ready checks, the
+    orange Start mapping button and a hint strip.
+
+    The bottom stack (hint, button, card) is pinned to the bottom edge and the
+    illustration takes whatever height is left, bottom-aligned so it always
+    runs behind the top of the card, the way the landscape does in the mockup.
+-->
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootAtThePlot"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:background="@color/cream_bg"
+    android:fitsSystemWindows="true"
+    tools:context=".AtThePlotActivity">
+
+    <!-- ── stepper: "Step 1 of 3" over three numbered circles ── -->
+    <LinearLayout
+        android:id="@+id/stepIndicator"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/at_plot_content_horizontal"
+        android:layout_marginTop="@dimen/at_plot_header_margin_top"
+        android:layout_width="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/imgLogo"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:fontFamily="@font/sora_semibold"
+            android:includeFontPadding="false"
+            android:text="@string/step_1_of_3"
+            android:textColor="@color/text_primary"
+            android:textSize="@dimen/at_plot_step_label_text_size"
+            app:fontFamily="@font/sora_semibold" />
+
+        <LinearLayout
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/at_plot_step_row_margin_top"
+            android:layout_width="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_height="@dimen/at_plot_step_circle_size"
+                android:layout_width="@dimen/at_plot_step_circle_size"
+                android:background="@drawable/bg_step_badge"
+                android:fontFamily="@font/sora_semibold"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:text="@string/step_number_1"
+                android:textColor="@color/text_on_orange"
+                android:textSize="@dimen/at_plot_step_number_text_size"
+                app:fontFamily="@font/sora_semibold" />
+
+            <View
+                android:layout_height="@dimen/at_plot_step_line_height"
+                android:layout_width="@dimen/at_plot_step_line_width"
+                android:background="@color/dot_inactive" />
+
+            <TextView
+                android:layout_height="@dimen/at_plot_step_circle_size"
+                android:layout_width="@dimen/at_plot_step_circle_size"
+                android:background="@drawable/bg_step_circle_outline"
+                android:fontFamily="@font/sora_semibold"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:text="@string/step_number_2"
+                android:textColor="@color/teal_pale_dark"
+                android:textSize="@dimen/at_plot_step_number_text_size"
+                app:fontFamily="@font/sora_semibold" />
+
+            <View
+                android:layout_height="@dimen/at_plot_step_line_height"
+                android:layout_width="@dimen/at_plot_step_line_width"
+                android:background="@color/dot_inactive" />
+
+            <TextView
+                android:layout_height="@dimen/at_plot_step_circle_size"
+                android:layout_width="@dimen/at_plot_step_circle_size"
+                android:background="@drawable/bg_step_circle_outline"
+                android:fontFamily="@font/sora_semibold"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:text="@string/step_number_3"
+                android:textColor="@color/teal_pale_dark"
+                android:textSize="@dimen/at_plot_step_number_text_size"
+                app:fontFamily="@font/sora_semibold" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- Centred on the stepper, which is the taller of the two. -->
+    <ImageView
+        android:id="@+id/imgLogo"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/at_plot_content_horizontal"
+        android:layout_width="@dimen/logo_leaf_masthead_width"
+        android:adjustViewBounds="true"
+        android:contentDescription="@string/cd_silvanus_logo"
+        android:scaleType="fitStart"
+        android:src="@drawable/logo_leaf_mark"
+        app:layout_constraintBottom_toBottomOf="@id/stepIndicator"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/stepIndicator" />
+
+    <TextView
+        android:id="@+id/tvHeadline"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/at_plot_content_horizontal"
+        android:layout_marginTop="@dimen/at_plot_title_margin_top"
+        android:layout_width="0dp"
+        android:fontFamily="@font/sora_semibold"
+        android:gravity="center"
+        android:text="@string/at_plot_headline"
+        android:textColor="@color/ink_navy"
+        android:textSize="@dimen/at_plot_title_text_size"
+        app:fontFamily="@font/sora_semibold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/stepIndicator" />
+
+    <TextView
+        android:id="@+id/tvSub"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/at_plot_content_horizontal"
+        android:layout_marginTop="@dimen/at_plot_sub_margin_top"
+        android:layout_width="0dp"
+        android:fontFamily="@font/sora_regular"
+        android:gravity="center"
+        android:text="@string/at_plot_sub"
+        android:textColor="@color/text_primary"
+        android:textSize="@dimen/at_plot_sub_text_size"
+        app:fontFamily="@font/sora_regular"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvHeadline" />
+
+    <!-- Full bleed. Takes the height left over and bottom-aligns the picture,
+         so it always reaches behind the top of the status card. -->
+    <ImageView
+        android:id="@+id/imgScene"
+        android:layout_height="0dp"
+        android:layout_marginBottom="@dimen/at_plot_card_overlap"
+        android:layout_marginTop="@dimen/at_plot_scene_margin_top"
+        android:layout_width="0dp"
+        android:contentDescription="@string/cd_plot_illustration"
+        android:scaleType="fitEnd"
+        android:src="@drawable/img_at_plot_scene"
+        app:layout_constraintBottom_toTopOf="@id/cardStatus"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvSub" />
+
+    <!-- ── three ready checks, drawn after the picture so they sit over it ── -->
+    <LinearLayout
+        android:id="@+id/cardStatus"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/at_plot_card_margin_bottom"
+        android:layout_marginHorizontal="@dimen/at_plot_content_horizontal"
+        android:layout_width="0dp"
+        android:background="@drawable/bg_status_card"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@id/btnStartMapping"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <LinearLayout
+            android:layout_height="@dimen/at_plot_row_height"
+            android:layout_width="match_parent"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingHorizontal="@dimen/at_plot_row_padding_horizontal">
+
+            <ImageView
+                android:id="@+id/icLoc"
+                android:layout_height="@dimen/at_plot_row_disc_size"
+                android:layout_width="@dimen/at_plot_row_disc_size"
+                android:background="@drawable/bg_status_icon_disc"
+                android:contentDescription="@null"
+                android:padding="@dimen/at_plot_row_disc_padding"
+                android:src="@drawable/ic_status_pin" />
+
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/at_plot_row_label_margin_start"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:fontFamily="@font/sora_semibold"
+                android:text="@string/check_location_ready"
+                android:textColor="@color/ink_navy"
+                android:textSize="@dimen/at_plot_row_label_text_size"
+                app:fontFamily="@font/sora_semibold" />
+
+            <ImageView
+                android:id="@+id/check1"
+                android:layout_height="@dimen/at_plot_row_check_size"
+                android:layout_width="@dimen/at_plot_row_check_size"
+                android:contentDescription="@null"
+                android:src="@drawable/ic_check_circle_teal" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_height="@dimen/at_plot_row_divider_height"
+            android:layout_width="match_parent"
+            android:background="@color/border_light" />
+
+        <LinearLayout
+            android:layout_height="@dimen/at_plot_row_height"
+            android:layout_width="match_parent"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingHorizontal="@dimen/at_plot_row_padding_horizontal">
+
+            <ImageView
+                android:id="@+id/icGps"
+                android:layout_height="@dimen/at_plot_row_disc_size"
+                android:layout_width="@dimen/at_plot_row_disc_size"
+                android:background="@drawable/bg_status_icon_disc"
+                android:contentDescription="@null"
+                android:padding="@dimen/at_plot_row_disc_padding"
+                android:src="@drawable/ic_status_signal" />
+
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/at_plot_row_label_margin_start"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:fontFamily="@font/sora_semibold"
+                android:text="@string/check_gps_strong"
+                android:textColor="@color/ink_navy"
+                android:textSize="@dimen/at_plot_row_label_text_size"
+                app:fontFamily="@font/sora_semibold" />
+
+            <ImageView
+                android:id="@+id/check2"
+                android:layout_height="@dimen/at_plot_row_check_size"
+                android:layout_width="@dimen/at_plot_row_check_size"
+                android:contentDescription="@null"
+                android:src="@drawable/ic_check_circle_teal" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_height="@dimen/at_plot_row_divider_height"
+            android:layout_width="match_parent"
+            android:background="@color/border_light" />
+
+        <LinearLayout
+            android:layout_height="@dimen/at_plot_row_height"
+            android:layout_width="match_parent"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingHorizontal="@dimen/at_plot_row_padding_horizontal">
+
+            <ImageView
+                android:id="@+id/icMap"
+                android:layout_height="@dimen/at_plot_row_disc_size"
+                android:layout_width="@dimen/at_plot_row_disc_size"
+                android:background="@drawable/bg_status_icon_disc"
+                android:contentDescription="@null"
+                android:padding="@dimen/at_plot_row_disc_padding"
+                android:src="@drawable/ic_status_map" />
+
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/at_plot_row_label_margin_start"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:fontFamily="@font/sora_semibold"
+                android:text="@string/check_offline_map"
+                android:textColor="@color/ink_navy"
+                android:textSize="@dimen/at_plot_row_label_text_size"
+                app:fontFamily="@font/sora_semibold" />
+
+            <ImageView
+                android:id="@+id/check3"
+                android:layout_height="@dimen/at_plot_row_check_size"
+                android:layout_width="@dimen/at_plot_row_check_size"
+                android:contentDescription="@null"
+                android:src="@drawable/ic_check_circle_teal" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- Flat, as in the mockup: the Orange style's 6dp elevation cast a shadow
+         across the hint strip. letterSpacing 0 undoes the tracking Material
+         buttons add by default, which spread the label out. -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnStartMapping"
+        style="@style/Widget.Silvanus.Button.Orange"
+        android:layout_height="@dimen/at_plot_button_height"
+        android:layout_marginBottom="@dimen/at_plot_button_margin_bottom"
+        android:layout_marginHorizontal="@dimen/at_plot_content_horizontal"
+        android:layout_width="0dp"
+        android:elevation="0dp"
+        android:fontFamily="@font/sora_semibold"
+        android:letterSpacing="0"
+        android:stateListAnimator="@null"
+        android:text="@string/action_start_mapping"
+        android:textSize="@dimen/at_plot_button_text_size"
+        app:fontFamily="@font/sora_semibold"
+        app:icon="@drawable/ic_status_pin"
+        app:iconGravity="textStart"
+        app:iconPadding="@dimen/at_plot_button_icon_padding"
+        app:iconSize="@dimen/at_plot_button_icon_size"
+        app:iconTint="@color/text_on_orange"
+        app:layout_constraintBottom_toTopOf="@id/noteOutdoors"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/noteOutdoors"
+        android:layout_height="@dimen/at_plot_hint_height"
+        android:layout_marginBottom="@dimen/at_plot_hint_margin_bottom"
+        android:layout_marginHorizontal="@dimen/at_plot_content_horizontal"
+        android:layout_width="0dp"
+        android:background="@drawable/bg_hint_pill"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="@dimen/at_plot_hint_padding_horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageView
+            android:layout_height="@dimen/at_plot_hint_icon_size"
+            android:layout_width="@dimen/at_plot_hint_icon_size"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_status_signal"
+            app:tint="@color/teal_primary" />
+
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/at_plot_hint_gap"
+            android:layout_width="wrap_content"
+            android:fontFamily="@font/sora_regular"
+            android:text="@string/note_move_outdoors"
+            android:textColor="@color/text_primary"
+            android:textSize="@dimen/at_plot_hint_text_size"
+            app:fontFamily="@font/sora_regular" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

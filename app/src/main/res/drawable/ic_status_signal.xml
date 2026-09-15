@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Four ascending signal bars. White, so it can be tinted: it sits on a teal
+     disc in the GPS row and is tinted teal in the "move outdoors" hint. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp" android:height="24dp"
+    android:viewportWidth="24" android:viewportHeight="24">
+    <path android:fillColor="#00000000" android:strokeColor="#FFFFFF"
+        android:strokeLineCap="round" android:strokeWidth="2.9"
+        android:pathData="M4.6,19.6 L4.6,16.4 M9.5,19.6 L9.5,12.6 M14.4,19.6 L14.4,8.6 M19.3,19.6 L19.3,4.4" />
+</vector>
