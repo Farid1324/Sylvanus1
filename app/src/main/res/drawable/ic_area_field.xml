@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- A tilted striped field, the area stat on "Mapping in progress". -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="32dp" android:height="24dp"
+    android:viewportWidth="32" android:viewportHeight="24">
+    <path android:fillColor="@color/teal_primary"
+        android:pathData="M9.2,4 L13,4 L7.4,20 L1.2,20 Z
+                          M14.4,4 L18.2,4 L14.6,20 L9,20 Z
+                          M19.6,4 L23.4,4 L21.8,20 L16.2,20 Z
+                          M24.8,4 L27.6,4 L29.4,20 L23.4,20 Z" />
+    <path android:fillColor="#00000000" android:strokeColor="@color/teal_primary"
+        android:strokeLineJoin="round" android:strokeWidth="1.6"
+        android:pathData="M8.4,3.2 L28.2,3.2" />
+</vector>

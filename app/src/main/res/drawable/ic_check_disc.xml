@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Large teal disc with a bold white tick, for the boundary check rows. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="48dp" android:height="48dp"
+    android:viewportWidth="48" android:viewportHeight="48">
+    <path android:fillColor="@color/teal_primary"
+        android:pathData="M0,24 a24,24 0 1,0 48,0 a24,24 0 1,0 -48,0" />
+    <path android:fillColor="#00000000"
+        android:strokeColor="#FFFFFF" android:strokeWidth="4"
+        android:strokeLineCap="round" android:strokeLineJoin="round"
+        android:pathData="M13.5,25.4 L20.7,32.4 L34.2,16.7" />
+</vector>

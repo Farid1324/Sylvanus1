@@ -1,0 +1,410 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    "Mapping in progress" — walk flow, step 2 of 3.
+
+    The satellite map with the walked boundary is a picture cut from the mockup;
+    the app has no map library yet, so this screen is a static prototype. The
+    instruction card and GPS / Offline pill that were baked into the mockup
+    were erased from the picture and rebuilt here as real views, placed where
+    the originals sat.
+
+    Draw order matters: map first, then the header, card and pill over it, then
+    the sheet over its lower edge.
+-->
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootMappingInProgress"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:background="@color/cream_bg"
+    android:fitsSystemWindows="true"
+    tools:context=".MappingInProgressActivity">
+
+    <!-- Full width at its natural height, pinned just under the header's
+         bottom edge; anything below the sheet's top is simply covered. -->
+    <ImageView
+        android:id="@+id/imgMap"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/map_progress_map_overlap"
+        android:layout_width="0dp"
+        android:adjustViewBounds="true"
+        android:contentDescription="@string/mapping_in_progress"
+        android:scaleType="fitXY"
+        android:src="@drawable/img_mapping_map"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/topBar" />
+
+    <!-- ── header ── -->
+    <LinearLayout
+        android:id="@+id/topBar"
+        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:background="@drawable/bg_mapping_header"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingBottom="@dimen/map_progress_header_padding_bottom"
+        android:paddingHorizontal="@dimen/map_progress_content_horizontal"
+        android:paddingTop="@dimen/map_progress_header_padding_top"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:layout_height="wrap_content"
+            android:layout_width="@dimen/logo_leaf_masthead_width"
+            android:adjustViewBounds="true"
+            android:contentDescription="@string/cd_silvanus_logo"
+            android:scaleType="fitStart"
+            android:src="@drawable/logo_leaf_mark" />
+
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/map_progress_title_margin_start"
+            android:layout_width="wrap_content"
+            android:fontFamily="@font/sora_semibold"
+            android:maxLines="1"
+            android:text="@string/mapping_in_progress"
+            android:textColor="@color/text_primary"
+            android:textSize="@dimen/map_progress_title_text_size"
+            app:fontFamily="@font/sora_semibold" />
+
+    </LinearLayout>
+
+    <!-- ── instruction card ── -->
+    <LinearLayout
+        android:id="@+id/instructionCard"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/map_progress_card_gap"
+        android:layout_marginStart="@dimen/map_progress_card_margin_start"
+        android:layout_marginTop="@dimen/map_progress_overlay_margin_top"
+        android:layout_width="0dp"
+        android:background="@drawable/bg_mapping_card"
+        android:gravity="center_vertical"
+        android:minHeight="@dimen/map_progress_card_min_height"
+        android:orientation="horizontal"
+        android:padding="@dimen/map_progress_card_padding"
+        app:layout_constraintEnd_toStartOf="@id/gpsPill"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/topBar">
+
+        <ImageView
+            android:id="@+id/icWalk"
+            android:layout_height="@dimen/map_progress_walk_disc_size"
+            android:layout_width="@dimen/map_progress_walk_disc_size"
+            android:background="@drawable/bg_walk_disc"
+            android:contentDescription="@null"
+            android:padding="@dimen/map_progress_walk_disc_padding"
+            android:src="@drawable/ic_walk_trail" />
+
+        <LinearLayout
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/map_progress_card_text_margin_start"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvWalkTitle"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:fontFamily="@font/sora_semibold"
+                android:text="@string/walk_along_edge"
+                android:textColor="@color/text_on_teal"
+                android:textSize="@dimen/map_progress_card_title_text_size"
+                app:fontFamily="@font/sora_semibold" />
+
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:alpha="0.92"
+                android:fontFamily="@font/sora_regular"
+                android:text="@string/walk_until_flag"
+                android:textColor="@color/text_on_teal"
+                android:textSize="@dimen/map_progress_card_body_text_size"
+                app:fontFamily="@font/sora_regular" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- ── GPS / Offline pill: light half over teal half ── -->
+    <LinearLayout
+        android:id="@+id/gpsPill"
+        android:layout_height="@dimen/map_progress_pill_height"
+        android:layout_marginEnd="@dimen/map_progress_pill_margin_end"
+        android:layout_marginTop="@dimen/map_progress_overlay_margin_top"
+        android:layout_width="@dimen/map_progress_pill_width"
+        android:background="@drawable/bg_gps_pill_frame"
+        android:orientation="vertical"
+        android:padding="@dimen/map_progress_pill_stroke"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/topBar">
+
+        <LinearLayout
+            android:id="@+id/gpsChip"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:background="@drawable/bg_gps_pill_top"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_height="@dimen/map_progress_pill_icon_size"
+                android:layout_width="@dimen/map_progress_pill_icon_size"
+                android:contentDescription="@null"
+                android:src="@drawable/ic_status_signal"
+                app:tint="@color/teal_primary" />
+
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:fontFamily="@font/sora_semibold"
+                android:gravity="center"
+                android:text="@string/gps_strong"
+                android:textColor="@color/teal_primary"
+                android:textSize="@dimen/map_progress_pill_text_size"
+                app:fontFamily="@font/sora_semibold" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/offlineChip"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:background="@drawable/bg_gps_pill_bottom"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_height="@dimen/map_progress_pill_icon_size"
+                android:layout_width="@dimen/map_progress_pill_icon_size"
+                android:contentDescription="@null"
+                android:src="@drawable/ic_cloud_off" />
+
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:fontFamily="@font/sora_semibold"
+                android:gravity="center"
+                android:text="@string/label_offline"
+                android:textColor="@color/text_on_teal"
+                android:textSize="@dimen/map_progress_pill_text_size"
+                app:fontFamily="@font/sora_semibold" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- ── bottom sheet ── -->
+    <LinearLayout
+        android:id="@+id/bottomPanel"
+        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:background="@drawable/bg_mapping_sheet"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/map_progress_sheet_padding_bottom"
+        android:paddingHorizontal="@dimen/map_progress_sheet_padding_horizontal"
+        android:paddingTop="@dimen/map_progress_sheet_padding_top"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:fontFamily="@font/sora_semibold"
+            android:text="@string/step_2_of_3"
+            android:textColor="@color/teal_primary"
+            android:textSize="@dimen/map_progress_step_text_size"
+            app:fontFamily="@font/sora_semibold" />
+
+        <!-- Walked, current, next, still to go. -->
+        <LinearLayout
+            android:id="@+id/progressMapping"
+            android:layout_height="@dimen/map_progress_bar_height"
+            android:layout_marginTop="@dimen/map_progress_bar_margin_top"
+            android:layout_width="match_parent"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <View
+                android:layout_height="@dimen/map_progress_bar_dot_start"
+                android:layout_width="@dimen/map_progress_bar_dot_start"
+                android:background="@drawable/bg_dot_teal" />
+
+            <View
+                android:layout_height="@dimen/map_progress_bar_line_height"
+                android:layout_weight="1.2"
+                android:layout_width="0dp"
+                android:background="@color/teal_primary" />
+
+            <View
+                android:layout_height="@dimen/map_progress_bar_dot_current"
+                android:layout_width="@dimen/map_progress_bar_dot_current"
+                android:background="@drawable/bg_dot_teal" />
+
+            <View
+                android:layout_height="@dimen/map_progress_bar_line_height"
+                android:layout_weight="1.3"
+                android:layout_width="0dp"
+                android:background="@color/brand_water" />
+
+            <View
+                android:layout_height="@dimen/map_progress_bar_dot_next"
+                android:layout_width="@dimen/map_progress_bar_dot_next"
+                android:background="@drawable/bg_dot_water" />
+
+            <View
+                android:layout_height="@dimen/map_progress_bar_line_height"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:background="@color/border_light" />
+
+            <View
+                android:layout_height="@dimen/map_progress_bar_ring"
+                android:layout_width="@dimen/map_progress_bar_ring"
+                android:background="@drawable/bg_step_circle_outline" />
+
+        </LinearLayout>
+
+        <!-- Area and point count. The numbers are placeholders until real
+             walking data is wired in. -->
+        <LinearLayout
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/map_progress_stats_margin_top"
+            android:layout_width="match_parent"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_height="@dimen/map_progress_area_icon_height"
+                    android:layout_width="@dimen/map_progress_area_icon_width"
+                    android:contentDescription="@null"
+                    android:src="@drawable/ic_area_field" />
+
+                <TextView
+                    android:id="@+id/tvArea"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/map_progress_stat_value_margin_start"
+                    android:layout_width="wrap_content"
+                    android:fontFamily="@font/sora_semibold"
+                    android:includeFontPadding="false"
+                    android:text="2.61"
+                    android:textColor="@color/teal_primary"
+                    android:textSize="@dimen/map_progress_stat_value_text_size"
+                    app:fontFamily="@font/sora_semibold"
+                    tools:ignore="HardcodedText" />
+
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/map_progress_stat_unit_margin_start"
+                    android:layout_width="wrap_content"
+                    android:fontFamily="@font/sora_regular"
+                    android:text="@string/unit_hectares"
+                    android:textColor="@color/teal_primary"
+                    android:textSize="@dimen/map_progress_stat_unit_text_size"
+                    app:fontFamily="@font/sora_regular" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_height="@dimen/map_progress_pin_icon_size"
+                    android:layout_width="@dimen/map_progress_pin_icon_size"
+                    android:contentDescription="@null"
+                    android:src="@drawable/ic_status_pin"
+                    app:tint="@color/teal_primary" />
+
+                <TextView
+                    android:id="@+id/tvPoints"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/map_progress_stat_value_margin_start"
+                    android:layout_width="wrap_content"
+                    android:fontFamily="@font/sora_semibold"
+                    android:includeFontPadding="false"
+                    android:text="7"
+                    android:textColor="@color/teal_primary"
+                    android:textSize="@dimen/map_progress_stat_value_text_size"
+                    app:fontFamily="@font/sora_semibold"
+                    tools:ignore="HardcodedText" />
+
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/map_progress_stat_unit_margin_start"
+                    android:layout_width="wrap_content"
+                    android:fontFamily="@font/sora_regular"
+                    android:text="@string/unit_points"
+                    android:textColor="@color/teal_primary"
+                    android:textSize="@dimen/map_progress_stat_unit_text_size"
+                    app:fontFamily="@font/sora_regular" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- Outlined, flat; the pause bars are orange as in the mockup. -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnPause"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_height="@dimen/map_progress_pause_height"
+            android:layout_marginTop="@dimen/map_progress_pause_margin_top"
+            android:layout_width="match_parent"
+            android:fontFamily="@font/sora_semibold"
+            android:insetBottom="0dp"
+            android:insetTop="0dp"
+            android:letterSpacing="0"
+            android:text="@string/action_pause"
+            android:textAllCaps="false"
+            android:textColor="@color/teal_primary"
+            android:textSize="@dimen/map_progress_button_text_size"
+            app:backgroundTint="@android:color/transparent"
+            app:cornerRadius="@dimen/map_progress_button_radius"
+            app:fontFamily="@font/sora_semibold"
+            app:icon="@drawable/ic_pause"
+            app:iconGravity="textStart"
+            app:iconPadding="@dimen/map_progress_button_icon_padding"
+            app:iconSize="@dimen/map_progress_button_icon_size"
+            app:iconTint="@color/orange_primary"
+            app:strokeColor="@color/teal_primary"
+            app:strokeWidth="@dimen/map_progress_button_stroke" />
+
+        <!-- Flat: the Orange style's elevation would shadow the Pause button. -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnBackAtStart"
+            style="@style/Widget.Silvanus.Button.Orange"
+            android:layout_height="@dimen/map_progress_button_height"
+            android:layout_marginTop="@dimen/map_progress_button_margin_top"
+            android:layout_width="match_parent"
+            android:elevation="0dp"
+            android:fontFamily="@font/sora_semibold"
+            android:letterSpacing="0"
+            android:stateListAnimator="@null"
+            android:text="@string/action_back_at_start"
+            android:textSize="@dimen/map_progress_button_text_size"
+            app:fontFamily="@font/sora_semibold"
+            app:icon="@drawable/ic_flag"
+            app:iconGravity="textStart"
+            app:iconPadding="@dimen/map_progress_button_icon_padding"
+            app:iconSize="@dimen/map_progress_button_icon_size"
+            app:iconTint="@color/text_on_orange" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

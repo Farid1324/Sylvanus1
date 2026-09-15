@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    "Check your boundary" — walk flow, step 3 of 3.
+
+    Used by CheckBoundaryActivity and WalkCheckBoundaryActivity; both only wire
+    btnSaveMap.
+
+    The satellite map with the closed boundary is a picture cut from the
+    mockup (the app has no map library yet). Its baked-in banner was erased and
+    rebuilt here as a real view in the same place. The map fills whatever
+    height is left between the header and the sheet, and tucks under the
+    sheet's rounded top corners.
+
+    Draw order matters: map first, then header, banner, and the sheet on top.
+-->
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootCheckBoundary"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:background="@color/cream_bg"
+    android:fitsSystemWindows="true"
+    tools:context=".CheckBoundaryActivity">
+
+    <ImageView
+        android:id="@+id/imgMap"
+        android:layout_height="0dp"
+        android:layout_marginBottom="@dimen/check_boundary_map_tuck"
+        android:layout_width="0dp"
+        android:contentDescription="@string/check_boundary_headline"
+        android:scaleType="centerCrop"
+        android:src="@drawable/img_boundary_map"
+        app:layout_constraintBottom_toTopOf="@id/bottomPanel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/header" />
+
+    <!-- ── header ── -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/header"
+        android:layout_height="@dimen/check_boundary_header_height"
+        android:layout_width="0dp"
+        android:background="@color/cream_bg"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/btnBack"
+            android:layout_height="@dimen/check_boundary_back_height"
+            android:layout_marginStart="@dimen/check_boundary_content_horizontal"
+            android:layout_marginTop="@dimen/check_boundary_back_margin_top"
+            android:layout_width="@dimen/check_boundary_back_width"
+            android:background="@drawable/bg_back_box"
+            android:contentDescription="@string/cd_back"
+            android:scaleType="center"
+            android:src="@drawable/ic_arrow_back_teal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvStep"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/check_boundary_step_margin_top"
+            android:layout_width="wrap_content"
+            android:fontFamily="@font/sora_regular"
+            android:includeFontPadding="false"
+            android:text="@string/step_3_of_3"
+            android:textColor="@color/teal_primary"
+            android:textSize="@dimen/check_boundary_step_text_size"
+            app:fontFamily="@font/sora_regular"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvHeadline"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/check_boundary_headline_margin_top"
+            android:layout_width="wrap_content"
+            android:fontFamily="@font/sora_bold"
+            android:includeFontPadding="false"
+            android:maxLines="1"
+            android:text="@string/check_boundary_headline"
+            android:textColor="@color/ink_navy"
+            android:textSize="@dimen/check_boundary_headline_text_size"
+            app:fontFamily="@font/sora_bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvStep" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- ── banner over the map ── -->
+    <LinearLayout
+        android:id="@+id/successBanner"
+        android:layout_height="@dimen/check_boundary_banner_height"
+        android:layout_marginEnd="@dimen/check_boundary_banner_margin_end"
+        android:layout_marginStart="@dimen/check_boundary_content_horizontal"
+        android:layout_marginTop="@dimen/check_boundary_banner_margin_top"
+        android:layout_width="0dp"
+        android:background="@drawable/bg_boundary_banner"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingEnd="@dimen/check_boundary_banner_padding_start"
+        android:paddingStart="@dimen/check_boundary_banner_padding_start"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/header">
+
+        <ImageView
+            android:layout_height="@dimen/check_boundary_banner_disc_size"
+            android:layout_width="@dimen/check_boundary_banner_disc_size"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_banner_pin_disc" />
+
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/check_boundary_banner_text_margin_start"
+            android:layout_width="wrap_content"
+            android:fontFamily="@font/sora_semibold"
+            android:maxLines="1"
+            android:text="@string/returned_to_start"
+            android:textColor="@color/text_on_teal"
+            android:textSize="@dimen/check_boundary_banner_text_size"
+            app:fontFamily="@font/sora_semibold" />
+
+    </LinearLayout>
+
+    <!-- ── bottom sheet ── -->
+    <LinearLayout
+        android:id="@+id/bottomPanel"
+        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:background="@drawable/bg_boundary_sheet"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/check_boundary_sheet_padding_bottom"
+        android:paddingHorizontal="@dimen/check_boundary_content_horizontal"
+        android:paddingTop="@dimen/check_boundary_sheet_padding_top"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <!-- Area | point count. Numbers are placeholders until real walking
+             data is wired in. The weights put the divider where the mockup has it. -->
+        <LinearLayout
+            android:layout_height="@dimen/check_boundary_stats_height"
+            android:layout_width="match_parent"
+            android:background="@drawable/bg_boundary_card"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingStart="@dimen/check_boundary_card_padding_start">
+
+            <LinearLayout
+                android:layout_height="wrap_content"
+                android:layout_weight="332"
+                android:layout_width="0dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_height="@dimen/check_boundary_area_disc_size"
+                    android:layout_width="@dimen/check_boundary_area_disc_size"
+                    android:contentDescription="@null"
+                    android:src="@drawable/ic_area_polygon_disc" />
+
+                <TextView
+                    android:id="@+id/tvArea"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/check_boundary_area_text_margin_start"
+                    android:layout_width="wrap_content"
+                    android:fontFamily="@font/sora_bold"
+                    android:maxLines="1"
+                    android:text="4.86 ha"
+                    android:textColor="@color/ink_navy"
+                    android:textSize="@dimen/check_boundary_area_text_size"
+                    app:fontFamily="@font/sora_bold"
+                    tools:ignore="HardcodedText" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_height="@dimen/check_boundary_divider_height"
+                android:layout_width="@dimen/check_boundary_divider_width"
+                android:background="@color/divider_warm" />
+
+            <LinearLayout
+                android:layout_height="wrap_content"
+                android:layout_weight="266"
+                android:layout_width="0dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_height="@dimen/check_boundary_points_icon_size"
+                    android:layout_width="@dimen/check_boundary_points_icon_size"
+                    android:contentDescription="@null"
+                    android:src="@drawable/ic_points_frame" />
+
+                <TextView
+                    android:id="@+id/tvPoints"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/check_boundary_points_text_margin_start"
+                    android:layout_width="wrap_content"
+                    android:fontFamily="@font/sora_regular"
+                    android:maxLines="1"
+                    android:text="12 points"
+                    android:textColor="@color/ink_navy"
+                    android:textSize="@dimen/check_boundary_points_text_size"
+                    app:fontFamily="@font/sora_regular"
+                    tools:ignore="HardcodedText" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/rowBoundaryClosed"
+            android:layout_height="@dimen/check_boundary_check_height"
+            android:layout_marginTop="@dimen/check_boundary_card_gap"
+            android:layout_width="match_parent"
+            android:background="@drawable/bg_boundary_card"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingStart="@dimen/check_boundary_card_padding_start">
+
+            <ImageView
+                android:layout_height="@dimen/check_boundary_check_disc_size"
+                android:layout_width="@dimen/check_boundary_check_disc_size"
+                android:contentDescription="@null"
+                android:src="@drawable/ic_check_disc" />
+
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/check_boundary_check_text_margin_start"
+                android:layout_width="wrap_content"
+                android:fontFamily="@font/sora_semibold"
+                android:text="@string/boundary_closed"
+                android:textColor="@color/ink_navy"
+                android:textSize="@dimen/check_boundary_check_text_size"
+                app:fontFamily="@font/sora_semibold" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/rowNoCrossedLines"
+            android:layout_height="@dimen/check_boundary_check_height"
+            android:layout_marginTop="@dimen/check_boundary_card_gap"
+            android:layout_width="match_parent"
+            android:background="@drawable/bg_boundary_card"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingStart="@dimen/check_boundary_card_padding_start">
+
+            <ImageView
+                android:layout_height="@dimen/check_boundary_check_disc_size"
+                android:layout_width="@dimen/check_boundary_check_disc_size"
+                android:contentDescription="@null"
+                android:src="@drawable/ic_check_disc" />
+
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/check_boundary_check_text_margin_start"
+                android:layout_width="wrap_content"
+                android:fontFamily="@font/sora_semibold"
+                android:text="@string/no_crossed_lines"
+                android:textColor="@color/ink_navy"
+                android:textSize="@dimen/check_boundary_check_text_size"
+                app:fontFamily="@font/sora_semibold" />
+
+        </LinearLayout>
+
+        <!-- Outlined; the icon brings its own teal disc, so no tint. -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnFixBoundary"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_height="@dimen/check_boundary_fix_height"
+            android:layout_marginEnd="@dimen/check_boundary_button_margin_end"
+            android:layout_marginTop="@dimen/check_boundary_fix_margin_top"
+            android:layout_width="match_parent"
+            android:fontFamily="@font/sora_semibold"
+            android:insetBottom="0dp"
+            android:insetTop="0dp"
+            android:letterSpacing="0"
+            android:text="@string/action_fix_boundary"
+            android:textAllCaps="false"
+            android:textColor="@color/teal_primary"
+            android:textSize="@dimen/check_boundary_button_text_size"
+            app:backgroundTint="@android:color/transparent"
+            app:cornerRadius="@dimen/check_boundary_button_radius"
+            app:fontFamily="@font/sora_semibold"
+            app:icon="@drawable/ic_pencil_disc"
+            app:iconGravity="textStart"
+            app:iconPadding="@dimen/check_boundary_fix_icon_padding"
+            app:iconSize="@dimen/check_boundary_button_icon_size"
+            app:iconTint="@null"
+            app:strokeColor="@color/teal_primary"
+            app:strokeWidth="@dimen/check_boundary_fix_stroke" />
+
+        <!-- Flat, with its own light disc icon. Not the Orange style: its
+             background drawable is a pill and ignores cornerRadius. -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSaveMap"
+            style="@style/Widget.MaterialComponents.Button"
+            android:layout_height="@dimen/check_boundary_save_height"
+            android:layout_marginEnd="@dimen/check_boundary_button_margin_end"
+            android:layout_marginTop="@dimen/check_boundary_save_margin_top"
+            android:layout_width="match_parent"
+            android:elevation="0dp"
+            android:fontFamily="@font/sora_semibold"
+            android:insetBottom="0dp"
+            android:insetTop="0dp"
+            android:letterSpacing="0"
+            android:stateListAnimator="@null"
+            android:text="@string/action_save_my_map"
+            android:textAllCaps="false"
+            android:textColor="@color/text_on_orange"
+            android:textSize="@dimen/check_boundary_button_text_size"
+            app:backgroundTint="@color/orange_primary"
+            app:cornerRadius="@dimen/check_boundary_button_radius"
+            app:rippleColor="#40FFFFFF"
+            app:fontFamily="@font/sora_semibold"
+            app:icon="@drawable/ic_save_check_disc"
+            app:iconGravity="textStart"
+            app:iconPadding="@dimen/check_boundary_save_icon_padding"
+            app:iconSize="@dimen/check_boundary_button_icon_size"
+            app:iconTint="@null" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

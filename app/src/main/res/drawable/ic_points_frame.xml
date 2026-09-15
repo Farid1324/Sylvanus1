@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Point count glyph: four ringed corners joined by broken teal edges. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="28dp" android:height="28dp"
+    android:viewportWidth="28" android:viewportHeight="28">
+    <path android:fillColor="#00000000"
+        android:strokeColor="@color/teal_primary" android:strokeWidth="1.4"
+        android:pathData="M8.1,5 L13.2,5 M14.8,5 L19.9,5
+                          M8.1,23 L13.2,23 M14.8,23 L19.9,23
+                          M5,8.1 L5,13.2 M5,14.8 L5,19.9
+                          M23,8.1 L23,13.2 M23,14.8 L23,19.9" />
+    <path android:fillColor="#00000000"
+        android:strokeColor="@color/teal_primary" android:strokeWidth="1.5"
+        android:pathData="M2.4,5 a2.6,2.6 0 1,0 5.2,0 a2.6,2.6 0 1,0 -5.2,0
+                          M20.4,5 a2.6,2.6 0 1,0 5.2,0 a2.6,2.6 0 1,0 -5.2,0
+                          M2.4,23 a2.6,2.6 0 1,0 5.2,0 a2.6,2.6 0 1,0 -5.2,0
+                          M20.4,23 a2.6,2.6 0 1,0 5.2,0 a2.6,2.6 0 1,0 -5.2,0" />
+</vector>

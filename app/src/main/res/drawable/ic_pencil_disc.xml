@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Teal disc with a white outlined pencil, for the Fix boundary button. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="40dp" android:height="40dp"
+    android:viewportWidth="40" android:viewportHeight="40">
+    <path android:fillColor="@color/teal_primary"
+        android:pathData="M0,20 a20,20 0 1,0 40,0 a20,20 0 1,0 -40,0" />
+    <path android:fillColor="#00000000"
+        android:strokeColor="#FFFFFF" android:strokeWidth="1.9"
+        android:strokeLineCap="round" android:strokeLineJoin="round"
+        android:pathData="M9.8,30 L11.08,24.2 L26.44,8.84 L30.96,13.36 L15.6,28.72 Z M22.74,12.54 L27.26,17.06" />
+    <path android:fillColor="#FFFFFF"
+        android:pathData="M9.8,30 L12.13,29.51 L10.29,27.67 Z" />
+</vector>

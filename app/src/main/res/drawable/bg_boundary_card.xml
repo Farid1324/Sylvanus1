@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Light rounded tile for the stats and check rows on "Check your boundary". -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">
+    <solid android:color="@color/surface_step_card" />
+    <corners android:radius="10dp" />
+</shape>

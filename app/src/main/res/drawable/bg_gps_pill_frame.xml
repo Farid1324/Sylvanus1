@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Outline of the stacked GPS / Offline pill. The two halves inset by the
+     stroke width so this border stays visible around them. -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">
+    <solid android:color="@color/teal_pale_dark" />
+    <corners android:radius="16dp" />
+</shape>

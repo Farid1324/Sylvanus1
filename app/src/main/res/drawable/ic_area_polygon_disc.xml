@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Teal disc with a white field outline: solid bottom and left edges, dashed
+    top and right edges, a dot on each corner. VectorDrawable has no dash
+    pattern, so each dash is its own segment.
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="48dp" android:height="48dp"
+    android:viewportWidth="48" android:viewportHeight="48">
+    <path android:fillColor="@color/teal_primary"
+        android:pathData="M0,24 a24,24 0 1,0 48,0 a24,24 0 1,0 -48,0" />
+    <!-- solid edges -->
+    <path android:fillColor="#00000000"
+        android:strokeColor="#FFFFFF" android:strokeWidth="1.7"
+        android:strokeLineCap="round" android:strokeLineJoin="round"
+        android:pathData="M32,34.9 L11.7,34.9 L16.2,11.9" />
+    <!-- dashed edges -->
+    <path android:fillColor="#00000000"
+        android:strokeColor="#FFFFFF" android:strokeWidth="1.7"
+        android:strokeLineCap="round"
+        android:pathData="M18.79,12.10 L21.78,12.32 M23.38,12.45 L26.37,12.67 M27.96,12.79 L29.56,12.91
+                          M33.20,15.18 L34.50,17.43 M35.20,18.64 L36.10,20.20
+                          M36.37,24.14 L35.39,26.55 M34.87,27.84 L33.89,30.25 M33.36,31.55 L32.83,32.84" />
+    <!-- corner dots -->
+    <path android:fillColor="#FFFFFF"
+        android:pathData="M14,11.9 a2.2,2.2 0 1,0 4.4,0 a2.2,2.2 0 1,0 -4.4,0
+                          M29.8,13.1 a2.2,2.2 0 1,0 4.4,0 a2.2,2.2 0 1,0 -4.4,0
+                          M35.6,22.1 a1.6,1.6 0 1,0 3.2,0 a1.6,1.6 0 1,0 -3.2,0
+                          M29.8,34.9 a2.2,2.2 0 1,0 4.4,0 a2.2,2.2 0 1,0 -4.4,0
+                          M9.5,34.9 a2.2,2.2 0 1,0 4.4,0 a2.2,2.2 0 1,0 -4.4,0" />
+</vector>

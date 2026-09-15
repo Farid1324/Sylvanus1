@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Soft light tile behind the back arrow on "Check your boundary". -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">
+    <solid android:color="@color/surface_step_card" />
+    <corners android:radius="8dp" />
+</shape>
